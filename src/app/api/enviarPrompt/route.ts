@@ -1,10 +1,15 @@
-import { NextResponse } from "next/server";
+// 1. Configura el runtime a Edge
+export const config = {
+  runtime: 'edge',
+};
+
+import { NextResponse } from 'next/server';
 
 export async function POST(req: Request) {
   try {
-    const body = await req.json();
-    const { prompt } = body;
+    const { prompt } = await req.json();
 
+    // 2. (Opcional) Reducir tokens para acelerar la respuesta
     const response = await fetch("https://api.deepseek.com/chat/completions", {
       method: "POST",
       headers: {
@@ -18,12 +23,11 @@ export async function POST(req: Request) {
           { role: "user", content: prompt }
         ],
         temperature: 0.2,
-        max_tokens: 2048
+        max_tokens: 512    // ajustado para mayor rapidez
       })
     });
 
     const data = await response.json();
-    console.log("✅ Respuesta completa desde DeepSeek:", JSON.stringify(data, null, 2));
 
     const reply = data?.choices?.[0]?.message?.content;
     if (!reply) {
