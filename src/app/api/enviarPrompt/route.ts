@@ -1,9 +1,11 @@
 // src/app/api/enviarPrompt/route.ts
 
-// 1️⃣ Ejecuta como Edge Function en la región SFO1
+/**
+ * Edge function proxying prompts to OpenAI for testing purposes
+ */
 export const config = {
   runtime: "edge",
-  regions: ["sfo1"],  
+  regions: ["sfo1"],
 };
 
 import { NextResponse } from "next/server";
@@ -12,32 +14,38 @@ export async function POST(req: Request) {
   try {
     const { prompt } = await req.json();
 
-    // 2️⃣ Límite de tokens más bajo para respuestas más rápidas
-    const response = await fetch("https://api.deepseek.com/chat/completions", {
+    // Replace DeepSeek call with OpenAI Chat Completions
+    const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
       headers: {
-        "Authorization": `Bearer ${process.env.DEEPSEEK_API_KEY}`,
-        "Content-Type": "application/json"
+        "Authorization": `Bearer ${process.env.OPENAI_API_KEY}`,
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        model: "deepseek-chat",
+        model: "gpt-4o-mini",
         messages: [
           { role: "system", content: "Eres un asistente experto en educación y evaluación escolar." },
           { role: "user", content: prompt }
         ],
         temperature: 0.2,
-        max_tokens: 256      // token reducido
+        max_tokens: 256
       })
     });
 
     const data = await response.json();
+    console.log("✅ Respuesta completa desde OpenAI:", JSON.stringify(data, null, 2));
+
     const reply = data?.choices?.[0]?.message?.content;
     if (!reply) {
       return NextResponse.json({ error: "Respuesta vacía de la IA" }, { status: 500 });
     }
+
     return NextResponse.json({ reply });
-  } catch (err: any) {
-    console.error("❌ Error al contactar DeepSeek:", err);
-    return NextResponse.json({ error: err.message || "Error al contactar DeepSeek" }, { status: 500 });
+  } catch (error: any) {
+    console.error("❌ Error al contactar OpenAI:", error);
+    return NextResponse.json(
+      { error: error.message || "Error al contactar OpenAI" },
+      { status: 500 }
+    );
   }
 }
