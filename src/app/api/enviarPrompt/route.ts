@@ -14,7 +14,7 @@ export async function POST(req: Request) {
   try {
     const { prompt } = await req.json();
 
-    // Replace DeepSeek call with OpenAI Chat Completions
+    // Use a supported OpenAI chat model
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
       headers: {
@@ -22,21 +22,26 @@ export async function POST(req: Request) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        model: "gpt-4o-mini",
+        model: "gpt-3.5-turbo",
         messages: [
           { role: "system", content: "Eres un asistente experto en educación y evaluación escolar." },
           { role: "user", content: prompt }
         ],
         temperature: 0.2,
-        max_tokens: 256
-      })
+        max_tokens: 512
+      }),
     });
 
-    const data = await response.json();
-    console.log("✅ Respuesta completa desde OpenAI:", JSON.stringify(data, null, 2));
+    if (!response.ok) {
+      const err = await response.text();
+      console.error("❌ OpenAI API error:", err);
+      return NextResponse.json({ error: "Error de OpenAI: " + err }, { status: response.status });
+    }
 
-    const reply = data?.choices?.[0]?.message?.content;
+    const data = await response.json();
+    const reply = data.choices?.[0]?.message?.content;
     if (!reply) {
+      console.error("❌ Respuesta vacía de OpenAI:", JSON.stringify(data));
       return NextResponse.json({ error: "Respuesta vacía de la IA" }, { status: 500 });
     }
 
