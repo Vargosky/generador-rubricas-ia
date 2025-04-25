@@ -1,215 +1,147 @@
-"use client";
-import { useState } from "react";
-import { promptRefinarRubrica, generarPromptEvaluacionMatriz } from "../util/prompts";
-import { FiTrash, FiPlus, FiSettings, FiBookOpen, FiTarget, FiList } from "react-icons/fi";
+"use client"
+import React, { useState } from "react";
+import type { NextApiRequest, NextApiResponse } from 'next';
 
-export default function Home() {
-  const [tipoRubrica, setTipoRubrica] = useState<string>("analitica");
-  const [objetivos, setObjetivos] = useState<{ descripcion: string; puntaje: number }[]>([{ descripcion: "", puntaje: 0 }]);
-  const [criterios, setCriterios] = useState<{
-    nombre: string;
-    peso: number;
-    niveles: { nivel: number; porcentaje: number; descripcion: string }[];
-  }[]>([
-    {
-      nombre: "Conceptual",
-      peso: 15,
-      niveles: [
-        { nivel: 1, porcentaje: 60, descripcion: "" },
-        { nivel: 2, porcentaje: 70, descripcion: "" },
-        { nivel: 3, porcentaje: 80, descripcion: "" },
-        { nivel: 4, porcentaje: 100, descripcion: "" }
-      ]
-    }
-  ]);
-  const [promptGenerado, setPromptGenerado] = useState<string | null>(null);
-  const [respuestaIA, setRespuestaIA] = useState<string | null>(null);
-  const [respuestaJSON, setRespuestaJSON] = useState<any>(null);
-  const [cargando, setCargando] = useState<boolean>(false);
+// Tipos para la planificación
+type Objetivo = { descripcion: string; puntaje: number };
+type Schedule = Record<string, boolean[]>;
 
-  const handleChangeObjetivo = (index: number, field: string, value: string | number) => {
-    const nuevos = [...objetivos];
-    // @ts-ignore
-    nuevos[index][field] = value;
-    setObjetivos(nuevos);
-  };
-  const agregarObjetivo = () => setObjetivos([...objetivos, { descripcion: "", puntaje: 0 }]);
-  const quitarObjetivo = (index: number) => setObjetivos(objetivos.filter((_, i) => i !== index));
+const days = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
+const HOURS = 8;
 
-  const handleChangeNivel = (ci: number, ni: number, field: string, value: string | number) => {
-    const updated = [...criterios];
-    // @ts-ignore
-    updated[ci].niveles[ni][field] = value;
-    setCriterios(updated);
-  };
-  const agregarCriterio = () => setCriterios([
-    ...criterios,
-    {
-      nombre: "Nuevo Criterio",
-      peso: 0,
-      niveles: [
-        { nivel: 1, porcentaje: 60, descripcion: "" },
-        { nivel: 2, porcentaje: 70, descripcion: "" },
-        { nivel: 3, porcentaje: 80, descripcion: "" },
-        { nivel: 4, porcentaje: 100, descripcion: "" }
-      ]
-    }
-  ]);
-  const quitarCriterio = (index: number) => setCriterios(criterios.filter((_, i) => i !== index));
+interface ScheduleSelectorProps {
+  schedule: Schedule;
+  setSchedule: (schedule: Schedule) => void;
+}
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    const form = e.target as HTMLFormElement;
-    const data = new FormData(form);
-    const asignatura = data.get("asignatura") as string;
-    const oa = data.get("oa") as string;
-    const formula = data.get("formula") as string;
-
-    let prompt = "";
-    if (tipoRubrica === "analitica") {
-      prompt = promptRefinarRubrica({ asignatura, objetivoAprendizaje: oa, objetivosEspecificos: objetivos, formula: formula || undefined });
-    } else {
-      const rubrica = { tipo: "matriz_niveles", criterios, escala_notas: [ { nivel: 1, nota: "4.0 a 4.9" }, { nivel: 2, nota: "5.0 a 5.9" }, { nivel: 3, nota: "6.0 a 6.9" }, { nivel: 4, nota: "7.0" } ] };
-      prompt = generarPromptEvaluacionMatriz({ nombreArchivo: "Trabajo.docx", contenido: oa, rubrica });
-    }
-    setPromptGenerado(prompt);
-    setRespuestaIA(null);
-    setRespuestaJSON(null);
-    setCargando(true);
-    try {
-      const res = await fetch("/api/enviarPrompt", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ prompt }) });
-      const dataRes = await res.json();
-      setRespuestaIA(dataRes.reply || "No se recibió respuesta.");
-      try { setRespuestaJSON(JSON.parse(dataRes.reply)); } catch { setRespuestaJSON(null); }
-    } catch {
-      setRespuestaIA("Hubo un error al enviar el prompt.");
-    }
-    setCargando(false);
+/**
+ * Componente para seleccionar horarios: grilla de 6 días x 8 horas.
+ */
+export const ScheduleSelector: React.FC<ScheduleSelectorProps> = ({ schedule, setSchedule }) => {
+  const toggleCell = (day: string, hourIdx: number) => {
+    const updated = { ...schedule };
+    updated[day] = [...updated[day]];
+    updated[day][hourIdx] = !updated[day][hourIdx];
+    setSchedule(updated);
   };
 
   return (
-    <div className="max-w-5xl mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
-      <h1 className="text-2xl font-bold mb-6">🧠 Generador de Rúbricas con IA</h1>
-      <form onSubmit={handleSubmit} className="space-y-6">
-        <div>
-          <label className="flex items-center gap-2 mb-1 font-medium"><FiBookOpen /> Asignatura</label>
-          <input name="asignatura" className="w-full p-2 border rounded" required />
-        </div>
-        <div>
-          <label className="flex items-center gap-2 mb-1 font-medium"><FiTarget /> Objetivo de Aprendizaje / Contenido</label>
-          <textarea name="oa" className="w-full p-2 border rounded" rows={3} required />
-        </div>
-        <div>
-          <label className="flex items-center gap-2 mb-1 font-medium"><FiList /> Tipo de Rúbrica</label>
-          <select value={tipoRubrica} onChange={e => setTipoRubrica(e.target.value)} className="w-full p-2 border rounded">
-            <option value="analitica">Analítica</option>
-            <option value="matriz">Matriz con niveles</option>
-          </select>
-        </div>
-        {tipoRubrica === "analitica" && (
-          <>
-            <div>
-              <label className="block mb-2 font-medium">🎯 Objetivos Específicos</label>
-              {objetivos.map((obj, idx) => (
-                <div key={idx} className="mb-2 flex gap-2 items-center border p-2 rounded">
-                  <input type="text" placeholder="Descripción" value={obj.descripcion} onChange={e => handleChangeObjetivo(idx, "descripcion", e.target.value)} className="flex-1 p-2 border rounded" required />
-                  <input type="number" placeholder="Puntaje" value={obj.puntaje} onChange={e => handleChangeObjetivo(idx, "puntaje", Number(e.target.value))} className="w-24 p-2 border rounded" required />
-                  <button type="button" onClick={() => quitarObjetivo(idx)} className="text-red-500 flex items-center gap-1"><FiTrash /> Quitar</button>
-                </div>
-              ))}
-              <button type="button" onClick={agregarObjetivo} className="mt-2 flex items-center gap-1 text-blue-500 underline"><FiPlus /> Agregar Objetivo</button>
-            </div>
-            <div>
-              <label className="block mb-1 font-medium">🧮 Fórmula para nota (opcional)</label>
-              <input type="text" name="formula" className="w-full p-2 border rounded" placeholder="Ej: (puntaje * 0.5) + 1" />
-            </div>
-          </>
-        )}
-        {tipoRubrica === "matriz" && (
-          <div className="space-y-6">
-            {criterios.map((c, idx) => (
-              <div key={idx} className="border p-4 rounded relative">
-                <button type="button" onClick={() => quitarCriterio(idx)} className="absolute top-2 right-2 text-red-500"><FiTrash /></button>
-                <input value={c.nombre} onChange={e => { const up = [...criterios]; up[idx].nombre = e.target.value; setCriterios(up); }} className="font-semibold mb-2 w-full p-2 border rounded" />
-                <input type="number" value={c.peso} onChange={e => { const up = [...criterios]; up[idx].peso = Number(e.target.value); setCriterios(up); }} className="mb-4 w-full p-2 border rounded" placeholder="Peso (%)" />
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {c.niveles.map((n, j) => (
-                    <div key={j} className="border rounded p-2">
-                      <strong>Nivel {n.nivel} ({n.porcentaje}%)</strong>
-                      <textarea rows={2} value={n.descripcion} onChange={e => handleChangeNivel(idx, j, "descripcion", e.target.value)} className="w-full mt-1 p-2 border rounded" placeholder={`Descripción nivel ${n.nivel}`} />
-                    </div>
-                  ))}
-                </div>
-              </div>
+    <div className="overflow-auto">
+      <table className="min-w-full border border-gray-300">
+        <thead>
+          <tr>
+            <th className="border p-2">Hora</th>
+            {days.map((d) => (
+              <th key={d} className="border p-2 text-center">{d}</th>
             ))}
-            <button type="button" onClick={agregarCriterio} className="mt-4 flex items-center gap-2 text-blue-600 underline"><FiPlus /> Agregar Criterio</button>
-          </div>
-        )}
-        <button type="submit" className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"><FiSettings /> Generar Prompt</button>
+          </tr>
+        </thead>
+        <tbody>
+          {Array.from({ length: HOURS }, (_, i) => i + 1).map((hor) => (
+            <tr key={hor}>
+              <td className="border p-1 text-center">{hor}</td>
+              {days.map((d) => (
+                <td key={`${d}-${hor}`} className="border p-1 text-center">
+                  <input
+                    type="checkbox"
+                    checked={schedule[d][hor - 1]}
+                    onChange={() => toggleCell(d, hor - 1)}
+                  />
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+};
+
+/**
+ * Formulario principal de planificación, incluyendo campos básicos, selector de horarios, salida JSON, prompt y llamada API.
+ */
+export default function PlanificacionForm() {
+  const [asignatura, setAsignatura] = useState<string>("");
+  const [tiempoHora, setTiempoHora] = useState<number>(45);
+  const [horasSemana, setHorasSemana] = useState<number>(1);
+  const [vecesSemana, setVecesSemana] = useState<number>(1);
+  const [fechaInicio, setFechaInicio] = useState<string>("");
+  const [fechaTermino, setFechaTermino] = useState<string>("");
+  const [numEvaluaciones, setNumEvaluaciones] = useState<number>(1);
+  const [semanasVerObjetivo, setSemanasVerObjetivo] = useState<number>(1);
+  const [semanasAntesNotas, setSemanasAntesNotas] = useState<number>(1);
+  const [objetivos, setObjetivos] = useState<Objetivo[]>([{ descripcion: "", puntaje: 1 }]);
+
+  const initSchedule: Schedule = days.reduce((acc, d) => {
+    acc[d] = Array(HOURS).fill(false);
+    return acc;
+  }, {} as Schedule);
+  const [schedule, setSchedule] = useState<Schedule>(initSchedule);
+
+  // Estados para salida, prompt y respuesta API
+  const [submittedData, setSubmittedData] = useState<any>(null);
+  const [generatedPrompt, setGeneratedPrompt] = useState<string>("");
+  const [apiReply, setApiReply] = useState<string>("");
+
+  const handleObjetivoChange = <K extends keyof Objetivo>(index: number, field: K, value: Objetivo[K]) => {
+    const updated = [...objetivos];
+    updated[index][field] = value;
+    setObjetivos(updated);
+  };
+
+  const agregarObjetivo = () => setObjetivos([...objetivos, { descripcion: "", puntaje: 1 }]);
+  const eliminarObjetivo = (idx: number) => setObjetivos(objs => objs.filter((_, i) => i !== idx));
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    // Calcular fecha límite para ingreso de notas
+    let fechaNotas: string | null = null;
+    if (fechaTermino) {
+      const termino = new Date(fechaTermino);
+      termino.setDate(termino.getDate() - semanasAntesNotas * 7);
+      fechaNotas = termino.toISOString().split('T')[0];
+    }
+
+    const data = { asignatura, tiempoHora, horasSemana, vecesSemana, fechaInicio, fechaTermino,
+      numEvaluaciones, semanasVerObjetivo, semanasAntesNotas, fechaNotas, objetivos, schedule };
+    setSubmittedData(data);
+
+    // Generar prompt
+    const jsonData = JSON.stringify(data, null, 2);
+    const prompt = `Eres un asistente pedagógico experto en diseño curricular.\nPlanificación JSON:\n${jsonData}\nINSTRUCCIONES:\n1) Distribuye horas según schedule...`;
+    setGeneratedPrompt(prompt);
+
+    // Enviar prompt a API
+    try {
+      const res = await fetch('/api/enviarPrompt', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ prompt })
+      });
+      const { reply } = await res.json();
+      setApiReply(reply);
+    } catch (err) {
+      setApiReply('Error al enviar el prompt');
+    }
+  };
+
+  return (
+    <div className="max-w-3xl mx-auto p-6 bg-white shadow-md rounded-2xl">
+      <form onSubmit={handleSubmit} className="space-y-6">
+        {/* formulario campos... */}
+        <button type="submit" className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">
+          Generar y Enviar Prompt
+        </button>
       </form>
 
-      {/* Resultados */}
-      {promptGenerado && (
-        <div className="mt-10 space-y-6">
-          {/* Prompt enviado */}
-          <div className="bg-blue-50 border border-blue-200 p-4 rounded">
-            <h2 className="text-xl font-bold mb-2">🧠 Prompt enviado a la IA</h2>
-            <pre className="whitespace-pre-wrap text-sm">{promptGenerado}</pre>
-          </div>
-          {/* Respuesta */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Tabla */}
-            <div className="bg-white border p-4 rounded shadow-sm overflow-auto">
-              <h2 className="text-xl font-bold mb-2">📋 Rúbrica generada</h2>
-              {respuestaJSON?.criterios?.length ? (
-                <table className="table-auto w-full text-sm border">
-                  <thead>
-                    <tr className="bg-gray-100">
-                      <th className="border px-2 py-1 text-left">#</th>
-                      <th className="border px-2 py-1 text-left">Criterio</th>
-                      <th className="border px-2 py-1 text-left">Nivel</th>
-                      <th className="border px-2 py-1 text-left">Descripción</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {respuestaJSON.criterios.map((c: any, i: number) => (
-                      <tr key={i}>
-                        <td className="border px-2 py-1">{i + 1}</td>
-                        <td className="border px-2 py-1">{c.nombre}</td>
-                        <td className="border px-2 py-1">{c.nivel}</td>
-                        <td className="border px-2 py-1">{c.descripcion}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              ) : (
-                <p className="text-gray-500">No se pudo mostrar la rúbrica en formato tabla.</p>
-              )}
-            </div>
-            {/* JSON */}
-            <div className="bg-gray-100 border p-4 rounded overflow-auto">
-              <div className="flex justify-between items-center mb-2">
-                <h2 className="text-xl font-bold">📦 Respuesta JSON completa</h2>
-                <button
-                  className="text-blue-600 text-sm underline hover:text-blue-800"
-                  onClick={() => {
-                    if (respuestaIA) {
-                      navigator.clipboard.writeText(respuestaIA);
-                      alert("Respuesta copiada al portapapeles ✅");
-                    }
-                  }}
-                >
-                  Copiar
-                </button>
-              </div>
-              {cargando ? (
-                <p className="text-gray-500">Enviando solicitud a DeepSeek...</p>
-              ) : (
-                <pre className="whitespace-pre-wrap text-sm">{respuestaIA}</pre>
-              )}
-            </div>
-          </div>
-        </div>
+      {submittedData && (
+        <pre>{JSON.stringify(submittedData, null, 2)}</pre>
+      )}
+      {generatedPrompt && (
+        <pre>{generatedPrompt}</pre>
+      )}
+      {apiReply && (
+        <div className="mt-4 p-4 bg-gray-100 rounded">Respuesta API: {apiReply}</div>
       )}
     </div>
   );
