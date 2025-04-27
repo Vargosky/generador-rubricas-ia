@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { ScheduleSelector, Schedule } from "./ScheduleSelector";
+import { generatePlanificacionPrompt, PlanificacionData } from "@/util/prompts";
 
 type Objetivo = { descripcion: string; puntaje: number };
 
@@ -17,12 +18,15 @@ export default function PlanificacionForm() {
   const [objetivos, setObjetivos] = useState<Objetivo[]>([{ descripcion: "", puntaje: 1 }]);
 
   // Inicializar la grilla de horarios
-  const initSchedule: Schedule = ["Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"]
-    .reduce((acc, d) => ({ ...acc, [d]: Array(8).fill(false) }), {} as Schedule);
+  const initSchedule: Schedule = [
+    "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"
+  ].reduce((acc, d) => ({ ...acc, [d]: Array(8).fill(false) }), {} as Schedule);
   const [schedule, setSchedule] = useState<Schedule>(initSchedule);
 
+  // Estados para salida
   const [submittedData, setSubmittedData] = useState<any>(null);
   const [generatedPrompt, setGeneratedPrompt] = useState<string>("");
+  const [aiReply, setAiReply] = useState<string>("");
 
   const handleObjetivoChange = <K extends keyof Objetivo>(
     index: number,
@@ -34,7 +38,9 @@ export default function PlanificacionForm() {
     setObjetivos(updated);
   };
 
-  const agregarObjetivo = () => setObjetivos([...objetivos, { descripcion: "", puntaje: 1 }]);
+  const agregarObjetivo = () =>
+    setObjetivos([...objetivos, { descripcion: "", puntaje: 1 }]);
+
   const eliminarObjetivo = (idx: number) =>
     setObjetivos((objs) => objs.filter((_, i) => i !== idx));
 
@@ -49,7 +55,7 @@ export default function PlanificacionForm() {
       fechaNotas = t.toISOString().split("T")[0];
     }
 
-    // Construir objeto
+    // Construir objeto de planificación
     const data = {
       asignatura,
       tiempoHora,
@@ -66,26 +72,27 @@ export default function PlanificacionForm() {
     };
     setSubmittedData(data);
 
-    // Generar prompt
+    // Generar prompt para la IA
     const jsonData = JSON.stringify(data, null, 2);
-    const prompt = `Eres un asistente pedagógico experto en diseño curricular. A continuación, la planificación en JSON:\n${jsonData}\n\nINSTRUCCIONES:\n1. Distribuye las horas según "schedule" desde ${fechaInicio} hasta ${fechaTermino}.\n2. Reserva espacio para las ${numEvaluaciones} evaluaciones y asegura ingreso de notas antes de ${fechaNotas}.\n3. Revisa cada objetivo cada ${semanasVerObjetivo} semanas.\n4. Para cada sesión, genera un objeto con:\n   - fecha\n   - horaInicio\n   - duracion (igual a tiempoHora)\n   - objetivo\n   - actividadEntrada\n   - desarrollo\n   - cierre\n   - evaluacionIncluida\nSALIDA: un array JSON con un elemento por clase y un array de fechas de evaluación.`;
+    // Generar prompt usando el helper
+    const prompt = generatePlanificacionPrompt(data);
     setGeneratedPrompt(prompt);
 
-    // Enviar a DeepSeek
+    // Enviar prompt a DeepSeek
     try {
-      const resp = await fetch("/api/enviarPrompt", {
+      const resp = await fetch("/api/enviarPromptDeepSeek", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ prompt }),
       });
       const { reply, error } = await resp.json();
       if (reply) {
-        alert("✅ IA respondió: " + reply.slice(0, 200) + "…");
+        setAiReply(reply);
       } else {
         throw new Error(error);
       }
     } catch (err: any) {
-      alert("❌ Error al generar con DeepSeek: " + err.message);
+      setAiReply(`Error: ${err.message}`);
     }
   };
 
@@ -206,7 +213,11 @@ export default function PlanificacionForm() {
                 onChange={(e) => handleObjetivoChange(idx, "puntaje", Number(e.target.value))}
                 className="w-20 border rounded px-2 py-1"
               />
-              <button type="button" className="text-red-500" onClick={() => eliminarObjetivo(idx)}>
+              <button
+                type="button"
+                className="text-red-500"
+                onClick={() => eliminarObjetivo(idx)}
+              >
                 ✕
               </button>
             </div>
@@ -226,7 +237,10 @@ export default function PlanificacionForm() {
           <ScheduleSelector schedule={schedule} setSchedule={setSchedule} />
         </div>
 
-        <button type="submit" className="bg-blue-600 text-white px-6 py-2 rounded">
+        <button
+          type="submit"
+          className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700"
+        >
           Generar con IA
         </button>
       </form>
@@ -240,7 +254,19 @@ export default function PlanificacionForm() {
 
       {/* Prompt generado */}
       {generatedPrompt && (
-        <pre className="bg-gray-100 p-4 mt-4 rounded text-sm">{generatedPrompt}</pre>
+        <pre className="bg-gray-100 p-4 mt-4 rounded text-sm">
+          {generatedPrompt}
+        </pre>
+      )}
+
+      {/* Respuesta de IA */}
+      {aiReply && (
+        <div className="mt-6">
+          <h3 className="text-xl font-medium mb-2">Respuesta de la IA</h3>
+          <pre className="bg-gray-100 p-4 rounded overflow-auto text-sm">
+            {aiReply}
+          </pre>
+        </div>
       )}
     </div>
   );
