@@ -5,13 +5,6 @@ export const config = {
   runtime: "nodejs",
 };
 
-// const API_Adress="https://api.deepseek.com/v1/chat/completions"
-// const modelo = "deepseek-reasoner"
-
-const API_Adress="https://api.openai.com/v1/chat/completions"
-const modelo = "gpt-3.5-turbo"
-const key = process.env.OPENAI_API_KEY
-
 import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
@@ -19,19 +12,19 @@ export async function POST(req: Request) {
     const { prompt } = await req.json();
 
     const deepseekRes = await fetch(
-      API_Adress,
+      "https://api.deepseek.com/v1/chat/completions",
       {
         method: "POST",
         headers: {
-          Authorization: `Bearer ${key}`,
+          Authorization: `Bearer ${process.env.DEEPSEEK_API_KEY}`,
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          model: modelo,
+          model: "deepseek-reasoner",
           messages: [
             {
               role: "system",
-              content: "Eres un asistente experto en educación y planificación curricular. Que planifica clases bajo la taxonomía de Marzano",
+              content: "Eres un asistente experto en educación y planificación curricular.",
             },
             { role: "user", content: prompt },
           ],
@@ -43,7 +36,7 @@ export async function POST(req: Request) {
 
     if (!deepseekRes.ok) {
       const err = await deepseekRes.text();
-      console.error("❌ error: API Inteligencia Artificial", err);
+      console.error("❌ DeepSeek API error:", err);
       return new NextResponse(err, { status: deepseekRes.status });
     }
 

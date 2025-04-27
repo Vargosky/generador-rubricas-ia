@@ -1,4 +1,5 @@
-// utils/prompts.ts
+// util/prompts.ts
+import { marzanoTaxonomy } from "./marzanoTaxonomy";
 
 export const promptRefinarRubrica = ({
     asignatura,
@@ -158,12 +159,14 @@ export interface PlanificacionData {
 }
 
 /**
- * Construye un prompt para DeepSeek que garantice:
- * - Solo usa los días marcados en schedule.
+ * Construye un prompt para DeepSeek/OpenAI que garantice:
+ * - Solo usa los días marcados en "schedule".
+ * - Las habilidades de la Taxonomía de Marzano deben progresar de menor a mayor complejidad.
  * - Evaluaciones en días de clase válidos y sin contenido de clase normal.
- * - Cada sesión con sección de entrada, desarrollo y cierre (salvo evaluación).
- * - Taxonomía de Marzano aplicada a habilidades.
+ * - Cada sesión con sección de Entrada, Desarrollo y Cierre (salvo evaluación).
  * - Incluye un id incremental para cada clase.
+ * - En días con múltiples clases, agrupa horarios desde la primera hasta la última hora.
+ * - La descripción servirá como entrada para otra IA que genere un script detallado de cada clase.
  */
 export interface PlanificacionData {
   asignatura: string;
@@ -181,85 +184,68 @@ export interface PlanificacionData {
 }
 
 /**
- * Construye un prompt para DeepSeek que garantice:
+ * Construye un prompt para el LLM que garantice:
  * - Solo usa los días marcados en schedule.
- * - Evaluaciones en días de clase válidos y sin contenido de clase normal.
- * - Cada sesión con sección de entrada, desarrollo y cierre (salvo evaluación).
- * - Taxonomía de Marzano aplicada a habilidades.
- * - Incluye un id incremental para cada clase.
- * - En días con múltiples clases, agrupa horarios desde la primera hasta la última hora.
- * - Indica que la descripción resultante será usada por otra IA para crear un script de cada clase.
+ * - Inserta la taxonomía completa de Marzano (niveles y verbos).
+ * - Detalla cada clase con Entrada, Desarrollo y Cierre.
+ * - Especifica la habilidad Marzano a desarrollar, progresando en complejidad.
+ * - Agrupa varias sesiones en el mismo día en un solo bloque.
+ * - Identifica sesiones de evaluación sin contenido de clase.
+ * - Termina con habilidades de Metacognición/Autoregulación.
  */
 export function generatePlanificacionPrompt(data: PlanificacionData): string {
   const jsonData = JSON.stringify(data, null, 2);
+  const taxonomyJson = JSON.stringify(marzanoTaxonomy, null, 2);
+
   return `Eres un experto pedagógico en diseño curricular.
 
 Datos de la planificación (formato JSON):
 ${jsonData}
 
-Objetivo de la tarea:
-Generar una secuencia detallada de clases que incluya un identificador incremental "id" para cada elemento y que:
-- Solo planifique en los días activos según el objeto "schedule".
-- Para sesiones de evaluación (evaluacionIncluida: true): omita entrada, desarrollo y cierre.
-- Para el resto de clases: incluya las secciones Entrada, Desarrollo y Cierre.
-- Promueva habilidades según la Taxonomía de Marzano.
-- Si hay más de una clase en el mismo día, agrupe las horas en un bloque continuo desde la primera hasta la última clase de ese día.
-- La descripción generada servirá como entrada para otra IA encargada de crear un script detallado de cada clase.
+Taxonomía de Marzano (niveles y sus verbos):
+${taxonomyJson}
 
-Restricciones y criterios:
-1. Incluir exactamente ${data.numEvaluaciones} sesiones evaluativas en días de clase válidos, antes de ${data.fechaNotas}.
-2. Revisar cada objetivo cada ${data.semanasVerObjetivo} semanas.
+Objetivo de la tarea:
+Generar una planificación detallada con:
+- Un 'id' incremental para cada sesión.
+- Solo en días activos en 'schedule'.
+- Entrada, Desarrollo y Cierre para cada clase (salvo evaluaciones).
+- Habilidad Marzano a desarrollar en cada sesión, progresando en complejidad y terminando en Metacognición/Autoregulación.
+- Agrupación de varias sesiones en un mismo día en un bloque continuo.
+- Evaluaciones como sesiones sin contenido de clase.
+- Esta descripción será usada por otra IA para generar los scripts de clase.
+
+Restricciones:
+1. ${data.numEvaluaciones} evaluaciones antes de ${data.fechaNotas}.
+2. Revisar objetivos cada ${data.semanasVerObjetivo} semanas.
 
 Formato de salida:
-Devuelve un objeto JSON con:
-- "clases": array donde cada elemento tiene:
-    * id: número incremental (1, 2, 3, ...)
-    * fecha: "YYYY-MM-DD"
-    * horaInicio: "HH:MM"
-    * duracion: número (minutos)
-    * objetivo: texto
-    * entrada: texto (omitido en evaluaciones)
-    * desarrollo: texto (omitido en evaluaciones)
-    * cierre: texto (omitido en evaluaciones)
-    * evaluacionIncluida: booleano
-- "fechasEvaluacion": array de strings con las fechas programadas para evaluación.
-
-Ejemplo de clase normal:
 {
-  "id": 3,
-  "fecha": "2025-05-04",
-  "horaInicio": "09:00",
-  "duracion": 45,
-  "objetivo": "Comprender el concepto de energía cinética.",
-  "entrada": "Discusión breve sobre ejemplos de movimiento cotidiano.",
-  "desarrollo": "Experimentos con carros de juguete y cálculo de energía.",
-  "cierre": "Reflexión sobre aplicaciones en la vida real.",
-  "evaluacionIncluida": false
+  "clases": [
+    {
+      "id": 1,
+      "fecha": "YYYY-MM-DD",
+      "horaInicio": "HH:MM",
+      "duracion": minutos,
+      "objetivo": "texto",
+      "habilidad": "Nivel (Marzano)",
+      "entrada": "texto",
+      "desarrollo": "texto",
+      "cierre": "texto",
+      "evaluacionIncluida": false
+    },
+    ...más sesiones...
+  ],
+  "fechasEvaluacion": ["YYYY-MM-DD", ...]
 }
 
-Ejemplo de evaluación:
-{
-  "id": 8,
-  "fecha": "2025-05-18",
-  "horaInicio": "10:00",
-  "duracion": 45,
-  "objetivo": "Evaluación práctica de conceptos vistos.",
-  "evaluacionIncluida": true
-}
-
-Ejemplo de dos clases en un día agrupadas:
-{
-  "id": 12,
-  "fecha": "2025-05-05",
-  "horaInicio": "08:00",
-  "duracion": 90, // Agrupado de 8:00 a 9:30
-  "objetivo": "Unidad de estudio continuo sobre "xxxx".",
-  "entrada": "Resumen de la clase anterior.",
-  "desarrollo": "Actividades prácticas y discusión.",
-  "cierre": "Preguntas y reflexión.",
-  "evaluacionIncluida": false
-}
+Ejemplo de progresión de habilidades:
+[
+  { "id": 1, "habilidad": "Recuperación" },
+  { "id": 2, "habilidad": "Comprensión" },
+  { "id": 3, "habilidad": "Comprensión" },
+  { "id": 4, "habilidad": "Aplicación" },
+  { "id": 5, "habilidad": "Metacognición" }
+]
 `;
 }
-
-
