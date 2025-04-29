@@ -9,7 +9,7 @@ export const config = {
 // const modelo = "deepseek-reasoner"
 
 const API_Adress="https://api.openai.com/v1/chat/completions"
-const modelo = "gpt-3.5-turbo"
+const modelo = "o4-mini"
 const key = process.env.OPENAI_API_KEY
 
 import { NextResponse } from "next/server";
@@ -35,8 +35,8 @@ export async function POST(req: Request) {
             },
             { role: "user", content: prompt },
           ],
-          temperature: 0.2,
-          max_tokens: 2048,
+          // temperature: 0.4,
+          // max_tokens: 5000,
         }),
       }
     );

@@ -105,11 +105,9 @@ export interface PlanificacionData {
   asignatura: string;
   tiempoHora: number;
   horasSemana: number;
-  vecesSemana: number;
   fechaInicio: string;
   fechaTermino: string;
   numEvaluaciones: number;
-  semanasVerObjetivo: number;
   semanasAntesNotas: number;
   fechaNotas: string | null;
   objetivos: { descripcion: string; puntaje: number }[];
@@ -124,11 +122,9 @@ export interface PlanificacionData {
   asignatura: string;
   tiempoHora: number;
   horasSemana: number;
-  vecesSemana: number;
   fechaInicio: string;
   fechaTermino: string;
   numEvaluaciones: number;
-  semanasVerObjetivo: number;
   semanasAntesNotas: number;
   fechaNotas: string | null;
   objetivos: { descripcion: string; puntaje: number }[];
@@ -147,11 +143,9 @@ export interface PlanificacionData {
   asignatura: string;
   tiempoHora: number;
   horasSemana: number;
-  vecesSemana: number;
   fechaInicio: string;
   fechaTermino: string;
   numEvaluaciones: number;
-  semanasVerObjetivo: number;
   semanasAntesNotas: number;
   fechaNotas: string | null;
   objetivos: { descripcion: string; puntaje: number }[];
@@ -172,11 +166,9 @@ export interface PlanificacionData {
   asignatura: string;
   tiempoHora: number;
   horasSemana: number;
-  vecesSemana: number;
   fechaInicio: string;
   fechaTermino: string;
   numEvaluaciones: number;
-  semanasVerObjetivo: number;
   semanasAntesNotas: number;
   fechaNotas: string | null;
   objetivos: { descripcion: string; puntaje: number }[];
@@ -197,27 +189,23 @@ export function generatePlanificacionPrompt(data: PlanificacionData): string {
   const jsonData = JSON.stringify(data, null, 2);
   const taxonomyJson = JSON.stringify(marzanoTaxonomy, null, 2);
 
-  return `Eres un experto pedagógico en diseño curricular.
+  return `Eres un experto en planificación educativa basada en la taxonomía de Marzano.
 
-Datos de la planificación (formato JSON):
+Datos de entrada:
 ${jsonData}
 
-Taxonomía de Marzano (niveles y sus verbos):
+Taxonomía de Marzano:
 ${taxonomyJson}
 
-Objetivo de la tarea:
-Generar una planificación detallada con:
-- Un 'id' incremental para cada sesión.
-- Solo en días activos en 'schedule'.
-- Entrada, Desarrollo y Cierre para cada clase (salvo evaluaciones).
-- Habilidad Marzano a desarrollar en cada sesión, progresando en complejidad y terminando en Metacognición/Autoregulación.
-- Agrupación de varias sesiones en un mismo día en un bloque continuo.
-- Evaluaciones como sesiones sin contenido de clase.
-- Esta descripción será usada por otra IA para generar los scripts de clase.
+Tu tarea:
+- Crear todas las clases necesarias entre 'fechaInicio' y 'fechaTermino', usando los días activos en 'schedule'.
+- Cada clase debe tener: id incremental, fecha, hora de inicio, duración, objetivo basado en taxonomía, habilidad Marzano, inicio, desarrollo, cierre, y evaluacionIncluida (false excepto en evaluaciones).
+- La habilidad Marzano debe progresar lentamente (permitido repetir niveles, pero nunca retroceder).
+- Generar sesiones de evaluación (sin objetivo, sin contenido) antes de la fecha 'fechaNotas', distribuidas de manera razonable.
+- Si hay más de una clase en un mismo día, se agrupan en bloques continuos.
 
-Restricciones:
-1. ${data.numEvaluaciones} evaluaciones antes de ${data.fechaNotas}.
-2. Revisar objetivos cada ${data.semanasVerObjetivo} semanas.
+Sobre el objetivo de cada clase:
+- Usa el verbo de la habilidad Marzano + mediante (actividad principal) + actitudinal positivo (por ejemplo, con respeto, con pensamiento crítico).
 
 Formato de salida:
 {
@@ -228,24 +216,21 @@ Formato de salida:
       "horaInicio": "HH:MM",
       "duracion": minutos,
       "objetivo": "texto",
-      "habilidad": "Nivel (Marzano)",
-      "entrada": "texto",
-      "desarrollo": "texto",
-      "cierre": "texto",
+      "habilidad": "Nivel Marzano",
+      "inicio": "actividad de inicio",
+      "desarrollo": "actividad principal",
+      "cierre": "actividad de cierre",
       "evaluacionIncluida": false
     },
-    ...más sesiones...
+    ...
   ],
   "fechasEvaluacion": ["YYYY-MM-DD", ...]
 }
 
-Ejemplo de progresión de habilidades:
-[
-  { "id": 1, "habilidad": "Recuperación" },
-  { "id": 2, "habilidad": "Comprensión" },
-  { "id": 3, "habilidad": "Comprensión" },
-  { "id": 4, "habilidad": "Aplicación" },
-  { "id": 5, "habilidad": "Metacognición" }
-]
+Importante:
+- Genera todas las clases necesarias.
+- Sé claro, preciso y breve en cada actividad.
+- No agregues explicaciones fuera del formato JSON pedido.
 `;
 }
+
