@@ -77,10 +77,18 @@ export default function Home() {
     setRespuestaJSON(null);
     setCargando(true);
     try {
-      const res = await fetch("/api/enviarPrompt", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ prompt }) });
+      const res = await fetch("/api/enviarPrompt", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ prompt })
+      });
       const dataRes = await res.json();
       setRespuestaIA(dataRes.reply || "No se recibió respuesta.");
-      try { setRespuestaJSON(JSON.parse(dataRes.reply)); } catch { setRespuestaJSON(null); }
+      try {
+        setRespuestaJSON(JSON.parse(dataRes.reply));
+      } catch {
+        setRespuestaJSON(null);
+      }
     } catch {
       setRespuestaIA("Hubo un error al enviar el prompt.");
     }
@@ -88,32 +96,34 @@ export default function Home() {
   };
 
   return (
-    <div className="max-w-5xl mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
+    <div className="max-w-5xl mx-auto mt-10 p-6 bg-white dark:bg-gray-900 dark:text-white rounded-lg shadow-md">
       <h1 className="text-2xl font-bold mb-6">🧠 Generador de Rúbricas con IA</h1>
       <form onSubmit={handleSubmit} className="space-y-6">
         <div>
           <label className="flex items-center gap-2 mb-1 font-medium"><FiBookOpen /> Asignatura</label>
-          <input name="asignatura" className="w-full p-2 border rounded" required />
+          <input name="asignatura" className="w-full p-2 border rounded dark:bg-gray-800 dark:border-gray-600" required />
         </div>
         <div>
           <label className="flex items-center gap-2 mb-1 font-medium"><FiTarget /> Objetivo de Aprendizaje / Contenido</label>
-          <textarea name="oa" className="w-full p-2 border rounded" rows={3} required />
+          <textarea name="oa" className="w-full p-2 border rounded dark:bg-gray-800 dark:border-gray-600" rows={3} required />
         </div>
         <div>
           <label className="flex items-center gap-2 mb-1 font-medium"><FiList /> Tipo de Rúbrica</label>
-          <select value={tipoRubrica} onChange={e => setTipoRubrica(e.target.value)} className="w-full p-2 border rounded">
+          <select value={tipoRubrica} onChange={e => setTipoRubrica(e.target.value)} className="w-full p-2 border rounded dark:bg-gray-800 dark:border-gray-600">
             <option value="analitica">Analítica</option>
             <option value="matriz">Matriz con niveles</option>
           </select>
         </div>
+
+        {/* Analítica */}
         {tipoRubrica === "analitica" && (
           <>
             <div>
               <label className="block mb-2 font-medium">🎯 Objetivos Específicos</label>
               {objetivos.map((obj, idx) => (
-                <div key={idx} className="mb-2 flex gap-2 items-center border p-2 rounded">
-                  <input type="text" placeholder="Descripción" value={obj.descripcion} onChange={e => handleChangeObjetivo(idx, "descripcion", e.target.value)} className="flex-1 p-2 border rounded" required />
-                  <input type="number" placeholder="Puntaje" value={obj.puntaje} onChange={e => handleChangeObjetivo(idx, "puntaje", Number(e.target.value))} className="w-24 p-2 border rounded" required />
+                <div key={idx} className="mb-2 flex gap-2 items-center border p-2 rounded dark:border-gray-700">
+                  <input type="text" placeholder="Descripción" value={obj.descripcion} onChange={e => handleChangeObjetivo(idx, "descripcion", e.target.value)} className="flex-1 p-2 border rounded dark:bg-gray-800 dark:border-gray-600" required />
+                  <input type="number" placeholder="Puntaje" value={obj.puntaje} onChange={e => handleChangeObjetivo(idx, "puntaje", Number(e.target.value))} className="w-24 p-2 border rounded dark:bg-gray-800 dark:border-gray-600" required />
                   <button type="button" onClick={() => quitarObjetivo(idx)} className="text-red-500 flex items-center gap-1"><FiTrash /> Quitar</button>
                 </div>
               ))}
@@ -121,22 +131,24 @@ export default function Home() {
             </div>
             <div>
               <label className="block mb-1 font-medium">🧮 Fórmula para nota (opcional)</label>
-              <input type="text" name="formula" className="w-full p-2 border rounded" placeholder="Ej: (puntaje * 0.5) + 1" />
+              <input type="text" name="formula" className="w-full p-2 border rounded dark:bg-gray-800 dark:border-gray-600" placeholder="Ej: (puntaje * 0.5) + 1" />
             </div>
           </>
         )}
+
+        {/* Matriz */}
         {tipoRubrica === "matriz" && (
           <div className="space-y-6">
             {criterios.map((c, idx) => (
-              <div key={idx} className="border p-4 rounded relative">
+              <div key={idx} className="border p-4 rounded relative dark:border-gray-700">
                 <button type="button" onClick={() => quitarCriterio(idx)} className="absolute top-2 right-2 text-red-500"><FiTrash /></button>
-                <input value={c.nombre} onChange={e => { const up = [...criterios]; up[idx].nombre = e.target.value; setCriterios(up); }} className="font-semibold mb-2 w-full p-2 border rounded" />
-                <input type="number" value={c.peso} onChange={e => { const up = [...criterios]; up[idx].peso = Number(e.target.value); setCriterios(up); }} className="mb-4 w-full p-2 border rounded" placeholder="Peso (%)" />
+                <input value={c.nombre} onChange={e => { const up = [...criterios]; up[idx].nombre = e.target.value; setCriterios(up); }} className="font-semibold mb-2 w-full p-2 border rounded dark:bg-gray-800 dark:border-gray-600" />
+                <input type="number" value={c.peso} onChange={e => { const up = [...criterios]; up[idx].peso = Number(e.target.value); setCriterios(up); }} className="mb-4 w-full p-2 border rounded dark:bg-gray-800 dark:border-gray-600" placeholder="Peso (%)" />
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {c.niveles.map((n, j) => (
-                    <div key={j} className="border rounded p-2">
+                    <div key={j} className="border rounded p-2 dark:border-gray-700">
                       <strong>Nivel {n.nivel} ({n.porcentaje}%)</strong>
-                      <textarea rows={2} value={n.descripcion} onChange={e => handleChangeNivel(idx, j, "descripcion", e.target.value)} className="w-full mt-1 p-2 border rounded" placeholder={`Descripción nivel ${n.nivel}`} />
+                      <textarea rows={2} value={n.descripcion} onChange={e => handleChangeNivel(idx, j, "descripcion", e.target.value)} className="w-full mt-1 p-2 border rounded dark:bg-gray-800 dark:border-gray-600" placeholder={`Descripción nivel ${n.nivel}`} />
                     </div>
                   ))}
                 </div>
@@ -145,26 +157,23 @@ export default function Home() {
             <button type="button" onClick={agregarCriterio} className="mt-4 flex items-center gap-2 text-blue-600 underline"><FiPlus /> Agregar Criterio</button>
           </div>
         )}
+
         <button type="submit" className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"><FiSettings /> Generar Prompt</button>
       </form>
 
-      {/* Resultados */}
       {promptGenerado && (
         <div className="mt-10 space-y-6">
-          {/* Prompt enviado */}
-          <div className="bg-blue-50 border border-blue-200 p-4 rounded">
+          <div className="bg-blue-50 dark:bg-gray-800 border border-blue-200 dark:border-gray-700 p-4 rounded">
             <h2 className="text-xl font-bold mb-2">🧠 Prompt enviado a la IA</h2>
             <pre className="whitespace-pre-wrap text-sm">{promptGenerado}</pre>
           </div>
-          {/* Respuesta */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Tabla */}
-            <div className="bg-white border p-4 rounded shadow-sm overflow-auto">
+            <div className="bg-white dark:bg-gray-800 border p-4 rounded shadow-sm overflow-auto dark:border-gray-700">
               <h2 className="text-xl font-bold mb-2">📋 Rúbrica generada</h2>
               {respuestaJSON?.criterios?.length ? (
-                <table className="table-auto w-full text-sm border">
+                <table className="table-auto w-full text-sm border dark:border-gray-700">
                   <thead>
-                    <tr className="bg-gray-100">
+                    <tr className="bg-gray-100 dark:bg-gray-700">
                       <th className="border px-2 py-1 text-left">#</th>
                       <th className="border px-2 py-1 text-left">Criterio</th>
                       <th className="border px-2 py-1 text-left">Nivel</th>
@@ -186,8 +195,7 @@ export default function Home() {
                 <p className="text-gray-500">No se pudo mostrar la rúbrica en formato tabla.</p>
               )}
             </div>
-            {/* JSON */}
-            <div className="bg-gray-100 border p-4 rounded overflow-auto">
+            <div className="bg-gray-100 dark:bg-gray-800 border p-4 rounded overflow-auto dark:border-gray-700">
               <div className="flex justify-between items-center mb-2">
                 <h2 className="text-xl font-bold">📦 Respuesta JSON completa</h2>
                 <button
