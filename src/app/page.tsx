@@ -1,224 +1,266 @@
 "use client";
 import { useState } from "react";
-import { promptRefinarRubrica, generarPromptEvaluacionMatriz } from "../util/prompts";
-import { FiTrash, FiPlus, FiSettings, FiBookOpen, FiTarget, FiList } from "react-icons/fi";
+import Image from "next/image";
 
-export default function Home() {
-  const [tipoRubrica, setTipoRubrica] = useState<string>("analitica");
-  const [objetivos, setObjetivos] = useState<{ descripcion: string; puntaje: number }[]>([{ descripcion: "", puntaje: 0 }]);
-  const [criterios, setCriterios] = useState<{
-    nombre: string;
-    peso: number;
-    niveles: { nivel: number; porcentaje: number; descripcion: string }[];
-  }[]>([
-    {
-      nombre: "Conceptual",
-      peso: 15,
-      niveles: [
-        { nivel: 1, porcentaje: 60, descripcion: "" },
-        { nivel: 2, porcentaje: 70, descripcion: "" },
-        { nivel: 3, porcentaje: 80, descripcion: "" },
-        { nivel: 4, porcentaje: 100, descripcion: "" }
-      ]
-    }
-  ]);
-  const [promptGenerado, setPromptGenerado] = useState<string | null>(null);
-  const [respuestaIA, setRespuestaIA] = useState<string | null>(null);
-  const [respuestaJSON, setRespuestaJSON] = useState<any>(null);
-  const [cargando, setCargando] = useState<boolean>(false);
-
-  const handleChangeObjetivo = (index: number, field: string, value: string | number) => {
-    const nuevos = [...objetivos];
-    // @ts-ignore
-    nuevos[index][field] = value;
-    setObjetivos(nuevos);
-  };
-  const agregarObjetivo = () => setObjetivos([...objetivos, { descripcion: "", puntaje: 0 }]);
-  const quitarObjetivo = (index: number) => setObjetivos(objetivos.filter((_, i) => i !== index));
-
-  const handleChangeNivel = (ci: number, ni: number, field: string, value: string | number) => {
-    const updated = [...criterios];
-    // @ts-ignore
-    updated[ci].niveles[ni][field] = value;
-    setCriterios(updated);
-  };
-  const agregarCriterio = () => setCriterios([
-    ...criterios,
-    {
-      nombre: "Nuevo Criterio",
-      peso: 0,
-      niveles: [
-        { nivel: 1, porcentaje: 60, descripcion: "" },
-        { nivel: 2, porcentaje: 70, descripcion: "" },
-        { nivel: 3, porcentaje: 80, descripcion: "" },
-        { nivel: 4, porcentaje: 100, descripcion: "" }
-      ]
-    }
-  ]);
-  const quitarCriterio = (index: number) => setCriterios(criterios.filter((_, i) => i !== index));
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    const form = e.target as HTMLFormElement;
-    const data = new FormData(form);
-    const asignatura = data.get("asignatura") as string;
-    const oa = data.get("oa") as string;
-    const formula = data.get("formula") as string;
-
-    let prompt = "";
-    if (tipoRubrica === "analitica") {
-      prompt = promptRefinarRubrica({ asignatura, objetivoAprendizaje: oa, objetivosEspecificos: objetivos, formula: formula || undefined });
-    } else {
-      const rubrica = { tipo: "matriz_niveles", criterios, escala_notas: [ { nivel: 1, nota: "4.0 a 4.9" }, { nivel: 2, nota: "5.0 a 5.9" }, { nivel: 3, nota: "6.0 a 6.9" }, { nivel: 4, nota: "7.0" } ] };
-      prompt = generarPromptEvaluacionMatriz({ nombreArchivo: "Trabajo.docx", contenido: oa, rubrica });
-    }
-    setPromptGenerado(prompt);
-    setRespuestaIA(null);
-    setRespuestaJSON(null);
-    setCargando(true);
-    try {
-      const res = await fetch("/api/enviarPrompt", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ prompt })
-      });
-      const dataRes = await res.json();
-      setRespuestaIA(dataRes.reply || "No se recibió respuesta.");
-      try {
-        setRespuestaJSON(JSON.parse(dataRes.reply));
-      } catch {
-        setRespuestaJSON(null);
-      }
-    } catch {
-      setRespuestaIA("Hubo un error al enviar el prompt.");
-    }
-    setCargando(false);
-  };
+export default function LandingPage() {
+  // simple mobile‑menu toggle
+  const [open, setOpen] = useState(false);
+  const year = new Date().getFullYear();
 
   return (
-    <div className="max-w-5xl mx-auto mt-10 p-6 bg-white dark:bg-gray-900 dark:text-white rounded-lg shadow-md">
-      <h1 className="text-2xl font-bold mb-6">🧠 Generador de Rúbricas con IA</h1>
-      <form onSubmit={handleSubmit} className="space-y-6">
-        <div>
-          <label className="flex items-center gap-2 mb-1 font-medium"><FiBookOpen /> Asignatura</label>
-          <input name="asignatura" className="w-full p-2 border rounded dark:bg-gray-800 dark:border-gray-600" required />
+    <>
+      {/* ───────────────────── Navbar ───────────────────── */}
+      <header className="bg-white/70 backdrop-blur dark:bg-slate-900/70 fixed inset-x-0 top-0 z-50 shadow-sm">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 md:px-8">
+          <a href="#" className="text-2xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+            EduSuite
+          </a>
+          <nav className="hidden space-x-8 md:block">
+            {[
+              ["planificacion", "Planificacion"],
+              ["planificacioninversa", "PlanInv"],
+              ["rubricas", "Rubricas"],
+              ["#signin", "Ingresar"],
+            ].map(([href, label]) => (
+              <a
+                key={href}
+                href={href}
+                className="text-sm font-medium text-slate-700 transition hover:text-blue-600 dark:text-slate-300 dark:hover:text-blue-400"
+              >
+                {label}
+              </a>
+            ))}
+          </nav>
+          <div className="hidden md:block">
+            <a
+              href="#signin"
+              className="rounded-xl bg-blue-600 px-5 py-2 text-sm font-semibold text-white shadow-lg hover:bg-blue-700"
+            >
+              Ingresar
+            </a>
+          </div>
+          {/* Mobile burger */}
+          <button
+            onClick={() => setOpen(!open)}
+            className="md:hidden"
+            aria-label="Toggle menu"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              className="h-6 w-6 text-slate-900 dark:text-white"
+            >
+              {open ? (
+                <path
+                  fillRule="evenodd"
+                  d="M4.5 4.5a1.5 1.5 0 012.121 0L12 9.879l5.379-5.379a1.5 1.5 0 012.121 2.121L14.121 12l5.379 5.379a1.5 1.5 0 01-2.121 2.121L12 14.121l-5.379 5.379a1.5 1.5 0 01-2.121-2.121L9.879 12 4.5 6.621a1.5 1.5 0 010-2.121z"
+                  clipRule="evenodd"
+                />
+              ) : (
+                <path
+                  fillRule="evenodd"
+                  d="M3.75 6a.75.75 0 01.75-.75h15a.75.75 0 010 1.5h-15A.75.75 0 013.75 6zm0 6a.75.75 0 01.75-.75h15a.75.75 0 010 1.5h-15a.75.75 0 01-.75-.75zm.75 5.25a.75.75 0 000 1.5h15a.75.75 0 000-1.5h-15z"
+                  clipRule="evenodd"
+                />
+              )}
+            </svg>
+          </button>
         </div>
-        <div>
-          <label className="flex items-center gap-2 mb-1 font-medium"><FiTarget /> Objetivo de Aprendizaje / Contenido</label>
-          <textarea name="oa" className="w-full p-2 border rounded dark:bg-gray-800 dark:border-gray-600" rows={3} required />
-        </div>
-        <div>
-          <label className="flex items-center gap-2 mb-1 font-medium"><FiList /> Tipo de Rúbrica</label>
-          <select value={tipoRubrica} onChange={e => setTipoRubrica(e.target.value)} className="w-full p-2 border rounded dark:bg-gray-800 dark:border-gray-600">
-            <option value="analitica">Analítica</option>
-            <option value="matriz">Matriz con niveles</option>
-          </select>
-        </div>
+        {/* Mobile menu */}
+        {open && (
+          <nav className="space-y-6 bg-white px-6 py-6 shadow-md dark:bg-slate-800 md:hidden">
+            {[
+              ["planificacion", "Planificacion"],
+              ["planificacioninversa", "PlanInv"],
+              ["rubricas", "Rubricas"],
+              ["#signin", "Ingresar"],
+            ].map(([href, label]) => (
+              <a
+                key={href}
+                href={href}
+                className="block text-sm font-medium text-slate-700 transition hover:text-blue-600 dark:text-slate-300 dark:hover:text-blue-400"
+                onClick={() => setOpen(false)}
+              >
+                {label}
+              </a>
+            ))}
+          </nav>
+        )}
+      </header>
 
-        {/* Analítica */}
-        {tipoRubrica === "analitica" && (
-          <>
+      <main className="pt-24">
+        {/* ───────────────────── Hero ───────────────────── */}
+        <section className="bg-slate-50 dark:bg-slate-800">
+          <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 py-24 md:grid-cols-2 md:px-8">
             <div>
-              <label className="block mb-2 font-medium">🎯 Objetivos Específicos</label>
-              {objetivos.map((obj, idx) => (
-                <div key={idx} className="mb-2 flex gap-2 items-center border p-2 rounded dark:border-gray-700">
-                  <input type="text" placeholder="Descripción" value={obj.descripcion} onChange={e => handleChangeObjetivo(idx, "descripcion", e.target.value)} className="flex-1 p-2 border rounded dark:bg-gray-800 dark:border-gray-600" required />
-                  <input type="number" placeholder="Puntaje" value={obj.puntaje} onChange={e => handleChangeObjetivo(idx, "puntaje", Number(e.target.value))} className="w-24 p-2 border rounded dark:bg-gray-800 dark:border-gray-600" required />
-                  <button type="button" onClick={() => quitarObjetivo(idx)} className="text-red-500 flex items-center gap-1"><FiTrash /> Quitar</button>
+              <h1 className="text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white md:text-5xl">
+                Planifica sin estrés.
+                <br className="hidden sm:inline" /> Enseña con impacto.
+              </h1>
+              <p className="mt-6 text-lg text-slate-600 dark:text-slate-300">
+                La suite docente que te ayuda a planificar, evaluar y retroalimentar de forma automática.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-4">
+                <a
+                  href="#signup"
+                  className="rounded-2xl bg-blue-600 px-8 py-3 text-base font-semibold text-white shadow-lg transition hover:bg-blue-700"
+                >
+                  Comienza gratis
+                </a>
+                <a
+                  href="#demo"
+                  className="rounded-2xl border border-blue-600 px-8 py-3 text-base font-semibold text-blue-600 transition hover:bg-blue-50 dark:border-blue-400 dark:text-blue-400 dark:hover:bg-slate-700"
+                >
+                  Solicita una demo
+                </a>
+              </div>
+            </div>
+            <div className="relative mx-auto w-full max-w-md">
+              {/* Replace /hero-mockup.png with your exported mockup */}
+              <Image
+                src="/hero-mockup.png"
+                width={640}
+                height={480}
+                alt="Vista previa de EduSuite"
+                className="w-full rounded-2xl shadow-xl ring-1 ring-slate-200 dark:ring-slate-700"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* ───────────────────── Beneficios ───────────────────── */}
+        <section id="features" className="bg-white py-24 dark:bg-slate-900">
+          <div className="mx-auto max-w-7xl px-4 md:px-8">
+            <h2 className="text-center text-3xl font-bold text-slate-900 dark:text-white">Beneficios clave</h2>
+            <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+              {[
+                {
+                  emoji: "🗓️",
+                  title: "Planifica",
+                  desc: "Organiza tus clases y establece objetivos en minutos.",
+                },
+                {
+                  emoji: "✅",
+                  title: "Evalúa",
+                  desc: "Genera rúbricas eficaces y justas para tus estudiantes.",
+                },
+                {
+                  emoji: "⚡",
+                  title: "Retroalimenta",
+                  desc: "Ahorra tiempo con correcciones automáticas y feedback instantáneo.",
+                },
+              ].map(({ emoji, title, desc }) => (
+                <div
+                  key={title}
+                  className="rounded-2xl bg-slate-50 p-8 text-center shadow-sm dark:bg-slate-800"
+                >
+                  <div className="text-4xl">{emoji}</div>
+                  <h3 className="mt-4 text-xl font-semibold text-slate-900 dark:text-white">
+                    {title}
+                  </h3>
+                  <p className="mt-2 text-slate-600 dark:text-slate-300">{desc}</p>
                 </div>
               ))}
-              <button type="button" onClick={agregarObjetivo} className="mt-2 flex items-center gap-1 text-blue-500 underline"><FiPlus /> Agregar Objetivo</button>
             </div>
+          </div>
+        </section>
+
+        {/* ───────────────────── Cómo funciona ───────────────────── */}
+        <section className="bg-gradient-to-b from-green-50 to-transparent py-24 dark:from-slate-800 dark:to-slate-900">
+          <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 md:grid-cols-2 md:px-8">
             <div>
-              <label className="block mb-1 font-medium">🧮 Fórmula para nota (opcional)</label>
-              <input type="text" name="formula" className="w-full p-2 border rounded dark:bg-gray-800 dark:border-gray-600" placeholder="Ej: (puntaje * 0.5) + 1" />
+              <h2 className="text-3xl font-bold text-slate-900 dark:text-white">
+                Cómo funciona
+              </h2>
+              <ul className="mt-6 space-y-4 text-slate-600 dark:text-slate-300">
+                {[
+                  "Planea tus unidades y sesiones con IA contextualizada.",
+                  "Genera rúbricas y pruebas alineadas a tus objetivos.",
+                  "Corrige automáticamente y entrega feedback personalizado.",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <span className="mt-1 inline-block h-2 w-2 flex-shrink-0 rounded-full bg-blue-600" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
             </div>
-          </>
-        )}
+            <div className="relative mx-auto w-full max-w-md">
+              <Image
+                src="/workflow-mockup.png"
+                width={640}
+                height={480}
+                alt="Flujo de trabajo de EduSuite"
+                className="w-full rounded-2xl shadow-xl ring-1 ring-slate-200 dark:ring-slate-700"
+              />
+            </div>
+          </div>
+        </section>
 
-        {/* Matriz */}
-        {tipoRubrica === "matriz" && (
-          <div className="space-y-6">
-            {criterios.map((c, idx) => (
-              <div key={idx} className="border p-4 rounded relative dark:border-gray-700">
-                <button type="button" onClick={() => quitarCriterio(idx)} className="absolute top-2 right-2 text-red-500"><FiTrash /></button>
-                <input value={c.nombre} onChange={e => { const up = [...criterios]; up[idx].nombre = e.target.value; setCriterios(up); }} className="font-semibold mb-2 w-full p-2 border rounded dark:bg-gray-800 dark:border-gray-600" />
-                <input type="number" value={c.peso} onChange={e => { const up = [...criterios]; up[idx].peso = Number(e.target.value); setCriterios(up); }} className="mb-4 w-full p-2 border rounded dark:bg-gray-800 dark:border-gray-600" placeholder="Peso (%)" />
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {c.niveles.map((n, j) => (
-                    <div key={j} className="border rounded p-2 dark:border-gray-700">
-                      <strong>Nivel {n.nivel} ({n.porcentaje}%)</strong>
-                      <textarea rows={2} value={n.descripcion} onChange={e => handleChangeNivel(idx, j, "descripcion", e.target.value)} className="w-full mt-1 p-2 border rounded dark:bg-gray-800 dark:border-gray-600" placeholder={`Descripción nivel ${n.nivel}`} />
-                    </div>
-                  ))}
+        {/* ───────────────────── Testimonios ───────────────────── */}
+        <section className="bg-orange-50 py-24 dark:bg-slate-800" id="testimonials">
+          <div className="mx-auto max-w-5xl px-4 md:px-8">
+            <h2 className="text-center text-3xl font-bold text-slate-900 dark:text-white">
+              Testimonios
+            </h2>
+            <div className="mt-12 grid gap-8 md:grid-cols-2">
+              {[
+                {
+                  name: "Alejandra Rodríguez",
+                  role: "Profesora de Matemáticas",
+                  quote:
+                    "¡Esta herramienta ha transformado la forma en que planifico mis clases! Es intuitiva y eficiente.",
+                },
+                {
+                  name: "Carlos Méndez",
+                  role: "Jefe UTP",
+                  quote:
+                    "Ahora nuestros docentes dedican más tiempo a enseñar y menos a papeleo. ¡Un cambio radical!",
+                },
+              ].map(({ name, role, quote }) => (
+                <div key={name} className="rounded-2xl bg-white p-8 shadow-lg dark:bg-slate-900/60">
+                  <p className="text-lg font-medium leading-relaxed text-slate-800 dark:text-slate-200">
+                    “{quote}”
+                  </p>
+                  <div className="mt-6 text-sm text-slate-600 dark:text-slate-400">
+                    — {name}, {role}
+                  </div>
                 </div>
-              </div>
-            ))}
-            <button type="button" onClick={agregarCriterio} className="mt-4 flex items-center gap-2 text-blue-600 underline"><FiPlus /> Agregar Criterio</button>
-          </div>
-        )}
-
-        <button type="submit" className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"><FiSettings /> Generar Prompt</button>
-      </form>
-
-      {promptGenerado && (
-        <div className="mt-10 space-y-6">
-          <div className="bg-blue-50 dark:bg-gray-800 border border-blue-200 dark:border-gray-700 p-4 rounded">
-            <h2 className="text-xl font-bold mb-2">🧠 Prompt enviado a la IA</h2>
-            <pre className="whitespace-pre-wrap text-sm">{promptGenerado}</pre>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-white dark:bg-gray-800 border p-4 rounded shadow-sm overflow-auto dark:border-gray-700">
-              <h2 className="text-xl font-bold mb-2">📋 Rúbrica generada</h2>
-              {respuestaJSON?.criterios?.length ? (
-                <table className="table-auto w-full text-sm border dark:border-gray-700">
-                  <thead>
-                    <tr className="bg-gray-100 dark:bg-gray-700">
-                      <th className="border px-2 py-1 text-left">#</th>
-                      <th className="border px-2 py-1 text-left">Criterio</th>
-                      <th className="border px-2 py-1 text-left">Nivel</th>
-                      <th className="border px-2 py-1 text-left">Descripción</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {respuestaJSON.criterios.map((c: any, i: number) => (
-                      <tr key={i}>
-                        <td className="border px-2 py-1">{i + 1}</td>
-                        <td className="border px-2 py-1">{c.nombre}</td>
-                        <td className="border px-2 py-1">{c.nivel}</td>
-                        <td className="border px-2 py-1">{c.descripcion}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              ) : (
-                <p className="text-gray-500">No se pudo mostrar la rúbrica en formato tabla.</p>
-              )}
-            </div>
-            <div className="bg-gray-100 dark:bg-gray-800 border p-4 rounded overflow-auto dark:border-gray-700">
-              <div className="flex justify-between items-center mb-2">
-                <h2 className="text-xl font-bold">📦 Respuesta JSON completa</h2>
-                <button
-                  className="text-blue-600 text-sm underline hover:text-blue-800"
-                  onClick={() => {
-                    if (respuestaIA) {
-                      navigator.clipboard.writeText(respuestaIA);
-                      alert("Respuesta copiada al portapapeles ✅");
-                    }
-                  }}
-                >
-                  Copiar
-                </button>
-              </div>
-              {cargando ? (
-                <p className="text-gray-500">Enviando solicitud a DeepSeek...</p>
-              ) : (
-                <pre className="whitespace-pre-wrap text-sm">{respuestaIA}</pre>
-              )}
+              ))}
             </div>
           </div>
+        </section>
+
+        {/* ───────────────────── CTA Final ───────────────────── */}
+        <section
+          id="cta"
+          className="bg-blue-600 py-24 text-center text-white shadow-inner"
+        >
+          <div className="mx-auto max-w-3xl px-4 md:px-0">
+            <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl">
+              Listo para revolucionar tu enseñanza?
+            </h2>
+            <p className="mx-auto mt-4 max-w-xl text-lg">
+              Descubre cómo EduSuite puede ayudarte a planificar, evaluar y
+              retroalimentar con facilidad.
+            </p>
+            <a
+              href="#signup"
+              className="mt-8 inline-block rounded-2xl bg-white px-10 py-4 text-base font-semibold text-blue-600 shadow-lg transition hover:bg-blue-50"
+            >
+              Crear mi cuenta gratis
+            </a>
+          </div>
+        </section>
+      </main>
+
+      {/* ───────────────────── Footer ───────────────────── */}
+      <footer className="bg-slate-100 py-8 dark:bg-slate-900">
+        <div className="mx-auto max-w-7xl px-4 text-center text-sm text-slate-600 dark:text-slate-400">
+          © {year} EduSuite. Todos los derechos reservados.
         </div>
-      )}
-    </div>
+      </footer>
+    </>
   );
 }
