@@ -234,3 +234,88 @@ Importante:
 `;
 }
 
+export function promptGeneraInstrumento({
+  asignatura,
+  objetivoAprendizaje,
+  objetivosEspecificos,
+  numPreguntasAlternativas,
+  numPreguntasDesarrollo,
+  formula,
+  tipoRubrica = "matriz_niveles",   // o "tabla_cotejo"
+  dificultad = 5
+}: {
+  asignatura: string;
+  objetivoAprendizaje: string;
+  objetivosEspecificos: { descripcion: string; puntaje: number }[];
+  numPreguntasAlternativas: number;
+  numPreguntasDesarrollo: number;
+  formula?: string;
+  tipoRubrica?: "matriz_niveles" | "tabla_cotejo";
+  dificultad?: number;
+}): string {
+  const criteriosJSON = objetivosEspecificos
+    .map(
+      (o, i) =>
+        `      {\n        "id": ${i + 1},\n        "descripcion": "${o.descripcion}",\n        "peso": ${o.puntaje}\n      }`
+    )
+    .join(",\n");
+
+  return `
+Eres un experto en evaluación. Devuelve **solo** este objeto JSON, sin texto adicional.
+
+{
+  "instrumento": {
+    "asignatura": "${asignatura}",
+    "objetivoGeneral": "${objetivoAprendizaje}",
+    "dificultad": ${dificultad},
+    "examen": {
+      "enunciadoGeneral": "Redacta aquí un enunciado claro que contextualice el examen.",
+      "preguntas": {
+        "alternativas": [ /* EXACTAMENTE ${numPreguntasAlternativas} objetos: ver formato abajo */ ],
+        "desarrollo":   [ /* EXACTAMENTE ${numPreguntasDesarrollo} strings: ver formato abajo */ ]
+      }
+    },
+    "criterios": [
+${criteriosJSON}
+    ],
+    "rubrica": {
+      "tipo": "${tipoRubrica}",
+      "criterios": [
+        /*
+          Por cada criterio listado arriba, genera un objeto:
+          {
+            "id": <mismo id del criterio>,
+            "niveles": [
+              { "nivel": 1, "nombre": "Inicial",    "descripcion": "Describe el desempeño nulo o muy bajo de forma medible" },
+              { "nivel": 2, "nombre": "En progreso","descripcion": "Describe un desempeño parcial, con verbos observables" },
+              { "nivel": 3, "nombre": "Aceptable",  "descripcion": "Describe un logro satisfactorio claro y medible" },
+              { "nivel": 4, "nombre": "Avanzado",   "descripcion": "Describe desempeño sobresaliente con indicadores concretos" }
+            ]
+          }
+        */
+      ]
+    },
+    "formulaNota": ${formula ? `"${formula}"` : null}
+  }
+}
+
+/* Formatos detallados internos:
+
+1. Cada pregunta de alternativas:
+   {
+     "enunciado": "Pregunta ...",
+     "opciones": { "A": "...", "B": "...", "C": "...", "D": "..." },
+     "correcta": "A"
+   }
+   - Las cuatro opciones deben ser plausibles; el distractor no puede ser obviamente incorrecto.
+
+2. Las preguntas de desarrollo son strings:
+   "Explica con tus palabras ..."
+
+Reglas estrictas:
+- Rellena TODAS las descripciones de los niveles: usa verbos de acción, indicadores medibles (por ejemplo: “identifica al menos 3 de 4 elementos”, “argumenta con 2 fuentes concretas”, etc.).
+- No inventes criterios fuera de los dados.
+- Devuelve exactamente el número de preguntas solicitado.
+- Responde ÚNICAMENTE con el bloque JSON, perfectamente formateado.
+`.trim();
+}

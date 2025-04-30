@@ -25,7 +25,7 @@ export default async function handler(
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        model: "gpt-3.5-turbo",
+        model: "o4-mini",
         messages: [
           { role: "system", content: "Eres un asistente experto en educación y planificación curricular." },
           { role: "user", content: prompt },
