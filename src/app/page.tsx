@@ -25,7 +25,7 @@ export default function LandingPage() {
                 <br className="hidden sm:inline" /> Comanda tu clase.
               </h1>
               <p className="mt-6 text-lg text-slate-600 dark:text-slate-300">
-                El aprendizaje es un viaje, el profesor su capitán. Trabajemos juntos y todos llegaremos distintos
+                El aprendizaje es un viaje, el profesor su capitán. Preocúpate de lo importante, queremos ayudarte
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <a

@@ -9,7 +9,7 @@ export default function Navbar() {
     ["/planificacion", "Planificacion"],
     ["/planificacioninversa", "PlanInv"],
     ["/rubricas", "Rubricas"],
-    ["#signin", "Ingresar"],
+    ["/dashboard", "Ingresar"],
   ] as const;
 
   return (
@@ -39,7 +39,7 @@ export default function Navbar() {
         {/* Botón “Ingresar” desktop */}
         <div className="hidden md:block">
           <Link
-            href="#signin"
+            href="/dashboard"
             className="rounded-xl bg-blue-600 px-5 py-2 text-sm font-semibold text-white shadow-lg hover:bg-blue-700"
           >
             Ingresar
