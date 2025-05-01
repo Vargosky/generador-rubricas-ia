@@ -22,10 +22,10 @@ export default function LandingPage() {
             <div>
               <h1 className="text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white md:text-5xl">
                 Planifica sin estrés.
-                <br className="hidden sm:inline" /> Enseña con impacto.
+                <br className="hidden sm:inline" /> Comanda tu clase.
               </h1>
               <p className="mt-6 text-lg text-slate-600 dark:text-slate-300">
-                La suite docente que te ayuda a planificar, evaluar y retroalimentar de forma automática.
+                El aprendizaje es un viaje, el profesor su capitán. Trabajemos juntos y todos llegaremos distintos
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <a
@@ -45,7 +45,7 @@ export default function LandingPage() {
             <div className="relative mx-auto w-full max-w-md">
               {/* Replace /hero-mockup.png with your exported mockup */}
               <Image
-                src="/hero-mockup.png"
+                src="/icons/logoCentral.png"
                 width={640}
                 height={480}
                 alt="Vista previa de EduSuite"
@@ -114,7 +114,7 @@ export default function LandingPage() {
             </div>
             <div className="relative mx-auto w-full max-w-md">
               <Image
-                src="/workflow-mockup.png"
+                src="/icons/comofunciona.png"
                 width={640}
                 height={480}
                 alt="Flujo de trabajo de EduSuite"

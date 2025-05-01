@@ -20,7 +20,7 @@ export default function Navbar() {
           href="/"
           className="text-2xl font-extrabold tracking-tight text-slate-900 dark:text-white"
         >
-          EduSuite
+          EduCommand
         </Link>
 
         {/* Navegación desktop */}
