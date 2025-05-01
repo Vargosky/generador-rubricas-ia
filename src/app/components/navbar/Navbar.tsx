@@ -1,97 +1,102 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
-import { FiMenu, FiX } from "react-icons/fi";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
+  const links = [
+    ["/planificacion", "Planificacion"],
+    ["/planificacioninversa", "PlanInv"],
+    ["/rubricas", "Rubricas"],
+    ["#signin", "Ingresar"],
+  ] as const;
+
   return (
-    <nav className="bg-white dark:bg-gray-900 dark:text-white shadow-md">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo + texto  -------------------------------------------------- */}
-          <div className="flex items-center gap-2">
-            <Link href="/" className="flex items-center">
-              {/* Cambia /logo.svg por tu imagen/logo */}
-              <Image
-                src="/logo.svg"
-                alt="Logo"
-                width={32}
-                height={32}
-                className="h-8 w-8"
-                priority
-              />
-            </Link>
-            <span className="font-semibold text-lg select-none">Mi Sistema</span>
-          </div>
+    <header className="bg-white/70 backdrop-blur dark:bg-slate-900/70 fixed inset-x-0 top-0 z-50 shadow-sm">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 md:px-8">
+        {/* Logo / título */}
+        <Link
+          href="/"
+          className="text-2xl font-extrabold tracking-tight text-slate-900 dark:text-white"
+        >
+          EduSuite
+        </Link>
 
-          {/* Menú desktop --------------------------------------------------- */}
-          <div className="hidden md:flex items-center gap-6">
-            <Link href="/rubricas" className="hover:text-blue-600">
-              Rúbricas
-            </Link>
-            <Link href="/planificacion" className="hover:text-blue-600">
-              Planificaciones
-            </Link>
-            <Link href="/planificacioninversa" className="hover:text-blue-600">
-              Instrumentos
-            </Link>
+        {/* Navegación desktop */}
+        <nav className="hidden space-x-8 md:block">
+          {links.map(([href, label]) => (
             <Link
-              href="/login"
-              className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+              key={href}
+              href={href}
+              className="text-sm font-medium text-slate-700 transition hover:text-blue-600 dark:text-slate-300 dark:hover:text-blue-400"
             >
-              Login
+              {label}
             </Link>
-          </div>
+          ))}
+        </nav>
 
-          {/* Botón burger --------------------------------------------------- */}
-          <button
-            onClick={() => setOpen(!open)}
-            className="md:hidden p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-            aria-label="Abrir menú"
+        {/* Botón “Ingresar” desktop */}
+        <div className="hidden md:block">
+          <Link
+            href="#signin"
+            className="rounded-xl bg-blue-600 px-5 py-2 text-sm font-semibold text-white shadow-lg hover:bg-blue-700"
           >
-            {open ? <FiX size={24} /> : <FiMenu size={24} />}
-          </button>
+            Ingresar
+          </Link>
         </div>
+
+        {/* Burger móvil */}
+        <button
+          onClick={() => setOpen(!open)}
+          className="md:hidden"
+          aria-label="Toggle menu"
+        >
+          {open ? (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              className="h-6 w-6 text-slate-900 dark:text-white"
+            >
+              <path
+                fillRule="evenodd"
+                d="M4.5 4.5a1.5 1.5 0 012.121 0L12 9.879l5.379-5.379a1.5 1.5 0 012.121 2.121L14.121 12l5.379 5.379a1.5 1.5 0 01-2.121 2.121L12 14.121l-5.379 5.379a1.5 1.5 0 01-2.121-2.121L9.879 12 4.5 6.621a1.5 1.5 0 010-2.121z"
+                clipRule="evenodd"
+              />
+            </svg>
+          ) : (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              className="h-6 w-6 text-slate-900 dark:text-white"
+            >
+              <path
+                fillRule="evenodd"
+                d="M3.75 6a.75.75 0 01.75-.75h15a.75.75 0 010 1.5h-15A.75.75 0 013.75 6zm0 6a.75.75 0 01.75-.75h15a.75.75 0 010 1.5h-15a.75.75 0 01-.75-.75zm.75 5.25a.75.75 0 000 1.5h15a.75.75 0 000-1.5h-15z"
+                clipRule="evenodd"
+              />
+            </svg>
+          )}
+        </button>
       </div>
 
-      {/* Menú móvil --------------------------------------------------------- */}
+      {/* Menú móvil */}
       {open && (
-        <div className="md:hidden border-t dark:border-gray-700 bg-white dark:bg-gray-900">
-          <div className="px-2 pt-2 pb-3 space-y-1">
+        <nav className="space-y-6 bg-white px-6 py-6 shadow-md dark:bg-slate-800 md:hidden">
+          {links.map(([href, label]) => (
             <Link
-              href="/rubricas"
-              className="block px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800"
+              key={href}
+              href={href}
+              className="block text-sm font-medium text-slate-700 transition hover:text-blue-600 dark:text-slate-300 dark:hover:text-blue-400"
               onClick={() => setOpen(false)}
             >
-              Rúbricas
+              {label}
             </Link>
-            <Link
-              href="/planificaciones"
-              className="block px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800"
-              onClick={() => setOpen(false)}
-            >
-              Planificaciones
-            </Link>
-            <Link
-              href="/instrumentos"
-              className="block px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800"
-              onClick={() => setOpen(false)}
-            >
-              Instrumentos
-            </Link>
-            <Link
-              href="/login"
-              className="block px-3 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700"
-              onClick={() => setOpen(false)}
-            >
-              Login
-            </Link>
-          </div>
-        </div>
+          ))}
+        </nav>
       )}
-    </nav>
+    </header>
   );
 }
