@@ -7,19 +7,19 @@ export default function CursosPage() {
     {
       title: "2° Medio A",
       stats: [
-        { label: "Planificaciones creadas", value: 75 },
-        { label: "Evaluaciones subidas", value: 40 },
-        { label: "Correcciones IA", value: 60 },
-        { label: "Promedio aprobación", value: 88 },
+        { label: "Planificaciones de clases", value: 75 },
+        { label: "Avance de curso", value: 40 },
+        { label: "Evaluaciones hechas", value: 60 },
+        { label: "Avance General", value: 88 },
       ],
     },
     {
       title: "3° Medio B",
       stats: [
-        { label: "Planificaciones creadas", value: 55 },
-        { label: "Evaluaciones subidas", value: 20 },
-        { label: "Correcciones IA", value: 35 },
-        { label: "Promedio aprobación", value: 72 },
+        { label: "Planificaciones de clases", value: 55 },
+        { label: "Avance de curso", value: 30 },
+        { label: "Evaluaciones hechas", value: 20 },
+        { label: "Avance General", value: 33 },
       ],
     },
   ];

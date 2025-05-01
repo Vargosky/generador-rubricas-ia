@@ -1,7 +1,7 @@
 // app/dashboard/layout.tsx
 import { ReactNode } from "react";
 import Link from "next/link";
-import { Home, Calendar, Book, LayoutDashboard } from "lucide-react";
+import { Home, Calendar, Book, LayoutDashboard, Bot, TowerControl } from "lucide-react";
 import { cn } from "@/lib/utils"; // asegúrate de tener este helper para classNames
 import "@/app/globals.css";
 
@@ -16,12 +16,11 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
         </h1>
         <nav className="space-y-2">
           <NavLink href="/dashboard" icon={<Home size={18} />}>Inicio</NavLink>
-          <NavLink href="/dashboard" icon={<Home size={18} />}>Mis Cursos</NavLink>
-          <NavLink href="/dashboard" icon={<Home size={18} />}>Mis Rubricas</NavLink>
-          <NavLink href="/dashboard" icon={<Home size={18} />}>Mis Planificaciones</NavLink>
-          <NavLink href="/dashboard" icon={<Home size={18} />}>Reportes para UTP</NavLink>
-          <NavLink href="/dashboard/planificacion" icon={<Calendar size={18} />}>Planificación</NavLink>
-          <NavLink href="/dashboard/rubricas" icon={<Book size={18} />}>Rúbricas</NavLink>
+          <NavLink href="/dashboard" icon={<Book size={18} />}>Mis Cursos</NavLink>
+          <NavLink href="/dashboard" icon={<Bot size={18} />}>Mis Rubricas</NavLink>
+          <NavLink href="/dashboard" icon={<Calendar size={18}  />}>Mis Planificaciones</NavLink>
+          <NavLink href="/dashboard" icon={<TowerControl size={18} />}>Reportes para UTP</NavLink>
+
         </nav>
       </aside>
 
