@@ -316,3 +316,22 @@ Reglas estrictas:
 - Responde ÚNICAMENTE con el bloque JSON, perfectamente formateado.
 `.trim();
 }
+
+/* =========================================================
+   Genera el prompt para pedir a la IA un guion minuto a minuto
+   para una clase específica.
+   ========================================================= */
+   import { Clase } from "@/app/components/cards/ClasesBox";
+
+   export function generateGuionPrompt(clase: Clase): string {
+     return `
+   Eres un docente experto.
+   Necesito un guion  (inicio, desarrollo, cierre) para dictar la siguiente clase. Donde debe en el inicio debe hacer una actividad introductoria, para pasar al desarrollo donde se hace la actividad central. 
+   Para luego en el cierre sistematizar o hacer la entrega de un producto hecho en clases que evidencie el aprendizaje
+   Devuelve SOLO el guion como texto plano, sin explicación adicional.
+   
+   Datos de la clase:
+   ${JSON.stringify(clase, null, 2)}
+   `.trim();
+   }
+   

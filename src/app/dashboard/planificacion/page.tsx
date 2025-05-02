@@ -1,10 +1,13 @@
+/* ─ src/app/dashboard/planificacion/page.tsx ─ */
 "use client";
 import React, { useState } from "react";
+import { saveAs } from "file-saver";
 import { ScheduleSelector, Schedule } from "./ScheduleSelector";
 import { generatePlanificacionPrompt, PlanificacionData } from "@/util/prompts";
 import ClasesBox, { Clase } from "@/app/components/cards/ClasesBox";
+import { generateGuionPrompt } from "@/util/prompts";
 
-/* ───────── tipo usado en objetivos ───────── */
+/* ───────── tipos ───────── */
 type Objetivo = { descripcion: string; puntaje: number };
 
 export default function PlanificacionPage() {
@@ -30,29 +33,26 @@ export default function PlanificacionPage() {
   const [generatedPrompt, setGeneratedPrompt] = useState("");
   const [aiReply,         setAiReply]         = useState("");
   const [clases,          setClases]          = useState<Clase[]>([]);
-  const [loadingIdx,      setLoadingIdx]      = useState<number | null>(null); // para el guion
+  const [fechasEval,      setFechasEval]      = useState<string[]>([]);
 
-  /* ───────── helpers ───────── */
+  /* ───────── helpers (objetivos) ───────── */
   const handleObjetivoChange = <K extends keyof Objetivo>(
-    idx: number, field: K, value: Objetivo[K]
+    idx: number,
+    field: K,
+    value: Objetivo[K]
   ) => {
-    const upd = [...objetivos];
-    upd[idx][field] = value;
-    setObjetivos(upd);
+    const updated = [...objetivos];
+    updated[idx][field] = value;
+    setObjetivos(updated);
   };
-  const agregarObjetivo  = () =>
-    setObjetivos([...objetivos, { descripcion: "", puntaje: 1 }]);
-  const eliminarObjetivo = (i: number) =>
-    setObjetivos(o => o.filter((_, idx) => idx !== i));
+  const agregarObjetivo   = () => setObjetivos([...objetivos, { descripcion: "", puntaje: 1 }]);
+  const eliminarObjetivo  = (i: number) => setObjetivos(objs => objs.filter((_, idx) => idx !== i));
 
-  /* ───────── llamada IA para guion de clase ───────── */
+  /* ───────── genera guion para una clase ───────── */
   const generarGuion = async (idx: number, clase: Clase) => {
-    setLoadingIdx(idx);
     try {
-      const prompt = `Eres un docente experto. Necesito un guion detallado (minuto a minuto) para dictar la siguiente clase.\n` +
-                     `Devuelve SOLO el guion, sin explicaciones extra.\n\n` +
-                     `Datos de la clase:\n${JSON.stringify(clase, null, 2)}`;
-
+      const prompt = generateGuionPrompt(clase);
+  
       const r = await fetch("/api/enviarPromptDeepSeek", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -60,18 +60,15 @@ export default function PlanificacionPage() {
       });
       const { reply, error } = await r.json();
       if (!reply) throw new Error(error);
-
-      setClases(prev =>
-        prev.map((c, i) => (i === idx ? { ...c, guion: reply } : c))
-      );
+  
+      setClases(prev => prev.map((c, i) => (i === idx ? { ...c, guion: reply } : c)));
     } catch (e: any) {
       alert(`Error generando guion: ${e.message}`);
-    } finally {
-      setLoadingIdx(null);
     }
   };
+  
 
-  /* ───────── submit planificación ───────── */
+  /* ───────── genera planificación completa ───────── */
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -109,128 +106,125 @@ export default function PlanificacionPage() {
 
       setAiReply(reply);
 
-      /* extraemos el bloque JSON con clases */
       const match = reply.match(/\{[\s\S]*\}/);
       if (match) {
         const parsed = JSON.parse(match[0]);
         if (Array.isArray(parsed.clases)) setClases(parsed.clases as Clase[]);
+        if (Array.isArray(parsed.fechasEvaluacion)) setFechasEval(parsed.fechasEvaluacion);
       }
     } catch (err: any) {
       setAiReply(`Error: ${err.message}`);
     }
   };
 
+  /* ───────── exporta docx global ───────── */
+  const exportarDocx = async () => {
+    if (!clases.length) return;
+    try {
+      const r = await fetch("/api/exportPlanificacion", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          plan: { asignatura, clases, fechasEvaluacion: fechasEval },
+        }),
+      });
+      const blob = await r.blob();
+      saveAs(blob, `planificacion_${asignatura || "curso"}.docx`);
+    } catch (e: any) {
+      alert(e.message);
+    }
+  };
+
   /* ───────── UI ───────── */
   return (
     <div className="max-w-4xl mx-auto p-6 bg-white dark:bg-gray-900 shadow-md rounded-2xl">
-      {/* ── formulario ── */}
+      {/* ───────── formulario ───────── */}
       <form onSubmit={handleSubmit} className="space-y-6">
         <h2 className="text-3xl font-bold mt-14 text-gray-900 dark:text-white">
           Crear Planificación
         </h2>
 
-        {/* datos básicos */}
+        {/* Campos básicos */}
         <div className="grid grid-cols-2 gap-4">
-          {/* Asignatura */}
           <div>
-            <label className="block font-medium text-gray-700 dark:text-gray-300">
-              Asignatura
-            </label>
+            <label className="block font-medium text-gray-700 dark:text-gray-300">Asignatura</label>
             <input
               className="w-full border rounded px-2 py-1 bg-gray-50 dark:bg-gray-700 dark:text-white"
               value={asignatura}
-              onChange={e => setAsignatura(e.target.value)}
+              onChange={(e) => setAsignatura(e.target.value)}
               required
             />
           </div>
-          {/* Tiempo hora */}
           <div>
-            <label className="block font-medium text-gray-700 dark:text-gray-300">
-              Tiempo por hora (min)
-            </label>
+            <label className="block font-medium text-gray-700 dark:text-gray-300">Tiempo por hora (min)</label>
             <input
               type="number"
               min={1}
               className="w-full border rounded px-2 py-1 bg-gray-50 dark:bg-gray-700 dark:text-white"
               value={tiempoHora}
-              onChange={e => setTiempoHora(Number(e.target.value))}
+              onChange={(e) => setTiempoHora(Number(e.target.value))}
             />
           </div>
-          {/* Horas semana */}
           <div>
-            <label className="block font-medium text-gray-700 dark:text-gray-300">
-              Horas por semana
-            </label>
+            <label className="block font-medium text-gray-700 dark:text-gray-300">Horas por semana</label>
             <input
               type="number"
               min={1}
               className="w-full border rounded px-2 py-1 bg-gray-50 dark:bg-gray-700 dark:text-white"
               value={horasSemana}
-              onChange={e => setHorasSemana(Number(e.target.value))}
+              onChange={(e) => setHorasSemana(Number(e.target.value))}
             />
           </div>
-          {/* Fechas */}
           <div>
-            <label className="block font-medium text-gray-700 dark:text-gray-300">
-              Fecha de inicio
-            </label>
+            <label className="block font-medium text-gray-700 dark:text-gray-300">Fecha de inicio</label>
             <input
               type="date"
               className="w-full border rounded px-2 py-1 bg-gray-50 dark:bg-gray-700 dark:text-white"
               value={fechaInicio}
-              onChange={e => setFechaInicio(e.target.value)}
+              onChange={(e) => setFechaInicio(e.target.value)}
             />
           </div>
           <div>
-            <label className="block font-medium text-gray-700 dark:text-gray-300">
-              Fecha de término
-            </label>
+            <label className="block font-medium text-gray-700 dark:text-gray-300">Fecha de término</label>
             <input
               type="date"
               className="w-full border rounded px-2 py-1 bg-gray-50 dark:bg-gray-700 dark:text-white"
               value={fechaTermino}
-              onChange={e => setFechaTermino(e.target.value)}
+              onChange={(e) => setFechaTermino(e.target.value)}
             />
           </div>
-          {/* Evaluaciones */}
           <div>
-            <label className="block font-medium text-gray-700 dark:text-gray-300">
-              N° de evaluaciones
-            </label>
+            <label className="block font-medium text-gray-700 dark:text-gray-300">N° de evaluaciones</label>
             <input
               type="number"
               min={1}
               className="w-full border rounded px-2 py-1 bg-gray-50 dark:bg-gray-700 dark:text-white"
               value={numEvaluaciones}
-              onChange={e => setNumEvaluaciones(Number(e.target.value))}
+              onChange={(e) => setNumEvaluaciones(Number(e.target.value))}
             />
           </div>
           <div>
-            <label className="block font-medium text-gray-700 dark:text-gray-300">
-              Semanas antes para notas
-            </label>
+            <label className="block font-medium text-gray-700 dark:text-gray-300">Semanas antes para notas</label>
             <input
               type="number"
               min={1}
               className="w-full border rounded px-2 py-1 bg-gray-50 dark:bg-gray-700 dark:text-white"
               value={semanasAntesNotas}
-              onChange={e => setSemanasAntesNotas(Number(e.target.value))}
+              onChange={(e) => setSemanasAntesNotas(Number(e.target.value))}
             />
           </div>
         </div>
 
-        {/* objetivos */}
+        {/* Objetivos */}
         <div>
-          <h3 className="font-medium mb-2 text-gray-800 dark:text-gray-200">
-            Objetivos específicos
-          </h3>
+          <h3 className="font-medium mb-2 text-gray-800 dark:text-gray-200">Objetivos específicos</h3>
           {objetivos.map((obj, idx) => (
             <div key={idx} className="flex gap-2 items-center mb-2">
               <input
                 className="flex-1 border rounded px-2 py-1 bg-gray-50 dark:bg-gray-700 dark:text-white"
                 placeholder="Descripción"
                 value={obj.descripcion}
-                onChange={e => handleObjetivoChange(idx, "descripcion", e.target.value)}
+                onChange={(e) => handleObjetivoChange(idx, "descripcion", e.target.value)}
                 required
               />
               <input
@@ -238,7 +232,7 @@ export default function PlanificacionPage() {
                 min={1}
                 className="w-20 border rounded px-2 py-1 bg-gray-50 dark:bg-gray-700 dark:text-white"
                 value={obj.puntaje}
-                onChange={e => handleObjetivoChange(idx, "puntaje", Number(e.target.value))}
+                onChange={(e) => handleObjetivoChange(idx, "puntaje", Number(e.target.value))}
               />
               <button
                 type="button"
@@ -258,11 +252,9 @@ export default function PlanificacionPage() {
           </button>
         </div>
 
-        {/* horario */}
+        {/* Horario */}
         <div>
-          <h3 className="font-medium mb-2 text-gray-800 dark:text-gray-200">
-            Horario de clases
-          </h3>
+          <h3 className="font-medium mb-2 text-gray-800 dark:text-gray-200">Horario de clases</h3>
           <ScheduleSelector schedule={schedule} setSchedule={setSchedule} />
         </div>
 
@@ -274,10 +266,26 @@ export default function PlanificacionPage() {
         </button>
       </form>
 
-      {/* listado de clases */}
-      <ClasesBox clases={clases} onGenerate={generarGuion} />
+      {/* ───────── listado de clases ───────── */}
+      <ClasesBox
+        clases={clases}
+        asignatura={asignatura}
+        onGenerate={generarGuion}
+      />
 
-      {/* prompt y respuesta brutas (plegables) */}
+      {/* ───────── botón global export ───────── */}
+      <button
+        onClick={exportarDocx}
+        disabled={clases.length === 0}
+        className={`mt-8 px-4 py-2 rounded text-white transition
+          ${clases.length === 0
+            ? "bg-gray-400 cursor-not-allowed dark:bg-gray-700"
+            : "bg-emerald-600 hover:bg-emerald-700 dark:bg-emerald-500 dark:hover:bg-emerald-600"}`}
+      >
+        📄 Descargar planificación .docx
+      </button>
+
+      {/* Prompt / respuesta (opcional) */}
       {generatedPrompt && (
         <details className="mt-6">
           <summary className="cursor-pointer text-lg font-medium text-gray-900 dark:text-white">
