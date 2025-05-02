@@ -19,8 +19,8 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
           <NavLink href="/dashboard" icon={<Book size={18} />}>Mis Cursos</NavLink>
           <NavLink href="/dashboard" icon={<Bot size={18} />}>Mis Rubricas</NavLink>
           <NavLink href="/dashboard/planificacion" icon={<Calendar size={18} />}>Crear Planificacion</NavLink>
+          <NavLink href="/dashboard/planificacioninversa" icon={<Calendar size={18} />}> Crear Planificacion inversa</NavLink>
           <NavLink href="/dashboard" icon={<TowerControl size={18} />}>Reportes para UTP</NavLink>
-
         </nav>
       </aside>
 

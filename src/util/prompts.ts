@@ -198,20 +198,21 @@ Taxonomía de Marzano:
 ${taxonomyJson}
 
 Tu tarea:
-- Crear todas las clases necesarias entre 'fechaInicio' y 'fechaTermino', usando los días activos en 'schedule'.
-- Cada clase debe tener: id incremental, fecha, hora de inicio, duración, objetivo basado en taxonomía, habilidad Marzano, inicio, desarrollo, cierre, y evaluacionIncluida (false excepto en evaluaciones).
-- La habilidad Marzano debe progresar lentamente (permitido repetir niveles, pero nunca retroceder).
-- Generar sesiones de evaluación (sin objetivo, sin contenido) antes de la fecha 'fechaNotas', distribuidas de manera razonable.
-- Si hay más de una clase en un mismo día, se agrupan en bloques continuos.
+- Crear todas las clases necesarias entre "fechaInicio" y "fechaTermino", usando los días activos en "schedule".
+- Cada clase debe tener: numero incremental, fecha, horaInicio, duracion, objetivo (según taxonomía), habilidad (nivel Marzano), inicio, desarrollo, cierre y evaluacionIncluida (false excepto en evaluaciones).
+- La habilidad Marzano debe progresar lentamente (puede repetir nivel, nunca retroceder).
+- Genera sesiones de evaluación (sin objetivo ni contenido) antes de "fechaNotas", distribuidas de manera razonable.
+- Si hay más de una clase en un mismo día, agrúpalas en bloques continuos.
 
-Sobre el objetivo de cada clase:
-- Usa el verbo de la habilidad Marzano + mediante (actividad principal) + actitudinal positivo (por ejemplo, con respeto, con pensamiento crítico).
+Construcción del objetivo:
+- Verbo de la habilidad Marzano + "mediante" + actividad principal + actitud positiva (ej.: "con respeto", "con pensamiento crítico").
 
-Formato de salida:
+Formato de salida exacto (no añadas ningún texto afuera del bloque JSON):
+
 {
   "clases": [
     {
-      "id": 1,
+      "numero": 1,
       "fecha": "YYYY-MM-DD",
       "horaInicio": "HH:MM",
       "duracion": minutos,
@@ -221,18 +222,14 @@ Formato de salida:
       "desarrollo": "actividad principal",
       "cierre": "actividad de cierre",
       "evaluacionIncluida": false
-    },
-    ...
+    }
   ],
-  "fechasEvaluacion": ["YYYY-MM-DD", ...]
+  "fechasEvaluacion": ["YYYY-MM-DD"]
 }
 
-Importante:
-- Genera todas las clases necesarias.
-- Sé claro, preciso y breve en cada actividad.
-- No agregues explicaciones fuera del formato JSON pedido.
-`;
+Responde **únicamente** con el objeto JSON solicitado, sin comentarios ni explicaciones adicionales.`;
 }
+
 
 export function promptGeneraInstrumento({
   asignatura,
