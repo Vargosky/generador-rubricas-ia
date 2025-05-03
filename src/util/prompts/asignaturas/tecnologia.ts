@@ -7,7 +7,7 @@
 
 export const reglasTecnologia = `
 Reglas para planificar en la asignatura de Tecnología:
-
+0. crea una clase y basate en esa clase para crear la siguiente
 1. No se deben aplicar pruebas escritas tradicionales.
 2. Todas las actividades deben estar orientadas a la creación de un producto o servicio.
 3. El trabajo debe ser progresivo: cada clase debe construir sobre la anterior.

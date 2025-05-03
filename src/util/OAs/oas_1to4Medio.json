@@ -1,0 +1,1881 @@
+[
+    {
+      "subject": "Lengua y Literatura",
+      "level": "1° Medio",
+      "code": "OA01",
+      "description": "Leer habitualmente para aprender y recrearse, y seleccionar textos de acuerdo con sus preferencias y propósitos."
+    },
+    {
+      "subject": "Lengua y Literatura",
+      "level": "1° Medio",
+      "code": "OA02",
+      "description": "Reflexionar sobre las diferentes dimensiones de la experiencia humana, propia y ajena, a partir de la lectura de obras literarias y otros textos que forman parte de nuestras herencias culturales, abordando los temas estipulados para el curso y las obras sugeridas para cada uno."
+    },
+    {
+      "subject": "Lengua y Literatura",
+      "level": "1° Medio",
+      "code": "OA03",
+      "description": "Analizar las narraciones leídas para enriquecer su comprensión"
+    },
+    {
+      "subject": "Lengua y Literatura",
+      "level": "1° Medio",
+      "code": "OA04",
+      "description": "Analizar los poemas leídos para enriquecer su comprensión"
+    },
+    {
+      "subject": "Lengua y Literatura",
+      "level": "1° Medio",
+      "code": "OA05",
+      "description": "Analizar los textos dramáticos leídos o vistos, para enriquecer su comprensión, considerando, cuando sea pertinente:\n- El conflicto y qué problema humano se expresa a través de él.\n- Un análisis de los personajes principales que considere su evolución, su relación con otros personajes, qué dicen, qué se dice de ellos, lo que hacen, cómo reaccionan, qué piensan y cuáles son sus motivaciones.\n- Personajes tipo, símbolos y tópicos literarios.\n- Las creencias, prejuicios y estereotipos presentes en el relato, a la luz de la visión de mundo de la época en la que fue escrito y su conexión con el mundo actual.\n- Los elementos (hechos, símbolos) que gatillan o anuncian futuros eventos en la tragedia.\n- Cómo los elementos propios de la puesta en escena aportan a la comprensión de la obra: iluminación, sonido, vestuario, escenografía, actuación.\n- Relaciones intertextuales con otras obras."
+    },
+    {
+      "subject": "Lengua y Literatura",
+      "level": "1° Medio",
+      "code": "OA06",
+      "description": "Comprender la visión de mundo que se expresa a través de las tragedias leídas, considerando sus características y el contexto en el que se enmarcan."
+    },
+    {
+      "subject": "Lengua y Literatura",
+      "level": "1° Medio",
+      "code": "OA07",
+      "description": "Comprender la relevancia de las obras del Romanticismo, considerando sus características y el contexto en el que se enmarcan."
+    },
+    {
+      "subject": "Lengua y Literatura",
+      "level": "1° Medio",
+      "code": "OA08",
+      "description": "Formular una interpretación de los textos literarios leídos o vistos"
+    },
+    {
+      "subject": "Lengua y Literatura",
+      "level": "1° Medio",
+      "code": "OA09",
+      "description": "Analizar y evaluar textos con finalidad argumentativa"
+    },
+    {
+      "subject": "Lengua y Literatura",
+      "level": "1° Medio",
+      "code": "OA10",
+      "description": "Analizar y evaluar textos de los medios de comunicación, como noticias, reportajes, cartas al director, propaganda o crónicas, considerando:\n- Los propósitos explícitos e implícitos del texto.\n- Las estrategias de persuasión utilizadas en el texto (uso del humor, presencia de estereotipos, apelación a los sentimientos, etc.) y evaluándolas.\n- La veracidad y consistencia de la información.\n- Los efectos causados por recursos no lingüísticos presentes en el texto, como diseño, imágenes, disposición gráfica y efectos de audio.\n- Similitudes y diferencias en la forma en que distintas fuentes presentan un mismo hecho.\n- Qué elementos del texto influyen en las propias opiniones, percepción de sí mismo y opciones que tomamos."
+    },
+    {
+      "subject": "Lengua y Literatura",
+      "level": "1° Medio",
+      "code": "OA11",
+      "description": "Leer y comprender textos no literarios para contextualizar y complementar las lecturas literarias realizadas en clases."
+    },
+    {
+      "subject": "Lengua y Literatura",
+      "level": "1° Medio",
+      "code": "OA12",
+      "description": "Aplicar habilidades de escritura adquiridas en clases"
+    },
+    {
+      "subject": "Lengua y Literatura",
+      "level": "1° Medio",
+      "code": "OA13",
+      "description": "Escribir, con el propósito de explicar un tema, textos de diversos géneros (por ejemplo, artículos, informes, reportajes, etc.) caracterizados por:\n- Una presentación clara del tema en que se esbozan los aspectos que se abordarán.\n- La inclusión de hechos, descripciones, ejemplos o explicaciones que reflejen una reflexión personal sobre el tema.\n- Una progresión temática clara, con especial atención al empleo de recursos anafóricos y conectores.\n- El uso de imágenes u otros recursos gráficos pertinentes.\n- Un cierre coherente con las características del género y el propósito del autor.\n- El uso de citas y referencias según un formato previamente acordado."
+    },
+    {
+      "subject": "Lengua y Literatura",
+      "level": "1° Medio",
+      "code": "OA14",
+      "description": "Escribir, con el propósito de persuadir, textos de diversos géneros, en particular ensayos sobre los temas o lecturas propuestos para el nivel, caracterizados por:\n- La presentación de una hipótesis o afirmación referida a temas contingentes o literarios.\n- La presencia de evidencias e información pertinente, extraídas de textos literarios y no literarios.\n- La mantención de la coherencia temática.\n- Una conclusión coherente con los argumentos presentados.\n- El uso de citas y referencias según un formato previamente acordado."
+    },
+    {
+      "subject": "Lengua y Literatura",
+      "level": "1° Medio",
+      "code": "OA15",
+      "description": "Planificar, escribir, revisar, reescribir y editar sus textos en función del contexto, el destinatario y el propósito:\n- Recopilando información e ideas y organizándolas antes de escribir.\n- Adecuando el registro, específicamente el vocabulario (uso de términos técnicos, frases hechas, palabras propias de las redes sociales, términos y expresiones propios del lenguaje hablado), el uso de la persona gramatical y la estructura del texto, al género discursivo, contexto y destinatario.\n- Considerando los conocimientos e intereses del lector al incluir la información.\n- Asegurando la coherencia y la cohesión del texto.\n- Cuidando la organización a nivel oracional y textual.\n- Usando conectores adecuados para unir las secciones que componen el texto y relacionando las ideas dentro de cada párrafo.\n- Usando un vocabulario variado y preciso.\n- Reconociendo y corrigiendo usos inadecuados, especialmente de pronombres personales y reflexivos, conjugaciones verbales, participios irregulares, conectores, y concordancia sujeto-verbo, artículo-sustantivo y sustantivo-adjetivo.\n- Corrigiendo la ortografía y mejorando la presentación.\n- Usando eficazmente las herramientas del procesador de textos."
+    },
+    {
+      "subject": "Lengua y Literatura",
+      "level": "1° Medio",
+      "code": "OA16",
+      "description": "Usar consistentemente el estilo directo y el indirecto en textos escritos y orales:\n- Empleando adecuadamente los tiempos verbales en el estilo indirecto.\n- Reflexionando sobre el contraste en aspectos formales y de significado entre estilo directo e indirecto, especialmente en textos del ámbito académico."
+    },
+    {
+      "subject": "Lengua y Literatura",
+      "level": "1° Medio",
+      "code": "OA17",
+      "description": "Usar en sus textos recursos de correferencia léxica compleja, empleando adecuadamente la metáfora y la metonimia para este fin."
+    },
+    {
+      "subject": "Lengua y Literatura",
+      "level": "1° Medio",
+      "code": "OA18",
+      "description": "Escribir correctamente para facilitar la comprensión al lector:\n- Aplicando todas las reglas de ortografía literal y acentual.\n- Verificando la escritura de las palabras cuya ortografía no está sujeta a reglas.\n- Usando correctamente punto, coma, raya, dos puntos, paréntesis, puntos suspensivos y comillas."
+    },
+    {
+      "subject": "Lengua y Literatura",
+      "level": "1° Medio",
+      "code": "OA19",
+      "description": "Comprender, comparar y evaluar textos orales y audiovisuales, tales como exposiciones, discursos, documentales, noticias, reportajes, etc., considerando:\n- Su postura personal frente a lo escuchado y argumentos que la sustenten.\n- Una ordenación de la información en términos de su relevancia.\n- El contexto en el que se enmarcan los textos.\n- El uso de estereotipos, clichés y generalizaciones.\n- Los hechos y las opiniones expresadas y su valor argumentativo.\n- Diferentes puntos de vista expresados en los textos.\n- La contribución de imágenes y sonido al significado del texto.\n- Las relaciones que se establecen entre imágenes, texto y sonido.\n- Relaciones entre lo escuchado y los temas y obras estudiados durante el curso."
+    },
+    {
+      "subject": "Lengua y Literatura",
+      "level": "1° Medio",
+      "code": "OA20",
+      "description": "Resumir un discurso argumentativo escuchado, explicando y evaluando los argumentos usados por el emisor."
+    },
+    {
+      "subject": "Lengua y Literatura",
+      "level": "1° Medio",
+      "code": "OA21",
+      "description": "Dialogar constructivamente para debatir o explorar ideas"
+    },
+    {
+      "subject": "Lengua y Literatura",
+      "level": "1° Medio",
+      "code": "OA22",
+      "description": "Expresarse frente a una audiencia de manera clara y adecuada a la situación para comunicar temas de su interés:\n- Presentando información fidedigna y que denota una investigación previa.\n- Siguiendo una progresión temática clara.\n- Relacionando la información ya dicha con la que están explicando.\n- Usando un vocabulario que denota dominio del tema.\n- Usando conectores adecuados para hilar la presentación.\n- Usando material visual que se relacione directamente con lo que se explica y destaque solo lo más relevante."
+    },
+    {
+      "subject": "Lengua y Literatura",
+      "level": "1° Medio",
+      "code": "OA23",
+      "description": "Analizar los posibles efectos de los elementos lingüísticos, paralingüísticos y no lingüísticos que usa un hablante en una situación determinada."
+    },
+    {
+      "subject": "Lengua y Literatura",
+      "level": "1° Medio",
+      "code": "OA24",
+      "description": "Realizar investigaciones sobre diversos temas para complementar sus lecturas o responder interrogantes relacionadas con el lenguaje y la literatura:\n- Delimitando el tema de investigación.\n- Descartando las páginas de internet que no aportan información útil para sus propósitos y, si es necesario, usando otras palabras clave para refinar la búsqueda.\n- Usando los organizadores y la estructura textual para encontrar información de manera eficiente.\n- Evaluando si los textos entregan suficiente información para responder una determinada pregunta o cumplir un propósito.\n- Evaluando la validez y confiabilidad de las fuentes consultadas.\n- Jerarquizando la información encontrada en las fuentes investigadas.\n- Registrando la información bibliográfica de las fuentes consultadas.\n- Elaborando un texto oral o escrito bien estructurado que comunique sus hallazgos."
+    },
+    {
+      "subject": "Lengua y Literatura",
+      "level": "1° Medio",
+      "code": "OAA A",
+      "description": "Manifestar disposición a formarse un pensamiento propio, reflexivo e informado, mediante una lectura crítica y el diálogo con otros."
+    },
+    {
+      "subject": "Lengua y Literatura",
+      "level": "1° Medio",
+      "code": "OAA B",
+      "description": "Manifestar una disposición a reflexionar sobre sí mismo y sobre las cuestiones sociales y éticas que emanan de las lecturas."
+    },
+    {
+      "subject": "Lengua y Literatura",
+      "level": "1° Medio",
+      "code": "OAA C",
+      "description": "Interesarse por comprender las experiencias e ideas de los demás, utilizando la lectura y el diálogo para el enriquecimiento personal y para la construcción de buenas relaciones con los demás."
+    },
+    {
+      "subject": "Lengua y Literatura",
+      "level": "1° Medio",
+      "code": "OAA D",
+      "description": "Valorar la diversidad de perspectivas, creencias y culturas, presentes en su entorno y el mundo, como manifestación de la libertad, creatividad y dignidad humana."
+    },
+    {
+      "subject": "Lengua y Literatura",
+      "level": "1° Medio",
+      "code": "OAA E",
+      "description": "Valorar las posibilidades que da el discurso hablado y escrito para participar de manera proactiva, informada y responsable en la vida de la sociedad democrática."
+    },
+    {
+      "subject": "Lengua y Literatura",
+      "level": "1° Medio",
+      "code": "OAA F",
+      "description": "Valorar la evidencia y la búsqueda de conocimientos que apoyen sus aseveraciones."
+    },
+    {
+      "subject": "Lengua y Literatura",
+      "level": "1° Medio",
+      "code": "OAA G",
+      "description": "Realizar tareas y trabajos de forma rigurosa y perseverante, entendiendo que los logros se obtienen solo después de un trabajo prolongado."
+    },
+    {
+      "subject": "Lengua y Literatura",
+      "level": "1° Medio",
+      "code": "OAA H",
+      "description": "Trabajar colaborativamente, usando de manera responsable las tecnologías de la comunicación, dando crédito al trabajo de otros y respetando la propiedad y la privacidad de las personas."
+    },
+    {
+      "subject": "Matemática",
+      "level": "1° Medio",
+      "code": "OA01",
+      "description": "Calcular operaciones con números racionales en forma simbólica."
+    },
+    {
+      "subject": "Matemática",
+      "level": "1° Medio",
+      "code": "OA02",
+      "description": "Mostrar que comprenden las potencias de base racional y exponente entero:\n- Representándolas en la recta numérica.\n- Aplicándolas en distintos contextos."
+    },
+    {
+      "subject": "Matemática",
+      "level": "1° Medio",
+      "code": "OA03",
+      "description": "Desarrollar los productos notables de manera concreta, pictórica y simbólica:\n- Cuadrado de binomio.\n- Diferencia de cuadrados."
+    },
+    {
+      "subject": "Matemática",
+      "level": "1° Medio",
+      "code": "OA04",
+      "description": "Resolver sistemas de ecuaciones lineales (2x2) relacionados con problemas de la vida diaria y de otras asignaturas, mediante representaciones gráficas y métodos algebraicos."
+    },
+    {
+      "subject": "Matemática",
+      "level": "1° Medio",
+      "code": "OA05",
+      "description": "Graficar relaciones lineales en dos variables de la forma f(x, y) = ax + by; por ejemplo: un haz de rectas paralelas en el plano cartesiano, líneas de nivel en el plano y otras en contexto."
+    },
+    {
+      "subject": "Matemática",
+      "level": "1° Medio",
+      "code": "OA06",
+      "description": "Desarrollar la fórmula de los valores del área y del perímetro de sectores y segmentos circulares, respectivamente, a partir de ángulos centrales de 60°, 90°, 120° y 180°."
+    },
+    {
+      "subject": "Matemática",
+      "level": "1° Medio",
+      "code": "OA07",
+      "description": "Desarrollar las fórmulas para encontrar el área de la superficie y el volumen del cono:\n- A partir del desarrollo plano del cono.\n- A partir de la descomposición del cono en un cilindro infinito de base infinitesimal."
+    },
+    {
+      "subject": "Matemática",
+      "level": "1° Medio",
+      "code": "OA08",
+      "description": "Mostrar que comprenden el concepto de homotecia:\n- Construyendo homotecias de razón entera en el plano cartesiano.\n- Identificando figuras homotéticas en situaciones geométricas.\n- Aplicándolo en la ampliación y reducción de figuras."
+    },
+    {
+      "subject": "Matemática",
+      "level": "1° Medio",
+      "code": "OA09",
+      "description": "Desarrollar el teorema de Tales mediante las propiedades de la homotecia, para aplicarlo en la resolución de problemas."
+    },
+    {
+      "subject": "Matemática",
+      "level": "1° Medio",
+      "code": "OA10",
+      "description": "Aplicar propiedades de semejanza y de proporcionalidad a modelos a escala y otras situaciones de la vida diaria y otras asignaturas."
+    },
+    {
+      "subject": "Matemática",
+      "level": "1° Medio",
+      "code": "OA11",
+      "description": "Representar el concepto de homotecia de forma vectorial, relacionándolo con el producto de un vector por un escalar, de manera manual y/o con software educativo."
+    },
+    {
+      "subject": "Matemática",
+      "level": "1° Medio",
+      "code": "OA12",
+      "description": "Registrar distribuciones de dos características distintas, de una misma población, en una tabla de doble entrada y en una nube de puntos."
+    },
+    {
+      "subject": "Matemática",
+      "level": "1° Medio",
+      "code": "OA13",
+      "description": "Comparar poblaciones mediante la confección de gráficos “xy” para dos atributos de muestras, de manera concreta y pictórica:\n- Identificando posibles correlaciones entre las variables."
+    },
+    {
+      "subject": "Matemática",
+      "level": "1° Medio",
+      "code": "OA14",
+      "description": "Desarrollar las reglas de las probabilidades, la regla aditiva, la regla multiplicativa y la combinación de ambas, de manera concreta, pictórica y simbólica."
+    },
+    {
+      "subject": "Matemática",
+      "level": "1° Medio",
+      "code": "OAA A",
+      "description": "Mostrar curiosidad e interés por descubrir patrones y relaciones matemáticas en diferentes contextos."
+    },
+    {
+      "subject": "Matemática",
+      "level": "1° Medio",
+      "code": "OAA B",
+      "description": "Confiar en sus capacidades para resolver problemas, perseverando en la búsqueda de soluciones."
+    },
+    {
+      "subject": "Matemática",
+      "level": "1° Medio",
+      "code": "OAA C",
+      "description": "Trabajar en forma colaborativa para lograr objetivos comunes, valorando las ideas de otros y comunicando las propias con claridad."
+    },
+    {
+      "subject": "Matemática",
+      "level": "1° Medio",
+      "code": "OAA D",
+      "description": "Manifestar rigurosidad y precisión en el uso del lenguaje matemático y en la elaboración de argumentos."
+    },
+    {
+      "subject": "Matemática",
+      "level": "1° Medio",
+      "code": "OAA E",
+      "description": "Valorar la aplicación de las matemáticas en la interpretación y la solución de problemas del mundo real."
+    },
+    {
+      "subject": "Inglés",
+      "level": "1° Medio",
+      "code": "OA01",
+      "description": "Demostrar comprensión de ideas generales e información explícita en textos orales adaptados y auténticos simples, literarios y no literarios, en diversos formatos audiovisuales (como exposiciones orales, conversaciones, descripciones, instrucciones y procedimientos, avisos publicitarios, entrevistas, noticieros, anécdotas, narraciones, canciones), acerca de temas variados (experiencias personales, temas de otras asignaturas, del contexto inmediato, de actualidad e interés global o de otras culturas) y que contienen las funciones del año."
+    },
+    {
+      "subject": "Inglés",
+      "level": "1° Medio",
+      "code": "OA02",
+      "description": "Identificar palabras, frases y expresiones clave, expresiones idiomáticas de uso más recurrente, combinaciones frecuentes de palabras (collocations), vocabulario temático, conectores (later, last, so that, although, both y los del año anterior), sonidos vocales largos y cortos (feet/fit), combinaciones iniciales /tr/ y /dr/ (tree/dress), sonido inicial /j/ (year, yes) y sonido final -tion /ʃ/ (como en vacation) en textos orales en diversos formatos o al participar en interacciones cotidianas y conversaciones en la clase."
+    },
+    {
+      "subject": "Inglés",
+      "level": "1° Medio",
+      "code": "OA03",
+      "description": "Identificar en los textos escuchados:\n- Propósito o finalidad del texto, tema e ideas relevantes.\n- Ideas generales en textos sobre temas menos conocidos.\n- Información específica y detalles clave asociados a personas, sus acciones y opiniones, lugares, tiempo, hablantes y situaciones.\n- Relaciones de contraste y problema-solución entre ideas."
+    },
+    {
+      "subject": "Inglés",
+      "level": "1° Medio",
+      "code": "OA04",
+      "description": "Seleccionar y usar estrategias para apoyar la comprensión de los textos escuchados:\n- Hacer predicciones.\n- Escuchar con un propósito.\n- Usar conocimientos previos.\n- Hacer inferencias con el apoyo de claves contextuales (tema, participantes, apoyo visual) y pistas fonológicas (entonación, acentuación).\n- Focalizar la atención en expresiones o frases clave.\n- Utilizar apoyos como gestos del hablante y entonación.\n- Pedir repetición o clarificación en interacciones.\n- Confirmar predicciones.\n- Resumir algunas ideas relevantes con apoyo.\n- Preguntar para confirmar comprensión."
+    },
+    {
+      "subject": "Inglés",
+      "level": "1° Medio",
+      "code": "OA05",
+      "description": "Presentar información en forma oral, usando recursos multimodales que refuercen el mensaje en forma creativa acerca de temas variados (como experiencias personales, temas de otras asignaturas, otras culturas, problemas globales y contingentes) tratando cada uno con profundidad, utilizando vocabulario relevante, estructuras sintácticas variadas y los sonidos del inglés en forma clara."
+    },
+    {
+      "subject": "Inglés",
+      "level": "1° Medio",
+      "code": "OA06",
+      "description": "Participar activa y coherentemente en conversaciones, discusiones y exposiciones simples acerca de diversos temas (como experiencias personales, temas de otras asignaturas, cultura e intereses globales, problemas de actualidad), incorporando funciones del lenguaje apropiadas a la situación (por ejemplo, expresar opiniones, estar de acuerdo o en desacuerdo, pedir aclaraciones, etc.) y aplicando estrategias para mantener la comunicación (como verificar comprensión, dar retroalimentación a sus interlocutores, etc.)."
+    },
+    {
+      "subject": "Inglés",
+      "level": "1° Medio",
+      "code": "OA07",
+      "description": "Demostrar comprensión de ideas principales y detalles en textos escritos adaptados y auténticos simples, literarios y no literarios (como infografías, correos electrónicos, artículos informativos, reseñas breves, descripciones, instrucciones, noticias, cuentos breves), acerca de temas conocidos y de relevancia para los estudiantes, que contengan vocabulario temático, expresiones idiomáticas frecuentes, conectores básicos (first, then, finally, because, so, but, however, etc.) y las funciones del año."
+    },
+    {
+      "subject": "Inglés",
+      "level": "1° Medio",
+      "code": "OA08",
+      "description": "Aplicar estrategias de comprensión lectora, como predecir el contenido de un texto a partir de sus características paratextuales, releer, identificar cognados, inferir el significado de palabras por el contexto, usar un diccionario bilingüe, confirmar predicciones, resumir información, entre otras."
+    },
+    {
+      "subject": "Inglés",
+      "level": "1° Medio",
+      "code": "OA09",
+      "description": "Escribir, con distintos propósitos (por ejemplo, para describir, narrar, informar, resumir), textos breves de estructura simple, sobre temas cotidianos o de interés, usando vocabulario temático, expresiones de uso frecuente, conectores básicos (and, but, or, because, then, so, etc.) y patrones sintácticos estudiados, aplicando convenciones ortográficas y de puntuación."
+    },
+    {
+      "subject": "Inglés",
+      "level": "1° Medio",
+      "code": "OA10",
+      "description": "Revisar y editar sus escritos breves con la ayuda del docente u otros estudiantes, enfocándose en aspectos formales (como ortografía, puntuación, tiempos verbales y vocabulario) y globales (como la organización de ideas y la coherencia del texto), utilizando estrategias de autocorrección (como leer en voz alta lo escrito, usar procesador de texto) y recursos de apoyo (como diccionarios bilingües en línea o en papel)."
+    },
+    {
+      "subject": "Inglés",
+      "level": "1° Medio",
+      "code": "OAA A",
+      "description": "Tener una actitud positiva y segura frente al aprendizaje del idioma inglés, valorando sus avances y participando activamente en situaciones comunicativas."
+    },
+    {
+      "subject": "Inglés",
+      "level": "1° Medio",
+      "code": "OAA B",
+      "description": "Demostrar perseverancia y esfuerzo en la adquisición de la lengua inglesa, enfrentando desafíos lingüísticos con interés y curiosidad."
+    },
+    {
+      "subject": "Inglés",
+      "level": "1° Medio",
+      "code": "OAA C",
+      "description": "Mostrar respeto y tolerancia ante la diversidad lingüística y cultural al interactuar en inglés, reconociendo la riqueza que aportan distintas culturas."
+    },
+    {
+      "subject": "Inglés",
+      "level": "1° Medio",
+      "code": "OAA D",
+      "description": "Valorar la importancia de aprender inglés como herramienta para acceder a información global, comunicarse con personas de otros países y comprender otras realidades."
+    },
+    {
+      "subject": "Historia, Geografía y Ciencias Sociales",
+      "level": "1° Medio",
+      "code": "OA01",
+      "description": "Formular preguntas que orienten una indagación sobre temas del mundo contemporáneo o de la historia reciente de Chile, delimitando el ámbito y el periodo a investigar."
+    },
+    {
+      "subject": "Historia, Geografía y Ciencias Sociales",
+      "level": "1° Medio",
+      "code": "OA02",
+      "description": "Analizar causas y consecuencias de distintos procesos económicos, políticos, sociales y culturales del mundo contemporáneo, utilizando diversos tipos de fuentes, como textos historiográficos, estadísticas, fuentes audiovisuales y gráficos."
+    },
+    {
+      "subject": "Historia, Geografía y Ciencias Sociales",
+      "level": "1° Medio",
+      "code": "OA03",
+      "description": "Explicar el proceso de construcción del Estado nacional en Chile en el siglo XIX, considerando las principales características de la organización política, las instituciones republicanas, la consolidación territorial y las tensiones entre proyectos conservadores y liberales."
+    },
+    {
+      "subject": "Historia, Geografía y Ciencias Sociales",
+      "level": "1° Medio",
+      "code": "OA04",
+      "description": "Caracterizar las transformaciones económicas y sociales ocurridas en Chile durante el siglo XIX, considerando la organización de la economía exportadora, los cambios demográficos, el impacto de la urbanización y la cuestión social a fines del siglo."
+    },
+    {
+      "subject": "Historia, Geografía y Ciencias Sociales",
+      "level": "1° Medio",
+      "code": "OA05",
+      "description": "Analizar los principales procesos y conflictos internacionales de la primera mitad del siglo XX, incluyendo la Primera Guerra Mundial, la crisis económica de 1929, el totalitarismo, la Segunda Guerra Mundial y sus repercusiones en Chile y América Latina."
+    },
+    {
+      "subject": "Historia, Geografía y Ciencias Sociales",
+      "level": "1° Medio",
+      "code": "OA06",
+      "description": "Explicar los principales procesos políticos y sociales en Chile durante la primera mitad del siglo XX, incluyendo la conformación de movimientos sociales, la consolidación de partidos políticos de masas, la cuestión social y las transformaciones económicas."
+    },
+    {
+      "subject": "Historia, Geografía y Ciencias Sociales",
+      "level": "1° Medio",
+      "code": "OA07",
+      "description": "Analizar los cambios geopolíticos del mundo a partir de la segunda mitad del siglo XX hasta la actualidad, considerando la Guerra Fría, los procesos de descolonización, la globalización y sus implicancias."
+    },
+    {
+      "subject": "Historia, Geografía y Ciencias Sociales",
+      "level": "1° Medio",
+      "code": "OA08",
+      "description": "Describir la transformación de Chile en la segunda mitad del siglo XX, incluyendo las políticas de industrialización, el quiebre democrático de 1973, el régimen militar, la recuperación de la democracia y los desafíos del Chile actual."
+    },
+    {
+      "subject": "Historia, Geografía y Ciencias Sociales",
+      "level": "1° Medio",
+      "code": "OA09",
+      "description": "Analizar problemas ambientales y territoriales contemporáneos (como la contaminación, el cambio climático, la urbanización, la escasez hídrica) a escala global, regional y local, comprendiendo sus causas y las estrategias de mitigación y adaptación."
+    },
+    {
+      "subject": "Historia, Geografía y Ciencias Sociales",
+      "level": "1° Medio",
+      "code": "OA10",
+      "description": "Investigar colaborativamente un problema o tema del mundo actual o de la historia reciente, aplicando habilidades de indagación social y comunicando los hallazgos de manera oral, escrita o multimodal."
+    },
+    {
+      "subject": "Historia, Geografía y Ciencias Sociales",
+      "level": "1° Medio",
+      "code": "OAA A",
+      "description": "Demostrar interés y curiosidad por comprender los procesos históricos y geográficos, reconociendo su importancia para la formación de una visión crítica del presente."
+    },
+    {
+      "subject": "Historia, Geografía y Ciencias Sociales",
+      "level": "1° Medio",
+      "code": "OAA B",
+      "description": "Respetar la diversidad de interpretaciones históricas y perspectivas culturales, valorando el diálogo informado y el debate fundamentado sobre temas sociales."
+    },
+    {
+      "subject": "Historia, Geografía y Ciencias Sociales",
+      "level": "1° Medio",
+      "code": "OAA C",
+      "description": "Manifestar rigurosidad y honestidad en la investigación histórica y social, dando crédito a las fuentes de información y evitando el plagio o la tergiversación de datos."
+    },
+    {
+      "subject": "Historia, Geografía y Ciencias Sociales",
+      "level": "1° Medio",
+      "code": "OAA D",
+      "description": "Valorar el patrimonio natural y cultural, reconociendo la necesidad de su preservación y la responsabilidad individual y colectiva en su cuidado."
+    },
+    {
+      "subject": "Ciencias Naturales",
+      "level": "1° Medio",
+      "code": "OA01",
+      "description": "Observar y describir detalladamente las características de objetos, procesos y fenómenos del mundo natural, usando los sentidos, instrumentos y técnicas de observación."
+    },
+    {
+      "subject": "Ciencias Naturales",
+      "level": "1° Medio",
+      "code": "OA02",
+      "description": "Formular preguntas investigables y predicciones fundamentadas sobre fenómenos naturales, utilizando sus conocimientos científicos previos."
+    },
+    {
+      "subject": "Ciencias Naturales",
+      "level": "1° Medio",
+      "code": "OA03",
+      "description": "Diseñar experimentos simples para investigar fenómenos físicos y químicos, identificando variables independientes, dependientes y controladas."
+    },
+    {
+      "subject": "Ciencias Naturales",
+      "level": "1° Medio",
+      "code": "OA04",
+      "description": "Planificar y llevar a cabo investigaciones científicas en contextos de laboratorio o en terreno, utilizando materiales y herramientas en forma segura y siguiendo protocolos establecidos."
+    },
+    {
+      "subject": "Ciencias Naturales",
+      "level": "1° Medio",
+      "code": "OA05",
+      "description": "Analizar las relaciones entre las estructuras y funciones de organismos, sistemas o procesos biológicos (por ejemplo, la relación entre anatomía y fisiología en animales y plantas)."
+    },
+    {
+      "subject": "Ciencias Naturales",
+      "level": "1° Medio",
+      "code": "OA06",
+      "description": "Investigar y explicar fenómenos de la Tierra y el universo (como la dinámica atmosférica, las capas de la Tierra, los ciclos astronómicos) utilizando evidencia científica."
+    },
+    {
+      "subject": "Ciencias Naturales",
+      "level": "1° Medio",
+      "code": "OA07",
+      "description": "Comprender la base de los procesos químicos fundamentales, describiendo propiedades y transformaciones de la materia en situaciones cotidianas."
+    },
+    {
+      "subject": "Ciencias Naturales",
+      "level": "1° Medio",
+      "code": "OA08",
+      "description": "Explicar principios y leyes físicas básicas (como fuerzas y movimiento, energía, electricidad) aplicándolos en la resolución de problemas sencillos del entorno."
+    },
+    {
+      "subject": "Ciencias Naturales",
+      "level": "1° Medio",
+      "code": "OA09",
+      "description": "Interpretar datos y evidencias obtenidas de investigaciones o fuentes secundarias, utilizando representaciones como tablas, gráficos o modelos."
+    },
+    {
+      "subject": "Ciencias Naturales",
+      "level": "1° Medio",
+      "code": "OA10",
+      "description": "Comunicar resultados, conclusiones y explicaciones de investigaciones científicas realizadas, de forma oral y escrita, utilizando lenguaje científico adecuado."
+    },
+    {
+      "subject": "Ciencias Naturales",
+      "level": "1° Medio",
+      "code": "OA11",
+      "description": "Reconocer la importancia de la sustentabilidad y la protección del medio ambiente, analizando el impacto de actividades humanas en ecosistemas y proponiendo medidas de mitigación."
+    },
+    {
+      "subject": "Ciencias Naturales",
+      "level": "1° Medio",
+      "code": "OA12",
+      "description": "Relacionar la ciencia y la tecnología con la sociedad, discutiendo casos en que los avances científicos generan beneficios, riesgos o dilemas éticos."
+    },
+    {
+      "subject": "Ciencias Naturales",
+      "level": "1° Medio",
+      "code": "OA13",
+      "description": "Comprender la diversidad de los seres vivos, clasificándolos en grupos taxonómicos mayores y reconociendo características comunes y adaptaciones específicas."
+    },
+    {
+      "subject": "Ciencias Naturales",
+      "level": "1° Medio",
+      "code": "OA14",
+      "description": "Explicar la base celular de la vida, describiendo la estructura y función de células, tejidos y órganos en organismos multicelulares."
+    },
+    {
+      "subject": "Ciencias Naturales",
+      "level": "1° Medio",
+      "code": "OA15",
+      "description": "Analizar la transferencia de materia y energía en ecosistemas, explicando relaciones tróficas (cadenas y redes alimentarias) y ciclos de nutrientes."
+    },
+    {
+      "subject": "Ciencias Naturales",
+      "level": "1° Medio",
+      "code": "OA16",
+      "description": "Investigar propiedades de mezclas y sustancias, distinguiendo entre mezclas, compuestos y elementos, y describiendo métodos de separación."
+    },
+    {
+      "subject": "Ciencias Naturales",
+      "level": "1° Medio",
+      "code": "OA17",
+      "description": "Describir reacciones químicas presentes en la vida diaria (como combustión, oxidación, neutralización) y sus evidencias (cambios de color, liberación de gas, energía)."
+    },
+    {
+      "subject": "Ciencias Naturales",
+      "level": "1° Medio",
+      "code": "OA18",
+      "description": "Desarrollar un modelo que describa cómo el número total de átomos no varía en una reacción química y cómo la masa se conserva aplicando la ley de la conservación de la materia."
+    },
+    {
+      "subject": "Ciencias Naturales",
+      "level": "1° Medio",
+      "code": "OA19",
+      "description": "Explicar la formación de compuestos binarios y ternarios, considerando las fuerzas eléctricas entre partículas y la nomenclatura inorgánica correspondiente."
+    },
+    {
+      "subject": "Ciencias Naturales",
+      "level": "1° Medio",
+      "code": "OA20",
+      "description": "Establecer relaciones cuantitativas entre reactantes y productos en reacciones químicas (estequiometría) y explicar la formación de compuestos útiles para los seres vivos, como la formación de la glucosa en la fotosíntesis."
+    },
+    {
+      "subject": "Ciencias Naturales",
+      "level": "1° Medio",
+      "code": "OAH A",
+      "description": "Observar y describir fenómenos de manera detallada, registrando datos con precisión."
+    },
+    {
+      "subject": "Ciencias Naturales",
+      "level": "1° Medio",
+      "code": "OAH B",
+      "description": "Formular preguntas e hipótesis a partir de la observación de fenómenos naturales."
+    },
+    {
+      "subject": "Ciencias Naturales",
+      "level": "1° Medio",
+      "code": "OAH C",
+      "description": "Diseñar investigaciones simples, identificando variables relevantes."
+    },
+    {
+      "subject": "Ciencias Naturales",
+      "level": "1° Medio",
+      "code": "OAH D",
+      "description": "Planificar experimentos controlados para poner a prueba hipótesis."
+    },
+    {
+      "subject": "Ciencias Naturales",
+      "level": "1° Medio",
+      "code": "OAH E",
+      "description": "Medir y recoger datos de manera sistemática, utilizando instrumentos apropiados."
+    },
+    {
+      "subject": "Ciencias Naturales",
+      "level": "1° Medio",
+      "code": "OAH F",
+      "description": "Analizar datos cuantitativos y cualitativos, identificando patrones o tendencias."
+    },
+    {
+      "subject": "Ciencias Naturales",
+      "level": "1° Medio",
+      "code": "OAH G",
+      "description": "Evaluar procedimientos y resultados de investigaciones, considerando su confiabilidad y validez."
+    },
+    {
+      "subject": "Ciencias Naturales",
+      "level": "1° Medio",
+      "code": "OAH H",
+      "description": "Comunicar conclusiones y argumentaciones científicas en forma clara, oralmente y por escrito."
+    },
+    {
+      "subject": "Educación Física y Salud",
+      "level": "1° Medio",
+      "code": "OA01",
+      "description": "Ejecutar una variedad de habilidades motrices específicas (de locomoción, manipulación y estabilidad) en diferentes contextos deportivos, recreativos y artísticos, demostrando control y coordinación."
+    },
+    {
+      "subject": "Educación Física y Salud",
+      "level": "1° Medio",
+      "code": "OA02",
+      "description": "Aplicar principios básicos del entrenamiento físico para el desarrollo de la condición física, participando en rutinas que mejoren la resistencia cardiovascular, la fuerza muscular, la velocidad y la flexibilidad."
+    },
+    {
+      "subject": "Educación Física y Salud",
+      "level": "1° Medio",
+      "code": "OA03",
+      "description": "Practicar regularmente actividades físicas y deportivas variadas, evidenciando conductas de autocuidado y seguridad (por ejemplo, hidratación, calentamiento, respeto de reglas) y aplicando primeros auxilios básicos cuando corresponda."
+    },
+    {
+      "subject": "Educación Física y Salud",
+      "level": "1° Medio",
+      "code": "OA04",
+      "description": "Participar en actividades físicas grupales mostrando liderazgo positivo, trabajo en equipo, respeto por las normas y asumiendo distintos roles (jugador, árbitro, entrenador, etc.) de manera responsable."
+    },
+    {
+      "subject": "Educación Física y Salud",
+      "level": "1° Medio",
+      "code": "OA05",
+      "description": "Proponer y llevar a cabo iniciativas para promover la actividad física regular y hábitos de vida saludable en su comunidad educativa (por ejemplo, organizar pausas activas, eventos deportivos, campañas anti sedentarismo)."
+    },
+    {
+      "subject": "Educación Física y Salud",
+      "level": "1° Medio",
+      "code": "OAA A",
+      "description": "Demostrar entusiasmo y compromiso en la práctica de actividad física, valorando sus beneficios para la salud."
+    },
+    {
+      "subject": "Educación Física y Salud",
+      "level": "1° Medio",
+      "code": "OAA B",
+      "description": "Respetar las normas y reglas de juego en actividades deportivas, evidenciando juego limpio y respeto hacia compañeros y adversarios."
+    },
+    {
+      "subject": "Educación Física y Salud",
+      "level": "1° Medio",
+      "code": "OAA C",
+      "description": "Trabajar colaborativamente en equipo, mostrando responsabilidad, solidaridad y liderazgo positivo en actividades físicas grupales."
+    },
+    {
+      "subject": "Educación Física y Salud",
+      "level": "1° Medio",
+      "code": "OAA D",
+      "description": "Valorar la importancia de un estilo de vida activo y equilibrado, integrando hábitos de ejercicio, alimentación saludable y descanso adecuado."
+    },
+    {
+      "subject": "Artes Visuales",
+      "level": "1° Medio",
+      "code": "OA01",
+      "description": "Experimentar con diversos materiales, técnicas y soportes de las artes visuales (dibujo, pintura, escultura, fotografía, medios digitales, etc.) para explorar sus posibilidades expresivas."
+    },
+    {
+      "subject": "Artes Visuales",
+      "level": "1° Medio",
+      "code": "OA02",
+      "description": "Aplicar elementos del lenguaje visual (línea, forma, color, textura, valor, espacio) en la creación de composiciones bidimensionales y tridimensionales que expresen ideas, emociones o conceptos."
+    },
+    {
+      "subject": "Artes Visuales",
+      "level": "1° Medio",
+      "code": "OA03",
+      "description": "Crear obras visuales originales inspirándose en referentes artísticos de distintas épocas y culturas, incorporando en sus trabajos algunas características estilísticas observadas."
+    },
+    {
+      "subject": "Artes Visuales",
+      "level": "1° Medio",
+      "code": "OA04",
+      "description": "Analizar obras de arte visual (pinturas, esculturas, instalaciones, fotografías, etc.) identificando elementos formales, temas y posibles significados, y expresando una apreciación personal fundamentada."
+    },
+    {
+      "subject": "Artes Visuales",
+      "level": "1° Medio",
+      "code": "OA05",
+      "description": "Reflexionar sobre los procesos de creación propios y de sus pares, evaluando las decisiones tomadas en cuanto a uso de materiales, técnicas y lenguaje visual, e incorporando retroalimentación para mejorar sus obras."
+    },
+    {
+      "subject": "Artes Visuales",
+      "level": "1° Medio",
+      "code": "OAA A",
+      "description": "Demostrar perseverancia y dedicación en el desarrollo de proyectos artísticos, enfrentando desafíos creativos con una actitud positiva."
+    },
+    {
+      "subject": "Artes Visuales",
+      "level": "1° Medio",
+      "code": "OAA B",
+      "description": "Respetar y valorar las producciones visuales propias y ajenas, reconociendo la diversidad de estilos, técnicas y visiones artísticas."
+    },
+    {
+      "subject": "Artes Visuales",
+      "level": "1° Medio",
+      "code": "OAA C",
+      "description": "Mostrar apertura a la experimentación y la innovación, explorando nuevas ideas y materiales en sus creaciones artísticas."
+    },
+    {
+      "subject": "Artes Visuales",
+      "level": "1° Medio",
+      "code": "OAA D",
+      "description": "Valorar el arte como medio de expresión y comunicación, apreciando su rol en la cultura, la historia y la sociedad."
+    },
+    {
+      "subject": "Música",
+      "level": "1° Medio",
+      "code": "OA01",
+      "description": "Interpretar repertorio musical variado (obras vocales o instrumentales) de diferentes estilos y épocas, ajustándose a los elementos básicos de la interpretación: ritmo, altura, dinámica y timbre."
+    },
+    {
+      "subject": "Música",
+      "level": "1° Medio",
+      "code": "OA02",
+      "description": "Crear composiciones o improvisaciones musicales sencillas, utilizando patrones rítmicos, melódicos y armónicos básicos, y explorando la combinación de sonidos y silencios para expresar ideas o emociones."
+    },
+    {
+      "subject": "Música",
+      "level": "1° Medio",
+      "code": "OA03",
+      "description": "Escuchar con atención y describir obras musicales de distintos géneros (clásico, popular, folclórico, etc.), identificando elementos como tempo, pulso, compás, timbre de instrumentos, texturas sonoras y forma musical."
+    },
+    {
+      "subject": "Música",
+      "level": "1° Medio",
+      "code": "OA04",
+      "description": "Analizar la función de la música en diferentes contextos culturales e históricos, reconociendo cómo la música refleja e influye en la identidad y las expresiones de distintas comunidades."
+    },
+    {
+      "subject": "Música",
+      "level": "1° Medio",
+      "code": "OA05",
+      "description": "Usar tecnologías disponibles (software de edición de audio, instrumentos digitales, aplicaciones) para apoyar la creación, interpretación o grabación de proyectos musicales."
+    },
+    {
+      "subject": "Música",
+      "level": "1° Medio",
+      "code": "OAA A",
+      "description": "Demostrar confianza y autoexpresión al participar en actividades musicales, ya sea interpretando, componiendo o improvisando."
+    },
+    {
+      "subject": "Música",
+      "level": "1° Medio",
+      "code": "OAA B",
+      "description": "Valorar el trabajo en equipo en conjuntos musicales, respetando el rol de cada integrante y contribuyendo al resultado colectivo."
+    },
+    {
+      "subject": "Música",
+      "level": "1° Medio",
+      "code": "OAA C",
+      "description": "Mostrarse abierto a conocer y apreciar músicas de diversos géneros y culturas, reconociendo en ellas formas válidas de expresión artística."
+    },
+    {
+      "subject": "Música",
+      "level": "1° Medio",
+      "code": "OAA D",
+      "description": "Manifestar perseverancia en el perfeccionamiento técnico-musical, comprendiendo que la práctica constante mejora la habilidad y comprensión musical."
+    },
+    {
+      "subject": "Orientación",
+      "level": "1° Medio",
+      "code": "OA01",
+      "description": "Comparar distintas alternativas posibles de sus proyectos de vida, en los ámbitos personal, académico y laboral, considerando sus intereses, habilidades y valores personales, así como las oportunidades y desafíos del entorno."
+    },
+    {
+      "subject": "Orientación",
+      "level": "1° Medio",
+      "code": "OA02",
+      "description": "Analizar en grupo temáticas relacionadas con la adolescencia (autoestima, sexualidad, relaciones interpersonales, participación ciudadana, etc.), fundamentando opiniones y respetando puntos de vista diferentes."
+    },
+    {
+      "subject": "Orientación",
+      "level": "1° Medio",
+      "code": "OA03",
+      "description": "Evaluar situaciones de riesgo comunes en la adolescencia (consumo de sustancias, acoso escolar, uso de redes sociales, conductas sexuales de riesgo, entre otras) y proponer estrategias de autocuidado y apoyo en su entorno."
+    },
+    {
+      "subject": "Orientación",
+      "level": "1° Medio",
+      "code": "OA04",
+      "description": "Promover y llevar a cabo acciones que favorezcan el bienestar integral y la vida saludable, tanto a nivel personal como en la comunidad educativa, mostrando iniciativa y responsabilidad."
+    },
+    {
+      "subject": "Orientación",
+      "level": "1° Medio",
+      "code": "OA05",
+      "description": "Fomentar relaciones interpersonales positivas y respetuosas en su entorno (familia, amigos, colegio), reflexionando sobre la importancia de la empatía, la comunicación asertiva y la resolución pacífica de conflictos."
+    },
+    {
+      "subject": "Orientación",
+      "level": "1° Medio",
+      "code": "OA06",
+      "description": "Discriminar alternativas para la resolución de conflictos en un marco de derechos, buscando acuerdos que beneficien a las partes involucradas y manteniendo el respeto mutuo."
+    },
+    {
+      "subject": "Orientación",
+      "level": "1° Medio",
+      "code": "OA07",
+      "description": "Evaluar instancias de participación juvenil disponibles en su entorno (centro de estudiantes, voluntariados, organizaciones comunitarias, etc.) e involucrarse en aquellas que contribuyan al bien común y a su desarrollo personal."
+    },
+    {
+      "subject": "Orientación",
+      "level": "1° Medio",
+      "code": "OA08",
+      "description": "Desarrollar iniciativas orientadas a promover valores como el respeto, la justicia, la inclusión y la solidaridad en su curso y comunidad educativa, asumiendo un rol activo en su implementación."
+    },
+    {
+      "subject": "Orientación",
+      "level": "1° Medio",
+      "code": "OA09",
+      "description": "Contrastar diversos posibles caminos a seguir en sus proyectos de vida, considerando opciones de educación superior, de inserción laboral y de desarrollo personal, y reflexionando sobre los pasos necesarios para lograrlos."
+    },
+    {
+      "subject": "Orientación",
+      "level": "1° Medio",
+      "code": "OA10",
+      "description": "Diseñar aspectos de sus posibles proyectos de vida, estableciendo metas personales de corto, mediano y largo plazo y reconociendo sus propias fortalezas, motivaciones, oportunidades y posibles dificultades."
+    },
+    {
+      "subject": "Orientación",
+      "level": "1° Medio",
+      "code": "OAA A",
+      "description": "Mostrar disposición a reflexionar sobre sí mismo y su entorno, abriéndose a recibir orientación y a aprender de la experiencia propia y ajena."
+    },
+    {
+      "subject": "Orientación",
+      "level": "1° Medio",
+      "code": "OAA B",
+      "description": "Participar activamente en las instancias de orientación y formación, demostrando respeto y empatía hacia las experiencias y opiniones de sus pares."
+    },
+    {
+      "subject": "Orientación",
+      "level": "1° Medio",
+      "code": "OAA C",
+      "description": "Asumir compromisos personales y grupales con responsabilidad y perseverancia, entendiendo la importancia de la constancia para el logro de sus objetivos."
+    },
+    {
+      "subject": "Orientación",
+      "level": "1° Medio",
+      "code": "OAA D",
+      "description": "Valorar la importancia de los valores éticos y ciudadanos en su vida cotidiana, demostrando coherencia entre lo que piensa, dice y hace."
+    },
+    {
+      "subject": "Tecnología",
+      "level": "1° Medio",
+      "code": "OA01",
+      "description": "Investigar y describir procesos tecnológicos (por ejemplo, fabricación de un producto, generación de energía, tratamiento de residuos), identificando las etapas, los recursos utilizados y los problemas que solucionan."
+    },
+    {
+      "subject": "Tecnología",
+      "level": "1° Medio",
+      "code": "OA02",
+      "description": "Diseñar soluciones tecnológicas simples para necesidades detectadas en su entorno (escolar, hogar o comunidad), aplicando un proceso de diseño: identificar el problema, proponer ideas, seleccionar una solución, planificar y construir un prototipo."
+    },
+    {
+      "subject": "Tecnología",
+      "level": "1° Medio",
+      "code": "OA03",
+      "description": "Usar de manera segura y responsable diversas herramientas, materiales y equipos en la elaboración de proyectos tecnológicos, siguiendo instrucciones técnicas y normas de seguridad."
+    },
+    {
+      "subject": "Tecnología",
+      "level": "1° Medio",
+      "code": "OA04",
+      "description": "Evaluar productos o soluciones tecnológicas existentes en función de criterios como eficiencia, impacto ambiental, ergonomía, costo y beneficio, proponiendo mejoras o alternativas."
+    },
+    {
+      "subject": "Tecnología",
+      "level": "1° Medio",
+      "code": "OA05",
+      "description": "Aplicar conocimientos de ciencias, matemáticas u otras disciplinas en la resolución de problemas tecnológicos (por ejemplo, utilizar principios físicos al construir estructuras resistentes, o cálculos matemáticos para dimensionar un proyecto)."
+    },
+    {
+      "subject": "Tecnología",
+      "level": "1° Medio",
+      "code": "OAA A",
+      "description": "Demostrar iniciativa y creatividad al proponer soluciones innovadoras a problemas tecnológicos, explorando diferentes ideas y enfoques."
+    },
+    {
+      "subject": "Tecnología",
+      "level": "1° Medio",
+      "code": "OAA B",
+      "description": "Trabajar colaborativamente en proyectos tecnológicos, asumiendo responsabilidades, cumpliendo plazos y valorando las contribuciones de cada integrante del equipo."
+    },
+    {
+      "subject": "Tecnología",
+      "level": "1° Medio",
+      "code": "OAA C",
+      "description": "Manifestar perseverancia frente a los desafíos técnicos que surgen durante la realización de un proyecto, buscando alternativas y aprendiendo de los errores."
+    },
+    {
+      "subject": "Tecnología",
+      "level": "1° Medio",
+      "code": "OAA D",
+      "description": "Valorar la incidencia de la tecnología en la vida cotidiana y en la sociedad, reflexionando sobre su uso ético, sus beneficios y sus riesgos."
+    },
+    {
+      "subject": "Lengua y Literatura",
+      "level": "2° Medio",
+      "code": "OA01",
+      "description": "Leer habitualmente para aprender y recrearse, y seleccionar textos de acuerdo con sus preferencias y propósitos."
+    },
+    {
+      "subject": "Lengua y Literatura",
+      "level": "2° Medio",
+      "code": "OA02",
+      "description": "Reflexionar sobre las diferentes dimensiones de la experiencia humana, propia y ajena, a partir de la lectura de obras literarias y otros textos que forman parte de nuestras herencias culturales, abordando los temas estipulados para el curso y las obras sugeridas para cada uno."
+    },
+    {
+      "subject": "Lengua y Literatura",
+      "level": "2° Medio",
+      "code": "OA03",
+      "description": "Analizar las narraciones leídas para enriquecer su comprensión, considerando, cuando sea pertinente:\n- El o los conflictos de la historia.\n- Un análisis de los personajes que considere su relación con otros personajes, qué dicen, qué se dice de ellos, sus acciones y motivaciones, sus convicciones y los dilemas que enfrentan.\n- La relación de un fragmento de la obra con el total.\n- Cómo el relato está influido por la visión del narrador.\n- Personajes tipo (por ejemplo, el pícaro, el avaro, el seductor, la madrastra, etc.), símbolos y tópicos literarios presentes en el texto.\n- Las creencias, prejuicios y estereotipos presentes en el relato, a la luz de la visión de mundo de la época en la que fue escrito y su conexión con el mundo actual.\n- El efecto producido por recursos como flashback, indicios, caja china (historia dentro de una historia), historia paralela.\n- Relaciones intertextuales con otras obras."
+    },
+    {
+      "subject": "Lengua y Literatura",
+      "level": "2° Medio",
+      "code": "OA04",
+      "description": "Analizar los poemas leídos para enriquecer su comprensión, considerando, cuando sea pertinente:\n- Los símbolos presentes en el texto y su relación con la totalidad del poema.\n- La actitud del hablante hacia el tema que aborda.\n- El significado o el efecto que produce el uso de lenguaje figurado en el poema.\n- El efecto que tiene el uso de repeticiones (de estructuras, sonidos, palabras o ideas) en el poema.\n- La relación que hay entre un fragmento y el total del poema.\n- Relaciones intertextuales con otras obras.\n- Las características del soneto."
+    },
+    {
+      "subject": "Lengua y Literatura",
+      "level": "2° Medio",
+      "code": "OA05",
+      "description": "Analizar los textos dramáticos leídos o vistos, para enriquecer su comprensión, considerando, cuando sea pertinente:\n- El conflicto y qué problema humano se expresa a través de él.\n- Un análisis de los personajes principales que considere su evolución, su relación con otros personajes, qué dicen, qué se dice de ellos, lo que hacen, cómo reaccionan, qué piensan y cuáles son sus motivaciones.\n- Personajes tipo, símbolos y tópicos literarios.\n- Las creencias, prejuicios y estereotipos presentes en el relato, a la luz de la visión de mundo de la época en la que fue escrito y su conexión con el mundo actual.\n- La atmósfera de la obra y cómo se construye a través de los diálogos, los monólogos, las acciones y las acotaciones.\n- Cómo los elementos propios de la puesta en escena aportan a la comprensión de la obra: iluminación, sonido, vestuario, escenografía, actuación.\n- Relaciones intertextuales con otras obras."
+    },
+    {
+      "subject": "Lengua y Literatura",
+      "level": "2° Medio",
+      "code": "OA06",
+      "description": "Comprender la relevancia de las obras del Siglo de Oro, considerando sus características y el contexto en el que se enmarcan."
+    },
+    {
+      "subject": "Lengua y Literatura",
+      "level": "2° Medio",
+      "code": "OA07",
+      "description": "Leer y comprender cuentos latinoamericanos modernos y contemporáneos, considerando sus características y el contexto en el que se enmarcan."
+    },
+    {
+      "subject": "Lengua y Literatura",
+      "level": "2° Medio",
+      "code": "OA08",
+      "description": "Formular una interpretación de los textos literarios leídos o vistos, que sea coherente con su análisis, considerando:\n- Los elementos formales y temáticos relevantes del texto.\n- El contexto de producción o recepción de la obra.\n- La propia visión e interacción personal con el texto."
+    },
+    {
+      "subject": "Lengua y Literatura",
+      "level": "2° Medio",
+      "code": "OA09",
+      "description": "Analizar y evaluar textos con finalidad argumentativa, como columnas de opinión, cartas al director, discursos y ensayos, considerando:\n- La tesis o idea central planteada.\n- Los argumentos y evidencias que la sustentan.\n- La efectividad y coherencia de la argumentación.\n- El contexto y propósito comunicativo del texto."
+    },
+    {
+      "subject": "Lengua y Literatura",
+      "level": "2° Medio",
+      "code": "OA10",
+      "description": "Analizar y evaluar textos de los medios de comunicación, como noticias, reportajes, cartas al director, propaganda o crónicas, considerando:\n- Los propósitos explícitos e implícitos del texto.\n- Las estrategias de persuasión utilizadas en el texto y evaluándolas.\n- La veracidad y consistencia de la información.\n- Los efectos de elementos no lingüísticos presentes en el texto (diseño, imágenes, gráficos, audio) en la interpretación del mensaje."
+    },
+    {
+      "subject": "Lengua y Literatura",
+      "level": "2° Medio",
+      "code": "OA11",
+      "description": "Leer y comprender textos no literarios para contextualizar y complementar las lecturas literarias realizadas en clases."
+    },
+    {
+      "subject": "Lengua y Literatura",
+      "level": "2° Medio",
+      "code": "OA12",
+      "description": "Aplicar flexiblemente y creativamente las habilidades de escritura adquiridas en clases como medio de expresión personal y cuando se enfrentan a nuevos géneros."
+    },
+    {
+      "subject": "Lengua y Literatura",
+      "level": "2° Medio",
+      "code": "OA13",
+      "description": "Escribir, con el propósito de explicar un tema, textos de diversos géneros (por ejemplo, artículos, informes, reportajes, etc.) caracterizados por:\n- Una presentación clara del tema, exponiendo los aspectos que se abordarán.\n- La inclusión de hechos, descripciones, ejemplos o explicaciones que reflejen una reflexión personal sobre el tema.\n- Una progresión temática clara, cuidando la cohesión mediante el empleo de recursos anafóricos y conectores.\n- El uso de apoyos visuales o gráficos pertinentes.\n- Un cierre coherente con las características del género y el propósito del texto.\n- El uso de citas y referencias según formato establecido."
+    },
+    {
+      "subject": "Lengua y Literatura",
+      "level": "2° Medio",
+      "code": "OA14",
+      "description": "Escribir, con el propósito de persuadir, textos de diversos géneros, especialmente ensayos sobre los temas o lecturas del nivel, caracterizados por:\n- La presentación de una tesis o postura sobre temas contingentes o literarios.\n- La inclusión de evidencias e información pertinente extraídas de textos literarios y no literarios.\n- La mantención de la coherencia temática.\n- Una conclusión coherente con los argumentos presentados.\n- El uso de citas y referencias según un formato acordado."
+    },
+    {
+      "subject": "Lengua y Literatura",
+      "level": "2° Medio",
+      "code": "OA15",
+      "description": "Planificar, escribir, revisar, reescribir y editar sus textos de acuerdo con el contexto, destinatario y propósito:\n- Recopilando y organizando información e ideas antes de escribir.\n- Adecuando el registro (vocabulario, persona gramatical, estructura) al género discursivo, contexto y destinatario.\n- Considerando los conocimientos e intereses del lector en la información incluida.\n- Asegurando la coherencia y cohesión textual.\n- Cuidando la estructura sintáctica a nivel de oración y texto.\n- Usando conectores adecuados para articular las secciones del texto y las ideas en cada párrafo.\n- Empleando un vocabulario variado y preciso.\n- Revisando y corrigiendo usos inadecuados de pronombres, conjugaciones verbales, participios irregulares, etc.\n- Corrigiendo la ortografía y mejorando la presentación.\n- Utilizando eficientemente herramientas de procesamiento de textos."
+    },
+    {
+      "subject": "Lengua y Literatura",
+      "level": "2° Medio",
+      "code": "OA16",
+      "description": "Usar consistentemente el estilo directo e indirecto en textos escritos y orales:\n- Empleando adecuadamente los tiempos verbales en estilo indirecto.\n- Reflexionando sobre diferencias formales y de significado entre estilo directo e indirecto, especialmente en contextos académicos."
+    },
+    {
+      "subject": "Lengua y Literatura",
+      "level": "2° Medio",
+      "code": "OA17",
+      "description": "Usar en sus textos recursos de correferencia léxica compleja, empleando adecuadamente figuras retóricas como metáfora y metonimia para lograr cohesión."
+    },
+    {
+      "subject": "Lengua y Literatura",
+      "level": "2° Medio",
+      "code": "OA18",
+      "description": "Escribir correctamente para facilitar la comprensión del lector:\n- Aplicando reglas ortográficas literales y acentuales.\n- Verificando ortografía de palabras no regulares.\n- Usando correctamente los signos de puntuación (punto, coma, raya, dos puntos, paréntesis, puntos suspensivos, comillas)."
+    },
+    {
+      "subject": "Lengua y Literatura",
+      "level": "2° Medio",
+      "code": "OA19",
+      "description": "Comprender, comparar y evaluar textos orales y audiovisuales (exposiciones, discursos, documentales, noticias, reportajes, etc.), considerando:\n- Su postura personal frente a lo escuchado, con argumentos que la sustenten.\n- La organización de la información según su relevancia.\n- El contexto de los textos.\n- El uso de estereotipos y generalizaciones.\n- Los hechos y opiniones expresados y su valor argumentativo.\n- Diferentes puntos de vista presentados.\n- La contribución de imágenes y sonido al significado.\n- Relaciones entre imágenes, texto y sonido.\n- Conexiones con temas y obras estudiados."
+    },
+    {
+      "subject": "Lengua y Literatura",
+      "level": "2° Medio",
+      "code": "OA20",
+      "description": "Resumir discursos argumentativos escuchados, explicando y evaluando los argumentos empleados por el emisor."
+    },
+    {
+      "subject": "Lengua y Literatura",
+      "level": "2° Medio",
+      "code": "OA21",
+      "description": "Dialogar constructivamente para debatir o explorar ideas, respetando turnos, escuchando activamente y respondiendo con coherencia."
+    },
+    {
+      "subject": "Lengua y Literatura",
+      "level": "2° Medio",
+      "code": "OA22",
+      "description": "Expresarse frente a una audiencia de manera clara y adecuada, sobre temas de su interés:\n- Presentando información fidedigna investigada previamente.\n- Siguiendo una progresión temática lógica.\n- Relacionando la información nueva con la ya dicha.\n- Empleando vocabulario pertinente que demuestre dominio del tema.\n- Utilizando conectores para hilar la exposición.\n- Apoyándose en material visual directamente relacionado y relevante."
+    },
+    {
+      "subject": "Lengua y Literatura",
+      "level": "2° Medio",
+      "code": "OA23",
+      "description": "Analizar los efectos posibles de elementos lingüísticos, paralingüísticos y no lingüísticos que utiliza un hablante en una situación dada (entonación, gestos, imágenes, etc.)."
+    },
+    {
+      "subject": "Lengua y Literatura",
+      "level": "2° Medio",
+      "code": "OA24",
+      "description": "Realizar investigaciones sobre diversos temas para complementar lecturas o responder preguntas relacionadas con lenguaje y literatura:\n- Delimitando el tema a investigar.\n- Filtrando información irrelevante de Internet y refinando búsquedas.\n- Usando organizadores y la estructura de textos para hallar información eficientemente.\n- Evaluando si los textos proveen suficiente información para responder la pregunta planteada.\n- Evaluando validez y confiabilidad de fuentes.\n- Jerarquizando la información encontrada.\n- Registrando las referencias bibliográficas de las fuentes.\n- Elaborando un texto bien estructurado (oral o escrito) que comunique sus hallazgos."
+    },
+    {
+      "subject": "Lengua y Literatura",
+      "level": "2° Medio",
+      "code": "OAA A",
+      "description": "Mostrar disposición a construir un pensamiento propio, reflexivo e informado, mediante la lectura crítica y el diálogo."
+    },
+    {
+      "subject": "Lengua y Literatura",
+      "level": "2° Medio",
+      "code": "OAA B",
+      "description": "Disponer una actitud de reflexión sobre sí mismo y sobre las cuestiones sociales y éticas que surgen de las lecturas."
+    },
+    {
+      "subject": "Lengua y Literatura",
+      "level": "2° Medio",
+      "code": "OAA C",
+      "description": "Interesarse por comprender las experiencias e ideas de los demás, utilizando la lectura y el diálogo para su crecimiento personal y para construir buenas relaciones."
+    },
+    {
+      "subject": "Lengua y Literatura",
+      "level": "2° Medio",
+      "code": "OAA D",
+      "description": "Valorar la diversidad de perspectivas, creencias y culturas presentes en su entorno y en el mundo, entendiéndolas como expresiones de libertad, creatividad y dignidad humana."
+    },
+    {
+      "subject": "Lengua y Literatura",
+      "level": "2° Medio",
+      "code": "OAA E",
+      "description": "Valorar las posibilidades que brinda el discurso hablado y escrito para participar de manera proactiva, informada y responsable en la vida democrática de la sociedad."
+    },
+    {
+      "subject": "Lengua y Literatura",
+      "level": "2° Medio",
+      "code": "OAA F",
+      "description": "Valorar la evidencia y la búsqueda de conocimiento que respaldan sus afirmaciones."
+    },
+    {
+      "subject": "Lengua y Literatura",
+      "level": "2° Medio",
+      "code": "OAA G",
+      "description": "Realizar tareas y trabajos con rigurosidad y perseverancia, comprendiendo que los logros se obtienen tras un esfuerzo sostenido."
+    },
+    {
+      "subject": "Lengua y Literatura",
+      "level": "2° Medio",
+      "code": "OAA H",
+      "description": "Trabajar colaborativamente, usando responsablemente las tecnologías de la comunicación, dando crédito al trabajo de otros y respetando la propiedad y privacidad ajenas."
+    },
+    {
+      "subject": "Matemática",
+      "level": "2° Medio",
+      "code": "OA01",
+      "description": "Realizar cálculos y estimaciones con números reales (potencias, raíces, logaritmos), aplicándolos en la resolución de problemas en contextos diversos."
+    },
+    {
+      "subject": "Matemática",
+      "level": "2° Medio",
+      "code": "OA02",
+      "description": "Mostrar que comprenden las relaciones entre potencias, raíces enésimas y logaritmos:\n- Comparando potencias de exponente racional con sus correspondientes raíces enésimas.\n- Convirtiendo raíces enésimas a potencias de exponente racional y viceversa.\n- Describiendo la relación entre potencias y logaritmos.\n- Resolviendo problemas rutinarios y no rutinarios que involucren potencias, logaritmos y raíces enésimas."
+    },
+    {
+      "subject": "Matemática",
+      "level": "2° Medio",
+      "code": "OA03",
+      "description": "Mostrar que comprenden la función cuadrática f(x)=ax^2+bx+c (a ≠ 0):\n- Reconociendo funciones cuadráticas en situaciones de la vida diaria y otras asignaturas.\n- Representándolas en tablas y gráficos manualmente o con software.\n- Determinando puntos notables de su gráfica.\n- Aplicándolas como modelos de situaciones de cambio cuadrático (por ejemplo, en economía)."
+    },
+    {
+      "subject": "Matemática",
+      "level": "2° Medio",
+      "code": "OA04",
+      "description": "Resolver, de manera concreta, pictórica y simbólica (o usando herramientas tecnológicas), ecuaciones cuadráticas de la forma:\n- ax^2 = b\n- (ax + b)^2 = c\n- ax^2 + bx = 0\n- ax^2 + bx = c (con a, b, c números racionales, a ≠ 0)."
+    },
+    {
+      "subject": "Matemática",
+      "level": "2° Medio",
+      "code": "OA05",
+      "description": "Mostrar que comprenden la inversa de una función:\n- Empleando la metáfora de una máquina (entrada/salida).\n- Calculando la función inversa en casos de funciones lineales y cuadráticas simples.\n- Representándola gráficamente a través de la simetría respecto de la recta y = x."
+    },
+    {
+      "subject": "Matemática",
+      "level": "2° Medio",
+      "code": "OA06",
+      "description": "Demostrar que comprenden los sistemas de ecuaciones lineales (3x3) y sus soluciones:\n- Representando sistemas en contexto geométrico (intersección de planos).\n- Resolviendo sistemas por métodos algebraicos (sustitución, eliminación) o con apoyo tecnológico.\n- Aplicándolos en problemas de contexto."
+    },
+    {
+      "subject": "Matemática",
+      "level": "2° Medio",
+      "code": "OA07",
+      "description": "Aplicar razones trigonométricas (seno, coseno, tangente) en la resolución de problemas de la vida real y otras asignaturas, especialmente en triángulos rectángulos (por ejemplo, cálculo de alturas inaccesibles, distancias)."
+    },
+    {
+      "subject": "Matemática",
+      "level": "2° Medio",
+      "code": "OA08",
+      "description": "Mostrar que comprenden las relaciones métricas en el círculo y la esfera:\n- Calculando áreas de superficies esféricas.\n- Calculando volúmenes de esferas.\n- Resolviendo problemas que involucren circunferencias (longitudes, áreas de sectores) y esferas (áreas, volúmenes)."
+    },
+    {
+      "subject": "Matemática",
+      "level": "2° Medio",
+      "code": "OA09",
+      "description": "Interpretar y construir gráficos \"xy\" (diagrama de dispersión) para dos variables de una muestra, identificando posibles correlaciones (positiva, negativa o nula) y discutiiendo su significado en contextos estadísticos sencillos."
+    },
+    {
+      "subject": "Matemática",
+      "level": "2° Medio",
+      "code": "OA10",
+      "description": "Calcular probabilidades en eventos compuestos sencillos aplicando las reglas aditiva y multiplicativa de la probabilidad, así como combinaciones de ambas en experimentos aleatorios básicos."
+    },
+    {
+      "subject": "Matemática",
+      "level": "2° Medio",
+      "code": "OA11",
+      "description": "Analizar distribuciones bivariadas (dos variables) mediante tablas de doble entrada y diagramas de dispersión, describiendo tendencias generales y asociación entre variables."
+    },
+    {
+      "subject": "Matemática",
+      "level": "2° Medio",
+      "code": "OA12",
+      "description": "Comparar dos poblaciones o dos muestras respecto de dos características, mediante la interpretación de gráficos de dispersión, identificando patrones o diferencias significativas."
+    },
+    {
+      "subject": "Matemática",
+      "level": "2° Medio",
+      "code": "OA13",
+      "description": "Aplicar la regla de Laplace (probabilidad = casos favorables / casos posibles) y principios de conteo simples (permuts, combins) en situaciones de azar equiprobables para calcular probabilidades."
+    },
+    {
+      "subject": "Matemática",
+      "level": "2° Medio",
+      "code": "OA14",
+      "description": "Resolver problemas de probabilidad que involucren eventos mutuamente excluyentes o independientes, utilizando las fórmulas apropiadas y justificando sus procedimientos."
+    },
+    {
+      "subject": "Matemática",
+      "level": "2° Medio",
+      "code": "OAA A",
+      "description": "Persistir en la búsqueda de estrategias diversas para resolver problemas matemáticos, mostrando iniciativa e ingenio."
+    },
+    {
+      "subject": "Matemática",
+      "level": "2° Medio",
+      "code": "OAA B",
+      "description": "Reconocer la importancia del error en el proceso de aprendizaje matemático, aprovechándolo como oportunidad para profundizar la comprensión."
+    },
+    {
+      "subject": "Matemática",
+      "level": "2° Medio",
+      "code": "OAA C",
+      "description": "Trabajar de manera colaborativa en la resolución de problemas, comunicando ideas matemáticas con claridad y respeto hacia los demás."
+    },
+    {
+      "subject": "Matemática",
+      "level": "2° Medio",
+      "code": "OAA D",
+      "description": "Manifestar precisión y cuidado en la presentación de procedimientos y resultados matemáticos, valorando la rigurosidad propia de la disciplina."
+    },
+    {
+      "subject": "Matemática",
+      "level": "2° Medio",
+      "code": "OAA E",
+      "description": "Interesarse por la aplicación de las matemáticas en contextos científicos, tecnológicos y cotidianos, comprendiendo su relevancia en el mundo actual."
+    },
+    {
+      "subject": "Inglés",
+      "level": "2° Medio",
+      "code": "OA01",
+      "description": "Demostrar comprensión de ideas generales e información explícita en textos orales adaptados y auténticos más complejos, literarios y no literarios, en diversos formatos audiovisuales (charlas, conversaciones, descripciones, instrucciones, noticias, películas) sobre temas de interés global y académico, que incluyan las funciones del lenguaje estudiadas."
+    },
+    {
+      "subject": "Inglés",
+      "level": "2° Medio",
+      "code": "OA02",
+      "description": "Identificar palabras clave, expresiones idiomáticas comunes, colocaciones (collocations), vocabulario temático avanzado, conectores discursivos (however, although, on the other hand, etc.) y patrones sonoros (contraste de vocales largas y cortas, combinaciones consonánticas) al escuchar interacciones y textos orales en inglés."
+    },
+    {
+      "subject": "Inglés",
+      "level": "2° Medio",
+      "code": "OA03",
+      "description": "Identificar en textos orales:\n- Propósito del hablante y tema central.\n- Ideas principales y secundarias incluso en contextos menos familiares.\n- Detalles específicos sobre personajes, acciones, opiniones y contextos.\n- Relaciones causa-efecto y problema-solución entre ideas presentadas."
+    },
+    {
+      "subject": "Inglés",
+      "level": "2° Medio",
+      "code": "OA04",
+      "description": "Seleccionar y aplicar estrategias de comprensión auditiva adecuadas a textos más complejos:\n- Hacer inferencias apoyándose en contexto y entonación.\n- Tomar apuntes breves de lo escuchado.\n- Comprobar hipótesis a medida que avanza la escucha.\n- Escuchar en busca de información específica.\n- Autopreguntarse sobre lo comprendido y clarificar."
+    },
+    {
+      "subject": "Inglés",
+      "level": "2° Medio",
+      "code": "OA05",
+      "description": "Presentar información y opiniones de forma oral sobre temas variados (culturales, científicos, cotidianos), apoyándose en recursos multimodales innovadores, con coherencia y dominio de estructuras gramaticales y pronunciación clara."
+    },
+    {
+      "subject": "Inglés",
+      "level": "2° Medio",
+      "code": "OA06",
+      "description": "Participar en conversaciones y discusiones sobre temas de interés y actualidad, adecuando el registro (formal/informal), respetando turnos, haciendo preguntas de clarificación, expresando acuerdo o discrepancia fundamentada y manteniendo la interacción."
+    },
+    {
+      "subject": "Inglés",
+      "level": "2° Medio",
+      "code": "OA07",
+      "description": "Demostrar comprensión de ideas principales, detalles e inferencias en textos escritos adaptados y auténticos de extensión moderada (artículos, relatos, ensayos breves) sobre temas familiares y algunos menos conocidos, con vocabulario y estructuras propias del nivel."
+    },
+    {
+      "subject": "Inglés",
+      "level": "2° Medio",
+      "code": "OA08",
+      "description": "Emplear estrategias de comprensión lectora en textos más extensos o complejos:\n- Predecir contenido con mayor autonomía.\n- Inferir significado de palabras desconocidas por contexto o morfología (prefijos/sufijos).\n- Relacionar información de distintas partes del texto.\n- Resumir pasajes enfatizando ideas centrales."
+    },
+    {
+      "subject": "Inglés",
+      "level": "2° Medio",
+      "code": "OA09",
+      "description": "Escribir textos cohesionados (relatos, informes breves, ensayos cortos, cartas formales e informales) adecuados a su propósito comunicativo, usando variedad de vocabulario, frases idiomáticas básicas, conectores (in addition, therefore, on the contrary, etc.) y estructuras sintácticas estudiadas, con ortografía y puntuación mayormente correctas."
+    },
+    {
+      "subject": "Inglés",
+      "level": "2° Medio",
+      "code": "OA10",
+      "description": "Revisar y corregir sus escritos, de manera cada vez más autónoma o con retroalimentación de pares, focalizándose tanto en aspectos globales (claridad, coherencia, registro adecuado) como locales (gramática, ortografía, léxico preciso), usando herramientas como revisores ortográficos y guías de autoevaluación."
+    },
+    {
+      "subject": "Inglés",
+      "level": "2° Medio",
+      "code": "OAA A",
+      "description": "Manifestar confianza creciente en el uso del inglés, atreviéndose a comunicarse a pesar de las dificultades, y valorando sus avances."
+    },
+    {
+      "subject": "Inglés",
+      "level": "2° Medio",
+      "code": "OAA B",
+      "description": "Mostrar iniciativa en la práctica y aprendizaje del inglés fuera del aula (escuchando música, viendo películas, leyendo en inglés), evidenciando motivación intrínseca."
+    },
+    {
+      "subject": "Inglés",
+      "level": "2° Medio",
+      "code": "OAA C",
+      "description": "Respetar las contribuciones de sus compañeros en actividades comunicativas en inglés, fomentando un ambiente de apoyo y colaboración."
+    },
+    {
+      "subject": "Inglés",
+      "level": "2° Medio",
+      "code": "OAA D",
+      "description": "Apreciar el aprendizaje del inglés como medio para ampliar sus horizontes culturales, académicos y profesionales, y demostrar compromiso con su progreso."
+    },
+    {
+      "subject": "Historia, Geografía y Ciencias Sociales",
+      "level": "2° Medio",
+      "code": "OA01",
+      "description": "Formular preguntas para investigar temas relevantes de la historia de Chile y América en los siglos XIX y XX, delimitando claramente el foco temporal y espacial de la indagación."
+    },
+    {
+      "subject": "Historia, Geografía y Ciencias Sociales",
+      "level": "2° Medio",
+      "code": "OA02",
+      "description": "Analizar las causas y consecuencias de procesos y conflictos mundiales del siglo XX (Guerra Fría, descolonización, globalización), utilizando fuentes históricas variadas (documentos, testimonios, datos estadísticos)."
+    },
+    {
+      "subject": "Historia, Geografía y Ciencias Sociales",
+      "level": "2° Medio",
+      "code": "OA03",
+      "description": "Explicar la evolución política de Chile en el siglo XX, considerando períodos como el parlamentarismo, los proyectos de modernización, el quiebre democrático de 1973, el régimen autoritario y la transición a la democracia."
+    },
+    {
+      "subject": "Historia, Geografía y Ciencias Sociales",
+      "level": "2° Medio",
+      "code": "OA04",
+      "description": "Caracterizar los cambios económicos y sociales en Chile durante el siglo XX, incluyendo el proceso de industrialización, las reformas agraria y educativa, los movimientos sociales y el impacto del modelo neoliberal."
+    },
+    {
+      "subject": "Historia, Geografía y Ciencias Sociales",
+      "level": "2° Medio",
+      "code": "OA05",
+      "description": "Analizar la situación geopolítica y económica de Chile en la actualidad, en el contexto latinoamericano y global: inserción en mercados internacionales, políticas regionales, participación en organismos globales, desafíos sociales y ambientales."
+    },
+    {
+      "subject": "Historia, Geografía y Ciencias Sociales",
+      "level": "2° Medio",
+      "code": "OA06",
+      "description": "Explicar procesos democráticos y de ciudadanía en Chile post-1990, incluyendo reformas institucionales, rol de la sociedad civil, avances en derechos humanos y desafíos pendientes en igualdad y participación."
+    },
+    {
+      "subject": "Historia, Geografía y Ciencias Sociales",
+      "level": "2° Medio",
+      "code": "OA07",
+      "description": "Describir problemáticas territoriales contemporáneas de Chile (centralización, migración campo-ciudad, conflictos ambientales y étnicos), analizando sus causas históricas y proponiendo alternativas de solución."
+    },
+    {
+      "subject": "Historia, Geografía y Ciencias Sociales",
+      "level": "2° Medio",
+      "code": "OA08",
+      "description": "Elaborar una investigación colaborativa sobre un problema del Chile actual (desigualdad, medio ambiente, diversidad cultural, etc.), aplicando métodos de las ciencias sociales y presentando conclusiones sustentadas en evidencia."
+    },
+    {
+      "subject": "Historia, Geografía y Ciencias Sociales",
+      "level": "2° Medio",
+      "code": "OA09",
+      "description": "Evaluar las consecuencias locales de fenómenos globales actuales (cambio climático, migraciones, crisis económicas, pandemias) y discutir cómo Chile se ve afectado y responde a estos desafíos."
+    },
+    {
+      "subject": "Historia, Geografía y Ciencias Sociales",
+      "level": "2° Medio",
+      "code": "OA10",
+      "description": "Debatir sobre la importancia de la memoria histórica y los derechos humanos en la sociedad chilena, a partir del análisis de experiencias del siglo XX (dictadura, violencia política, reconciliación nacional)."
+    },
+    {
+      "subject": "Historia, Geografía y Ciencias Sociales",
+      "level": "2° Medio",
+      "code": "OAA A",
+      "description": "Mostrar espíritu crítico y reflexivo frente a las narrativas históricas oficiales, indagando diversas fuentes y perspectivas para formarse una opinión informada."
+    },
+    {
+      "subject": "Historia, Geografía y Ciencias Sociales",
+      "level": "2° Medio",
+      "code": "OAA B",
+      "description": "Comprometerse con valores democráticos y de respeto a los derechos humanos, reconociendo su importancia en la convivencia social y política."
+    },
+    {
+      "subject": "Historia, Geografía y Ciencias Sociales",
+      "level": "2° Medio",
+      "code": "OAA C",
+      "description": "Participar de manera constructiva en discusiones sobre problemas del país, escuchando opiniones distintas y argumentando con base en datos y evidencias."
+    },
+    {
+      "subject": "Historia, Geografía y Ciencias Sociales",
+      "level": "2° Medio",
+      "code": "OAA D",
+      "description": "Valorar el patrimonio cultural y natural de Chile, mostrando interés por su preservación y difusión."
+    },
+    {
+      "subject": "Ciencias Naturales",
+      "level": "2° Medio",
+      "code": "OA01",
+      "description": "Observar, describir y comparar organismos, materiales y fenómenos naturales, utilizando instrumentos de medición y técnicas de registro, y valorando la precisión y exactitud de los datos obtenidos."
+    },
+    {
+      "subject": "Ciencias Naturales",
+      "level": "2° Medio",
+      "code": "OA02",
+      "description": "Formular hipótesis fundamentadas respecto a fenómenos biológicos, físicos o químicos, basándose en teorías científicas conocidas, y diseñar experimentos controlados para probarlas."
+    },
+    {
+      "subject": "Ciencias Naturales",
+      "level": "2° Medio",
+      "code": "OA03",
+      "description": "Conducir investigaciones científicas sencillas, registrando con rigurosidad las observaciones y mediciones (en tablas, diarios de laboratorio, fotografías) y ajustándose a protocolos de seguridad en el manejo de sustancias y equipos."
+    },
+    {
+      "subject": "Ciencias Naturales",
+      "level": "2° Medio",
+      "code": "OA04",
+      "description": "Analizar cómo las estructuras biológicas están relacionadas con sus funciones (por ejemplo, cómo las características de una célula se relacionan con su función en el organismo; o cómo la morfología de un órgano se vincula con su rol en un sistema)."
+    },
+    {
+      "subject": "Ciencias Naturales",
+      "level": "2° Medio",
+      "code": "OA05",
+      "description": "Investigar y explicar procesos geológicos y astronómicos (tectónica de placas, ciclos climáticos, formación estelar), integrando conceptos de ciencias de la Tierra y el espacio y relacionándolos con fenómenos observables."
+    },
+    {
+      "subject": "Ciencias Naturales",
+      "level": "2° Medio",
+      "code": "OA06",
+      "description": "Comprender y aplicar leyes de conservación (masa, energía, cantidad de movimiento) en situaciones experimentales y problemas teóricos, reconociendo su universalidad en procesos físicos y químicos."
+    },
+    {
+      "subject": "Ciencias Naturales",
+      "level": "2° Medio",
+      "code": "OA07",
+      "description": "Describir y ejemplificar reacciones químicas de relevancia industrial o biológica (síntesis, combustión, fermentación), distinguiendo reactantes, productos y manifestaciones de energía involucradas."
+    },
+    {
+      "subject": "Ciencias Naturales",
+      "level": "2° Medio",
+      "code": "OA08",
+      "description": "Explicar fenómenos relacionados con ondas y electricidad (como comportamiento de la luz y el sonido, circuitos eléctricos básicos), aplicando principios físicos para predecir resultados en experimentos o dispositivos simples."
+    },
+    {
+      "subject": "Ciencias Naturales",
+      "level": "2° Medio",
+      "code": "OA09",
+      "description": "Interpretar información científica presentada en formatos diversos (gráficos, mapas, esquemas, fórmulas) y utilizar dicha información para respaldar conclusiones o tomar decisiones informadas."
+    },
+    {
+      "subject": "Ciencias Naturales",
+      "level": "2° Medio",
+      "code": "OA10",
+      "description": "Comunicar los resultados de investigaciones científicas realizadas (en grupo o individuales), empleando terminología científica adecuada, estructurando informes orales o escritos con introducción, métodos, resultados, conclusiones y citando fuentes cuando corresponda."
+    },
+    {
+      "subject": "Ciencias Naturales",
+      "level": "2° Medio",
+      "code": "OA11",
+      "description": "Analizar problemas ambientales actuales (calentamiento global, pérdida de biodiversidad, contaminación) desde una perspectiva científica, identificando causas, efectos y posibles soluciones tecnológicas o cambios conductuales."
+    },
+    {
+      "subject": "Ciencias Naturales",
+      "level": "2° Medio",
+      "code": "OA12",
+      "description": "Relacionar el desarrollo científico-tecnológico con sus impactos en la sociedad, discutiendo ejemplos en que los avances científicos han mejorado la calidad de vida o generado dilemas éticos (biotecnología, energía nuclear, inteligencia artificial, etc.)."
+    },
+    {
+      "subject": "Ciencias Naturales",
+      "level": "2° Medio",
+      "code": "OA13",
+      "description": "Explicar la base molecular de la vida y la herencia, describiendo moléculas fundamentales (ADN, proteínas, enzimas) y procesos clave (replicación, síntesis de proteínas, genética mendeliana) utilizando modelos simplificados."
+    },
+    {
+      "subject": "Ciencias Naturales",
+      "level": "2° Medio",
+      "code": "OA14",
+      "description": "Describir la estructura y función de sistemas en organismos multicelulares (sistema nervioso, circulatorio, reproductivo, etc.), analizando cómo interactúan para mantener la homeostasis."
+    },
+    {
+      "subject": "Ciencias Naturales",
+      "level": "2° Medio",
+      "code": "OA15",
+      "description": "Analizar el flujo de energía en ecosistemas (cadenas tróficas, pirámides ecológicas) y los ciclos bio-geoquímicos (agua, carbono, nitrógeno), relacionándolos con la actividad humana y la sustentabilidad."
+    },
+    {
+      "subject": "Ciencias Naturales",
+      "level": "2° Medio",
+      "code": "OA16",
+      "description": "Investigar propiedades de compuestos químicos orgánicos básicos (hidrocarburos, alcoholes, ácidos orgánicos), identificando grupos funcionales y aplicaciones cotidianas."
+    },
+    {
+      "subject": "Ciencias Naturales",
+      "level": "2° Medio",
+      "code": "OA17",
+      "description": "Evaluar cuantitativamente reacciones químicas (cálculos estequiométricos simples, rendimiento, pureza), aplicándolos en contextos como la química industrial o procesos biológicos."
+    },
+    {
+      "subject": "Ciencias Naturales",
+      "level": "2° Medio",
+      "code": "OA18",
+      "description": "Analizar interacciones fundamentales de la física (gravitatoria, electromagnética) en eventos del día a día (órbitas planetarias, uso de imanes, circuitos eléctricos), conectando teoría y observación."
+    },
+    {
+      "subject": "Ciencias Naturales",
+      "level": "2° Medio",
+      "code": "OA19",
+      "description": "Discutir implicancias éticas de experimentos históricos o tecnologías modernas (experimentación con humanos, edición genética, uso de combustibles fósiles), formándose una opinión informada."
+    },
+    {
+      "subject": "Ciencias Naturales",
+      "level": "2° Medio",
+      "code": "OA20",
+      "description": "Proponer soluciones creativas a problemas prácticos utilizando conocimientos científicos (diseño de filtros de agua, propuestas de energías alternativas, mejoras en eficiencia energética escolar, etc.), evaluando su factibilidad y potencial impacto."
+    },
+    {
+      "subject": "Ciencias Naturales",
+      "level": "2° Medio",
+      "code": "OAH A",
+      "description": "Observar con detalle fenómenos y datos, registrando minuciosamente sus características."
+    },
+    {
+      "subject": "Ciencias Naturales",
+      "level": "2° Medio",
+      "code": "OAH B",
+      "description": "Formular preguntas y problemas de investigación relevantes a partir de la curiosidad científica."
+    },
+    {
+      "subject": "Ciencias Naturales",
+      "level": "2° Medio",
+      "code": "OAH C",
+      "description": "Diseñar procedimientos experimentales controlados para investigar preguntas científicas."
+    },
+    {
+      "subject": "Ciencias Naturales",
+      "level": "2° Medio",
+      "code": "OAH D",
+      "description": "Conducir experimentos de manera metódica y segura, registrando cuidadosamente los datos."
+    },
+    {
+      "subject": "Ciencias Naturales",
+      "level": "2° Medio",
+      "code": "OAH E",
+      "description": "Analizar críticamente datos recopilados, utilizando herramientas matemáticas y gráficas."
+    },
+    {
+      "subject": "Ciencias Naturales",
+      "level": "2° Medio",
+      "code": "OAH F",
+      "description": "Evaluar la calidad de los diseños experimentales y resultados obtenidos, identificando fuentes de error o sesgo."
+    },
+    {
+      "subject": "Ciencias Naturales",
+      "level": "2° Medio",
+      "code": "OAH G",
+      "description": "Comunicar hallazgos científicos de manera clara y estructurada, adaptando el lenguaje a la audiencia objetivo."
+    },
+    {
+      "subject": "Educación Física y Salud",
+      "level": "2° Medio",
+      "code": "OA01",
+      "description": "Perfeccionar y aplicar con precisión las habilidades motrices específicas de locomoción, manipulación y estabilidad en, al menos:\n- Un deporte individual (por ejemplo, gimnasia rítmica, natación).\n- Un deporte de oposición (por ejemplo, bádminton, tenis de mesa).\n- Un deporte de colaboración (por ejemplo, kayak, escalada).\n- Un deporte de oposición/colaboración (por ejemplo, fútbol, vóleibol, rugby).\n- Una danza (folclórica, popular, etc.)."
+    },
+    {
+      "subject": "Educación Física y Salud",
+      "level": "2° Medio",
+      "code": "OA02",
+      "description": "Diseñar, aplicar y evaluar estrategias y tácticas específicas para la resolución de problemas en juegos o deportes; por ejemplo:\n- Ajustar la fuerza y dirección de un golpe según la posición del adversario.\n- Elaborar en equipo una táctica defensiva para recuperar el balón.\n- Evaluar la efectividad de una estrategia de ataque tras un partido."
+    },
+    {
+      "subject": "Educación Física y Salud",
+      "level": "2° Medio",
+      "code": "OA03",
+      "description": "Diseñar, evaluar y aplicar un plan de entrenamiento personal para mejorar la condición física, desarrollando resistencia cardiovascular, fuerza muscular, velocidad y flexibilidad, considerando:\n- Duración del plan (e.g., 6 semanas).\n- Frecuencia, intensidad, tiempo y tipo de ejercicio.\n- Nivel de condición física inicial.\n- Actividades físicas de interés personal.\n- Balance energético (ingesta y gasto calórico)."
+    },
+    {
+      "subject": "Educación Física y Salud",
+      "level": "2° Medio",
+      "code": "OA04",
+      "description": "Practicar regularmente diversas actividades físicas alternativas y/o deportivas en distintos entornos, aplicando conductas de autocuidado, seguridad y primeros auxilios, tales como:\n- Realizar al menos 30 minutos diarios de actividad física de su interés.\n- Promover campañas contra el consumo de drogas, tabaco y alcohol.\n- Aplicar maniobras básicas de primeros auxilios ante lesiones comunes.\n- Dirigir un calentamiento grupal.\n- Mantener hidratación adecuada."
+    },
+    {
+      "subject": "Educación Física y Salud",
+      "level": "2° Medio",
+      "code": "OA05",
+      "description": "Participar, liderar y promover distintas actividades físicas y/o deportivas en su comunidad escolar y entorno, por ejemplo:\n- Proponer estrategias grupales para organizar torneos o eventos deportivos.\n- Ejercitar estilos de liderazgo positivo en la promoción de una vida activa.\n- Crear actividades físicas innovadoras para fomentar la práctica regular en su comunidad.\n- Generar iniciativas que motiven la adherencia a la actividad física permanente."
+    },
+    {
+      "subject": "Educación Física y Salud",
+      "level": "2° Medio",
+      "code": "OAA A",
+      "description": "Mostrar constancia y esfuerzo en el mejoramiento de su rendimiento físico, manteniendo motivación aun ante dificultades."
+    },
+    {
+      "subject": "Educación Física y Salud",
+      "level": "2° Medio",
+      "code": "OAA B",
+      "description": "Ejercer liderazgo positivo y colaboración en las actividades grupales, fomentando la integración de todos los compañeros."
+    },
+    {
+      "subject": "Educación Física y Salud",
+      "level": "2° Medio",
+      "code": "OAA C",
+      "description": "Demostrar responsabilidad personal en el autocuidado durante la actividad física (alimentación, descanso, prevención de lesiones) y al animar a otros a cuidarse."
+    },
+    {
+      "subject": "Educación Física y Salud",
+      "level": "2° Medio",
+      "code": "OAA D",
+      "description": "Mostrar actitudes de fair play y respeto intercultural en contextos deportivos, valorando la diversidad en el deporte y la actividad física."
+    },
+    {
+      "subject": "Artes Visuales",
+      "level": "2° Medio",
+      "code": "OA01",
+      "description": "Experimentar con una amplia gama de técnicas avanzadas (por ejemplo, grabado, acuarela, modelado en arcilla, edición digital) para representar ideas visualmente, evaluando los efectos logrados con cada técnica."
+    },
+    {
+      "subject": "Artes Visuales",
+      "level": "2° Medio",
+      "code": "OA02",
+      "description": "Aplicar principios de composición (equilibrio, contraste, ritmo, unidad, énfasis) en obras visuales propias, tomando decisiones conscientes sobre el uso de elementos del lenguaje visual para lograr ciertos efectos o significados."
+    },
+    {
+      "subject": "Artes Visuales",
+      "level": "2° Medio",
+      "code": "OA03",
+      "description": "Crear proyectos visuales personales o colectivos que integren distintos lenguajes artísticos (por ejemplo, videoarte combinando imagen y sonido, instalación que fusione escultura y elementos sonoros o lumínicos) para comunicar una temática o concepto contemporáneo."
+    },
+    {
+      "subject": "Artes Visuales",
+      "level": "2° Medio",
+      "code": "OA04",
+      "description": "Analizar críticamente obras de arte de diferentes movimientos (como surrealismo, cubismo, arte contemporáneo chileno, etc.), identificando sus contextos de producción, intenciones y posibles interpretaciones, y estableciendo comparaciones con producciones actuales."
+    },
+    {
+      "subject": "Artes Visuales",
+      "level": "2° Medio",
+      "code": "OA05",
+      "description": "Reflexionar sobre el proceso creativo propio mediante un portafolio o bitácora de trabajo, donde registre bocetos, referencias, comentarios de pares y autoevaluaciones, y proponerse metas de mejoramiento en aspectos técnicos o expresivos."
+    },
+    {
+      "subject": "Artes Visuales",
+      "level": "2° Medio",
+      "code": "OAA A",
+      "description": "Demostrar autonomía en el desarrollo de sus proyectos artísticos, investigando referentes y técnicas por iniciativa propia."
+    },
+    {
+      "subject": "Artes Visuales",
+      "level": "2° Medio",
+      "code": "OAA B",
+      "description": "Acoger y valorar la crítica constructiva sobre sus obras, utilizándola para mejorar y crecer en su expresión artística."
+    },
+    {
+      "subject": "Artes Visuales",
+      "level": "2° Medio",
+      "code": "OAA C",
+      "description": "Mostrar responsabilidad en el uso de materiales y respeto por el espacio de trabajo colectivo, entendiendo la importancia de la disciplina en el quehacer artístico."
+    },
+    {
+      "subject": "Artes Visuales",
+      "level": "2° Medio",
+      "code": "OAA D",
+      "description": "Valorar el rol del arte en la sociedad como medio de crítica, memoria y transformación social, comprometiéndose con proyectos artísticos que reflejen preocupaciones sociales o personales."
+    },
+    {
+      "subject": "Música",
+      "level": "2° Medio",
+      "code": "OA01",
+      "description": "Interpretar repertorio musical de dificultad media, tanto de forma individual como en ensambles, atendiendo a la precisión rítmica, afinación, matices dinámicos y expresividad, y reconociendo indicaciones de una partitura estándar."
+    },
+    {
+      "subject": "Música",
+      "level": "2° Medio",
+      "code": "OA02",
+      "description": "Crear composiciones o arreglos musicales incorporando elementos de distintos géneros (por ejemplo, fusionando ritmos folclóricos con armonías modernas), utilizando progresiones armónicas básicas (I-IV-V, etc.), variaciones melódicas y patrones rítmicos complejos."
+    },
+    {
+      "subject": "Música",
+      "level": "2° Medio",
+      "code": "OA03",
+      "description": "Analizar auditivamente obras musicales identificando su estructura formal (como AB, ABA, rondó, tema y variaciones), estilo o género (barroco, jazz, rock, andino, etc.), instrumentos utilizados y contexto histórico-cultural de su creación."
+    },
+    {
+      "subject": "Música",
+      "level": "2° Medio",
+      "code": "OA04",
+      "description": "Investigar la función social de la música en contextos específicos (por ejemplo, el rol de la música en rituales religiosos, en movimientos sociales, en la industria del entretenimiento actual) y presentar sus conclusiones mediante exposiciones o ensayos cortos."
+    },
+    {
+      "subject": "Música",
+      "level": "2° Medio",
+      "code": "OA05",
+      "description": "Utilizar herramientas tecnológicas (software de notación, secuenciadores, aplicaciones de mezcla de audio) para componer, grabar o editar música, y evaluar cómo la tecnología influye en la creación y difusión musical contemporánea."
+    },
+    {
+      "subject": "Música",
+      "level": "2° Medio",
+      "code": "OAA A",
+      "description": "Asumir desafíos musicales (aprender piezas nuevas, tocar frente a público, experimentar con improvisación) con determinación y apertura, aprendiendo de la experiencia."
+    },
+    {
+      "subject": "Música",
+      "level": "2° Medio",
+      "code": "OAA B",
+      "description": "Colaborar de manera comprometida en conjuntos musicales, respetando la figura del director o coordinador y aportando al logro de un sonido conjunto armónico."
+    },
+    {
+      "subject": "Música",
+      "level": "2° Medio",
+      "code": "OAA C",
+      "description": "Mostrar respeto y aprecio al escuchar interpretaciones musicales de sus pares o de músicos profesionales, brindando críticas respetuosas y reconociendo el esfuerzo y talento de los demás."
+    },
+    {
+      "subject": "Música",
+      "level": "2° Medio",
+      "code": "OAA D",
+      "description": "Mantener un comportamiento responsable respecto a la salud vocal y auditiva (por ejemplo, cuidados de la voz, volúmenes adecuados), entendiendo su importancia para la práctica musical a largo plazo."
+    },
+    {
+      "subject": "Orientación",
+      "level": "2° Medio",
+      "code": "OA01",
+      "description": "Comparar distintas alternativas posibles de sus proyectos de vida, en los ámbitos laboral, familiar, académico y otros, considerando sus intereses, condiciones, habilidades y valores, así como las oportunidades y limitaciones de su entorno."
+    },
+    {
+      "subject": "Orientación",
+      "level": "2° Medio",
+      "code": "OA02",
+      "description": "Analizar de manera fundamentada temáticas y situaciones relacionadas con la sexualidad y los vínculos afectivos, en función de valores como el respeto hacia sí mismo y hacia los demás, la responsabilidad, la igualdad de género y la afectividad sana."
+    },
+    {
+      "subject": "Orientación",
+      "level": "2° Medio",
+      "code": "OA03",
+      "description": "Evaluar, en sí mismos y en su entorno cercano, situaciones problemáticas y/o de riesgo relacionadas con el consumo de sustancias, conductas sexuales riesgosas y la violencia (incluyendo el bullying y la violencia en el pololeo), proponiendo estrategias de autocuidado y de apoyo a pares."
+    },
+    {
+      "subject": "Orientación",
+      "level": "2° Medio",
+      "code": "OA04",
+      "description": "Promover y llevar a cabo de manera autónoma acciones que favorezcan la vida saludable a nivel personal y social, manifestando interés y preocupación ante problemáticas como la mala alimentación, el sedentarismo, el estrés, entre otras, e involucrando a sus pares en dichas iniciativas."
+    },
+    {
+      "subject": "Orientación",
+      "level": "2° Medio",
+      "code": "OA05",
+      "description": "Promover en su entorno relaciones interpersonales constructivas, sean estas presenciales o por medio de las redes sociales, sobre la base del análisis de casos y experiencias, destacando la importancia de la empatía, el diálogo, la tolerancia y el manejo adecuado de conflictos."
+    },
+    {
+      "subject": "Orientación",
+      "level": "2° Medio",
+      "code": "OA06",
+      "description": "Discriminar alternativas para la resolución de conflictos en un marco de derechos, que promuevan la búsqueda de acuerdos que beneficien a las partes involucradas, aplicando técnicas como la mediación, la negociación colaborativa y la comunicación asertiva."
+    },
+    {
+      "subject": "Orientación",
+      "level": "2° Medio",
+      "code": "OA07",
+      "description": "Evaluar en su entorno social e institucional cercano (curso, establecimiento, barrio u otro) instancias en las que puedan participar o ejercer liderazgo positivo (como centros de estudiantes, organizaciones juveniles, proyectos comunitarios), y decidir involucrarse en aquellas que contribuyan al bien común y a su propio desarrollo personal."
+    },
+    {
+      "subject": "Orientación",
+      "level": "2° Medio",
+      "code": "OA08",
+      "description": "Desarrollar iniciativas orientadas a promover el respeto, la justicia, el buen trato, las relaciones pacíficas y el bien común en el propio curso y la comunidad escolar, mostrando proactividad y capacidad de organización para llevarlas a cabo."
+    },
+    {
+      "subject": "Orientación",
+      "level": "2° Medio",
+      "code": "OA09",
+      "description": "Contrastar diversos posibles caminos a seguir en el desarrollo de sus proyectos de vida, tomando en cuenta distintas opciones laborales y académicas y analizando las implicancias de cada elección, como la duración de las carreras, las expectativas de ingreso, la movilidad geográfica, entre otras."
+    },
+    {
+      "subject": "Orientación",
+      "level": "2° Medio",
+      "code": "OA10",
+      "description": "Diseñar aspectos de sus posibles proyectos de vida considerando elementos como habilidades, motivaciones, metas personales, posibilidades y limitaciones, elaborando un plan de acción que incluya objetivos a corto, mediano y largo plazo, y estrategias concretas para alcanzarlos."
+    },
+    {
+      "subject": "Orientación",
+      "level": "2° Medio",
+      "code": "OAA A",
+      "description": "Mantener una actitud de autoobservación y autocrítica constructiva, que le permita reconocer sus fortalezas y debilidades, y buscar orientación cuando lo requiera."
+    },
+    {
+      "subject": "Orientación",
+      "level": "2° Medio",
+      "code": "OAA B",
+      "description": "Mostrar empatía y solidaridad con sus compañeros, especialmente con quienes enfrentan dificultades, brindándoles apoyo y evitando conductas que puedan dañarlos."
+    },
+    {
+      "subject": "Orientación",
+      "level": "2° Medio",
+      "code": "OAA C",
+      "description": "Asumir un rol activo y responsable en la construcción de un ambiente escolar inclusivo y respetuoso, siendo coherente entre sus valores y sus acciones diarias."
+    },
+    {
+      "subject": "Orientación",
+      "level": "2° Medio",
+      "code": "OAA D",
+      "description": "Valorar el aprendizaje continuo y la superación personal como pilares de su desarrollo, mostrando motivación por aprender de todas las áreas del currículo y de las experiencias de la vida."
+    },
+    {
+      "subject": "Tecnología",
+      "level": "2° Medio",
+      "code": "OA01",
+      "description": "Investigar y explicar el ciclo de vida de productos tecnológicos (diseño, producción, distribución, uso, disposición final), usando ejemplos concretos (electrodomésticos, envases, dispositivos electrónicos) y analizando su impacto ambiental en cada etapa."
+    },
+    {
+      "subject": "Tecnología",
+      "level": "2° Medio",
+      "code": "OA02",
+      "description": "Diseñar soluciones tecnológicas a problemas reales identificados en la comunidad (por ejemplo, un mecanismo de riego automático para un huerto escolar, un sistema sencillo de recolección de residuos), aplicando el proceso de diseño (investigar, idear, prototipar, probar, evaluar) y considerando criterios de funcionalidad y sustentabilidad."
+    },
+    {
+      "subject": "Tecnología",
+      "level": "2° Medio",
+      "code": "OA03",
+      "description": "Utilizar adecuadamente herramientas, máquinas y materiales avanzados (como cortadoras láser, impresoras 3D, microcontroladores, software de diseño asistido por computador) en la realización de proyectos tecnológicos, respetando normas de seguridad específicas."
+    },
+    {
+      "subject": "Tecnología",
+      "level": "2° Medio",
+      "code": "OA04",
+      "description": "Evaluar prototipos o productos tecnológicos desarrollados (propios o de terceros) de acuerdo a criterios preestablecidos (eficacia en resolver el problema, eficiencia en uso de recursos, seguridad, impacto ambiental y social), e iterar mejoras en el diseño en base a los resultados de la evaluación."
+    },
+    {
+      "subject": "Tecnología",
+      "level": "2° Medio",
+      "code": "OA05",
+      "description": "Integrar saberes de distintas disciplinas (ciencias, arte, matemáticas, educación física, etc.) en la creación de soluciones tecnológicas innovadoras, reconociendo cómo la interdisciplina enriquece el desarrollo tecnológico (por ejemplo, diseñar un juego educativo que combine conocimientos de biología y programación)."
+    },
+    {
+      "subject": "Tecnología",
+      "level": "2° Medio",
+      "code": "OAA A",
+      "description": "Demostrar proactividad y autogestión en la realización de proyectos tecnológicos, investigando por cuenta propia soluciones existentes e inspirándose en ellas."
+    },
+    {
+      "subject": "Tecnología",
+      "level": "2° Medio",
+      "code": "OAA B",
+      "description": "Colaborar efectivamente en equipos de trabajo tecnológicos, respetando las ideas de sus pares, distribuyendo tareas equitativamente y apoyando para el cumplimiento de objetivos comunes."
+    },
+    {
+      "subject": "Tecnología",
+      "level": "2° Medio",
+      "code": "OAA C",
+      "description": "Mostrar resiliencia ante los fracasos o errores en los procesos tecnológicos, asumiéndolos como parte del aprendizaje y reformulando estrategias en base a ellos."
+    },
+    {
+      "subject": "Tecnología",
+      "level": "2° Medio",
+      "code": "OAA D",
+      "description": "Demostrar una actitud ética en la práctica tecnológica, considerando aspectos como la accesibilidad de las soluciones, la minimización de residuos y la honestidad académica (no plagiar diseños, citar fuentes de información técnica, etc.)."
+    }
+  ]
+  
