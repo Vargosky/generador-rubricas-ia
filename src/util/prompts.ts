@@ -1,5 +1,5 @@
 // util/prompts.ts
-import { marzanoTaxonomy } from "./marzanoTaxonomy";
+import { marzanoTaxonomy } from "./prompts/marzanoTaxonomy";
 
 export const promptRefinarRubrica = ({
     asignatura,

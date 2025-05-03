@@ -4,6 +4,8 @@ import { saveAs } from "file-saver";
 import { generatePlanificacionPrompt, generateGuionPrompt, PlanificacionData } from "@/util/prompts";
 import { Clase } from "@/app/components/cards/ClasesBox";
 import { Schedule } from "@/app/dashboard/planificacion/ScheduleSelector";
+import { buildPromptPlanificacion } from "@/util/prompts/buildPrompt";
+
 
 type Objetivo = { descripcion: string; puntaje: number };
 
@@ -79,7 +81,8 @@ export function usePlanificacion() {
       objetivos,
       schedule,
     };
-    const prompt = generatePlanificacionPrompt(data);
+    const prompt = buildPromptPlanificacion(data);
+
     setGeneratedPrompt(prompt);
 
     try {
