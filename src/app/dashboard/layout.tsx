@@ -1,55 +1,103 @@
 // app/dashboard/layout.tsx
-import { ReactNode } from "react";
-import Link from "next/link";
-import { Home, Calendar, Book, LayoutDashboard, Bot, TowerControl } from "lucide-react";
-import { cn } from "@/lib/utils"; // asegúrate de tener este helper para classNames
-import "@/app/globals.css";
+'use client';
+
+import { ReactNode, useState } from 'react';
+import Link from 'next/link';
+import {
+  Home,
+  Calendar,
+  Book,
+  LayoutDashboard,
+  Bot,
+  TowerControl,
+  ChevronLeft,
+  ChevronRight,
+  LucideProps,
+} from 'lucide-react';
+import { cn } from '@/lib/utils';
+import '@/app/globals.css';
 
 export default function DashboardLayout({ children }: { children: ReactNode }) {
+  const [collapsed, setCollapsed] = useState(true);
+  const [pinned, setPinned] = useState(false);
+  const isCollapsed = pinned ? false : collapsed;
+
+  const iconSize = isCollapsed ? 24 : 18;
+
   return (
-    <div className="flex min-h-screen bg-gray-100 dark:bg-slate-900 text-slate-900 dark:text-white">
-      {/* Sidebar */}
-      <aside className="w-64 bg-white dark:bg-slate-800 border-r border-slate-200 dark:border-slate-700 p-4">
-        <h1 className="text-2xl font-bold mb-6 flex items-center gap-2">
-          <LayoutDashboard size={24} />
-          EduCommand
-        </h1>
+    <div className="flex min-h-screen bg-gray-100 text-slate-900 dark:bg-slate-900 dark:text-white">
+      {/* ---------- Sidebar ---------- */}
+      <aside
+        className={cn(
+          'flex flex-col border-r border-slate-200 bg-white p-4 dark:border-slate-700 dark:bg-slate-800 transition-all duration-200',
+          isCollapsed ? 'w-16' : 'w-64'
+        )}
+        onMouseEnter={() => !pinned && setCollapsed(false)}
+        onMouseLeave={() => !pinned && setCollapsed(true)}
+      >
+        {/* Pin / unpin */}
+        <button
+          onClick={() => setPinned(!pinned)}
+          className="mb-6 flex h-8 w-8 items-center justify-center rounded-md hover:bg-slate-200/40 dark:hover:bg-slate-700/40"
+          aria-label={pinned ? 'Desanclar menú' : 'Anclar menú'}
+        >
+          {pinned
+            ? <ChevronLeft size={24} />   /* cuando está fijado */
+            : <ChevronRight size={18} />}  
+
+        </button>
+
+        {/* Logo */}
+        <div className="mb-6 flex items-center gap-2 overflow-hidden">
+          <LayoutDashboard size={iconSize} />
+          {!isCollapsed && <span className="truncate text-2xl font-bold">EduCommand</span>}
+        </div>
+
+        {/* Enlaces */}
         <nav className="space-y-2">
-          <NavLink href="/dashboard" icon={<Home size={18} />}>Inicio</NavLink>
-          <NavLink href="/dashboard" icon={<Book size={18} />}>Mis Cursos</NavLink>
-          <NavLink href="/dashboard" icon={<Bot size={18} />}>Mis Rubricas</NavLink>
-          <NavLink href="/dashboard/planificacion" icon={<Calendar size={18} />}>Crear Planificacion</NavLink>
-          <NavLink href="/dashboard/planificacioninversa" icon={<Calendar size={18} />}> Crear Planificacion inversa</NavLink>
-          <NavLink href="/dashboard" icon={<TowerControl size={18} />}>Reportes para UTP</NavLink>
+          <NavLink href="/dashboard" icon={Home} iconSize={iconSize} collapsed={isCollapsed}>Inicio</NavLink>
+          <NavLink href="/dashboard" icon={Book} iconSize={iconSize} collapsed={isCollapsed}>Mis Cursos</NavLink>
+          <NavLink href="/dashboard" icon={Bot} iconSize={iconSize} collapsed={isCollapsed}>Mis Rúbricas</NavLink>
+          <NavLink href="/dashboard/planificacion" icon={Calendar} iconSize={iconSize} collapsed={isCollapsed}>Crear Planificación</NavLink>
+          <NavLink href="/dashboard/planificacioninversa" icon={Calendar} iconSize={iconSize} collapsed={isCollapsed}>Planificación Inversa</NavLink>
+          <NavLink href="/dashboard" icon={TowerControl} iconSize={iconSize} collapsed={isCollapsed}>Reportes UTP</NavLink>
         </nav>
       </aside>
 
-      {/* Main Content */}
-      <div className="flex-1 flex flex-col">
-        {/* Topbar */}
-        <header className="h-16 px-6 flex items-center justify-between border-b border-slate-200 dark:border-slate-700 bg-white/60 dark:bg-slate-800/70 backdrop-blur">
+      {/* ---------- Contenido principal ---------- */}
+      <div className="flex flex-1 flex-col">
+        <header className="flex h-16 items-center justify-between border-b border-slate-200 bg-white/60 px-6 backdrop-blur dark:border-slate-700 dark:bg-slate-800/70">
           <span className="text-sm font-medium">Panel del Profesor</span>
         </header>
-
-        {/* Dynamic Page Content */}
-        <main className="flex-1 p-6 overflow-y-auto">
-          {children}
-        </main>
+        <main className="flex-1 overflow-y-auto p-6">{children}</main>
       </div>
     </div>
   );
 }
 
-function NavLink({ href, icon, children }: { href: string; icon: React.ReactNode; children: ReactNode }) {
+/* --------------- NavLink --------------- */
+type IconComponent = React.ComponentType<LucideProps>;
+
+type NavLinkProps = {
+  href: string;
+  icon: IconComponent;   // 👈 recibe el componente
+  iconSize: number;
+  children: ReactNode;
+  collapsed: boolean;
+};
+
+function NavLink({ href, icon: Icon, iconSize, children, collapsed }: NavLinkProps) {
   return (
     <Link
       href={href}
       className={cn(
-        "flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium hover:bg-slate-200/40 dark:hover:bg-slate-700/40 transition-colors"
+        'flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-slate-200/40 dark:hover:bg-slate-700/40',
+        collapsed && 'justify-center'
       )}
+      title={typeof children === 'string' ? children : undefined}
     >
-      {icon}
-      {children}
+      <Icon size={iconSize} />
+      {!collapsed && <span className="truncate">{children}</span>}
     </Link>
   );
 }
