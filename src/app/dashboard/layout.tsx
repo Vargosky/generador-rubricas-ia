@@ -29,8 +29,8 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
       {/* ---------- Sidebar ---------- */}
       <aside
         className={cn(
-          'flex flex-col border-r border-slate-200 bg-white p-4 dark:border-slate-700 dark:bg-slate-800 transition-all duration-200',
-          isCollapsed ? 'w-16' : 'w-64'
+          'flex flex-col border-r border-slate-200 bg-white p-4 dark:border-slate-700 dark:bg-slate-800 transition-all duration-200 items-center',
+          isCollapsed ? 'w-20' : 'w-64'
         )}
         onMouseEnter={() => !pinned && setCollapsed(false)}
         onMouseLeave={() => !pinned && setCollapsed(true)}
