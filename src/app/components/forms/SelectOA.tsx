@@ -80,14 +80,15 @@ const SelectOA = () => {
           <table className="min-w-full border border-gray-300 dark:border-slate-600 mt-4">
             <thead className="bg-gray-100 dark:bg-slate-700">
               <tr>
-                <th className="border px-4 py-2">#</th>
-                <th className="border px-4 py-2">Nivel</th>
+                <th className="border px-4 py-2">Code</th>
+                {/* <th className="border px-4 py-2">Nivel</th> */}
                 <th className="border px-4 py-2">Objetivo</th>
               </tr>
             </thead>
             <tbody>
               {objetivosFiltrados.map((item, index) => {
                 const nivel = item.level || item.nivel;
+                const code = item.code;
                 const objetivo = item.description || item.objetivo;
 
                 const copiarObjetivo = async () => {
@@ -100,9 +101,9 @@ const SelectOA = () => {
                 };
 
                 return (
-                  <tr key={index} className="hover:bg-gray-50 dark:hover:bg-slate-800">
-                    <td className="border px-4 py-2 text-center">{index + 1}</td>
-                    <td className="border px-4 py-2 text-center">{nivel}</td>
+                  <tr key={code} className="hover:bg-gray-50 dark:hover:bg-slate-800">
+                    <td className="border px-4 py-2 text-center w-1/6">{code}</td>
+                    {/* <td className="border px-4 py-2 text-center">{nivel}</td> */}
                     <td className="border px-4 py-2 flex justify-between items-center gap-2">
                       <span>{objetivo}</span>
                       <button

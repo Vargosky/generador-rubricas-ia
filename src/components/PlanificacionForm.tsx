@@ -78,39 +78,46 @@ export default function PlanificacionForm({
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
-      
+
 
       <h2 className="text-3xl font-bold text-gray-900 dark:text-white">Crear Planificación</h2>
 
       {/* ─── Datos generales ─── */}
-      <fieldset className="border p-4 rounded-md">
+      <fieldset className="border p-4 rounded-md space-y-4">
         <legend className="text-lg font-medium mb-2">Datos generales</legend>
 
-        <div className="grid grid-cols-2 gap-4">
-          <div>
-            <label className="block text-sm font-medium mb-1">Asignatura</label>
-            <select
-              value={asignatura}
-              onChange={(e) => setAsignatura(e.target.value)}
-              className="w-full border rounded px-2 py-1 dark:bg-gray-700 dark:text-white"
-            >
-              <option value="tecnologia">Tecnología</option>
-              <option value="lenguaje">Lenguaje</option>
-              <option value="matematicas">Matemáticas</option>
-            </select>
-          </div>
-                   
-          <div>
-            <label className="block text-sm font-medium mb-1">Detalles opcionales</label>
-            <input
-              value={detallesExtra}
-              onChange={(e) => setDetallesExtra(e.target.value)}
-              className="w-full border rounded px-2 py-1 dark:bg-gray-700 dark:text-white"
-              placeholder="Ej: proyecto final, incluir lectura, etc."
-            />
-          </div>
+        {/* Select de asignatura en una sola línea */}
+        <div>
+          <label className="block text-sm font-medium mb-1">Asignatura</label>
+          <select
+            value={asignatura}
+            onChange={(e) => setAsignatura(e.target.value)}
+            className="w-full border rounded px-4 py-2 text-base dark:bg-gray-700 dark:text-white"
+          >
+            <option value="tecnologia">Tecnología</option>
+            <option value="lenguaje">Lenguaje</option>
+            <option value="matematicas">Matemáticas</option>
+            <option value="artes_visuales">Artes Visuales</option>
+            <option value="ciencias_naturales">Ciencias Naturales</option>
+            <option value="historia">Historia</option>
+            <option value="Ingles">Inglés</option>
+            <option value="musica">Música</option>
+            <option value="orientacion">Orientación</option>
+          </select>
+        </div>
+
+        {/* Detalles adicionales abajo */}
+        <div>
+          <label className="block text-sm font-medium mb-1">Detalles opcionales</label>
+          <input
+            value={detallesExtra}
+            onChange={(e) => setDetallesExtra(e.target.value)}
+            className="w-full border rounded px-4 py-2 text-base dark:bg-gray-700 dark:text-white"
+            placeholder="Ej: uso de notebooks, instrumentos musicales, conos en educación física u otros materiales de apoyo"
+          />
         </div>
       </fieldset>
+
 
       {/* ─── Configuración de tiempo ─── */}
       <fieldset className="border p-4 rounded-md">
@@ -149,55 +156,55 @@ export default function PlanificacionForm({
       </fieldset>
 
       {/* ─── Objetivos específicos ─── */}
-{/* ─── Objetivos específicos ─── */}
-<fieldset className="border p-4 rounded-md space-y-4">
-  <legend className="text-lg font-medium mb-2">Objetivos de Aprendizaje</legend>
+      {/* ─── Objetivos específicos ─── */}
+      <fieldset className="border p-4 rounded-md space-y-4">
+        <legend className="text-lg font-medium mb-2">Objetivos de Aprendizaje</legend>
 
-  {/* Selector visual de objetivos */}
-  <SelectorObjetivos
-    onAgregarObjetivo={(nuevo) =>
-      setObjetivos([...objetivos, { descripcion: nuevo.descripcion, puntaje: 10 }])
-    }
-  />
+        {/* Selector visual de objetivos */}
+        <SelectorObjetivos
+          onAgregarObjetivo={(nuevo) =>
+            setObjetivos([...objetivos, { descripcion: nuevo.descripcion, puntaje: 10 }])
+          }
+        />
 
-  {/* Campos de objetivos seleccionados */}
-  {objetivos.map((obj, idx) => (
-    <div key={idx} className="flex gap-2">
-      <input
-        className="flex-1 border rounded px-2 py-1 dark:bg-gray-700 dark:text-white"
-        placeholder="Descripción"
-        value={obj.descripcion}
-        onChange={(e) => handleObjetivoChange(idx, "descripcion", e.target.value)}
-        required
-      />
-      <input
-        type="number"
-        min={1}
-        className="w-20 border rounded px-2 py-1 dark:bg-gray-700 dark:text-white"
-        value={obj.puntaje}
-        onChange={(e) => handleObjetivoChange(idx, "puntaje", Number(e.target.value))}
-      />
-      <button
-        type="button"
-        onClick={() => eliminarObjetivo(idx)}
-        className="text-red-500"
-      >
-        ✕
-      </button>
-    </div>
-  ))}
+        {/* Campos de objetivos seleccionados */}
+        {objetivos.map((obj, idx) => (
+          <div key={idx} className="flex gap-2">
+            <input
+              className="flex-1 border rounded px-2 py-1 dark:bg-gray-700 dark:text-white"
+              placeholder="Descripción"
+              value={obj.descripcion}
+              onChange={(e) => handleObjetivoChange(idx, "descripcion", e.target.value)}
+              required
+            />
+            <input
+              type="number"
+              min={1}
+              className="w-20 border rounded px-2 py-1 dark:bg-gray-700 dark:text-white"
+              value={obj.puntaje}
+              onChange={(e) => handleObjetivoChange(idx, "puntaje", Number(e.target.value))}
+            />
+            <button
+              type="button"
+              onClick={() => eliminarObjetivo(idx)}
+              className="text-red-500"
+            >
+              ✕
+            </button>
+          </div>
+        ))}
 
-  {/* Botón para agregar objetivo vacío */}
-  <button
-    type="button"
-    onClick={agregarObjetivo}
-    className="text-blue-600 dark:text-blue-400 hover:underline mt-2"
-  >
-    + Agregar objetivo manualmente
-  </button>
-</fieldset>
+        {/* Botón para agregar objetivo vacío */}
+        <button
+          type="button"
+          onClick={agregarObjetivo}
+          className="text-blue-600 dark:text-blue-400 hover:underline mt-2"
+        >
+          + Agregar objetivo manualmente
+        </button>
+      </fieldset>
 
-        
+
       {/* ─── Horario ─── */}
       <fieldset className="border p-4 rounded-md">
         <legend className="text-lg font-medium mb-2">Horario de clases</legend>
@@ -216,28 +223,28 @@ export default function PlanificacionForm({
 }
 
 function InputBlock({
-    label,
-    value,
-    onChange,
-    type = "number",
-  }: {
-    label: string;
-    value: string | number;
-    onChange: (v: any) => void;
-    type?: string;
-  }) {
-    return (
-      <div>
-        <label className="block text-sm font-medium mb-1">{label}</label>
-        <input
-          type={type}
-          value={value}
-          onChange={(e) =>
-            onChange(type === "number" ? Number(e.target.value) : e.target.value)
-          }
-          className="w-full border rounded px-2 py-1 dark:bg-gray-700 dark:text-white"
-        />
-      </div>
-    );
-  }
-  
+  label,
+  value,
+  onChange,
+  type = "number",
+}: {
+  label: string;
+  value: string | number;
+  onChange: (v: any) => void;
+  type?: string;
+}) {
+  return (
+    <div>
+      <label className="block text-sm font-medium mb-1">{label}</label>
+      <input
+        type={type}
+        value={value}
+        onChange={(e) =>
+          onChange(type === "number" ? Number(e.target.value) : e.target.value)
+        }
+        className="w-full border rounded px-2 py-1 dark:bg-gray-700 dark:text-white"
+      />
+    </div>
+  );
+}
+

@@ -19,7 +19,7 @@ export function usePlanificacion() {
   const [fechaTermino, setFechaTermino] = useState("");
   const [numEvaluaciones, setNumEvaluaciones] = useState(1);
   const [semanasAntesNotas, setSemanasAntesNotas] = useState(1);
-  const [objetivos, setObjetivos] = useState<Objetivo[]>([{ descripcion: "", puntaje: 1 }]);
+  const [objetivos, setObjetivos] = useState<Objetivo[]>([]);
   const [schedule, setSchedule] = useState<Schedule>(
     ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"]
       .reduce((acc, d) => ({ ...acc, [d]: Array(8).fill(false) }), {} as Schedule)
