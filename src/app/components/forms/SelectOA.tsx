@@ -25,7 +25,7 @@ const SelectOA = () => {
         const response = await fetch(`/data/AsiganturasOA/${selectedAsignatura}.json`);
         const data = await response.json();
         setObjetivos(data);
-        setSelectedNivel("");
+        setSelectedNivel(""); // Reiniciar nivel cuando cambia la asignatura
       } catch (error) {
         console.error("Error al cargar JSON:", error);
         setObjetivos([]);
@@ -37,7 +37,7 @@ const SelectOA = () => {
 
   const objetivosFiltrados = selectedNivel
     ? objetivos.filter((item) => (item.level || item.nivel) === selectedNivel)
-    : objetivos;
+    : [];
 
   return (
     <div className="p-4 space-y-4">
@@ -64,7 +64,7 @@ const SelectOA = () => {
           value={selectedNivel}
           onChange={(e) => setSelectedNivel(e.target.value)}
         >
-          <option value="">Todos los niveles</option>
+          <option value="">-- Seleccione su nivel --</option>
           {niveles.map((nivel) => (
             <option key={nivel} value={nivel}>
               {nivel}
@@ -74,20 +74,20 @@ const SelectOA = () => {
       )}
 
       {/* Tabla de objetivos */}
-      {selectedAsignatura && (
+      {selectedNivel && (
         <div className="overflow-x-auto">
           <table className="min-w-full border border-gray-300 dark:border-slate-600 mt-4">
             <thead className="bg-gray-100 dark:bg-slate-700">
               <tr>
-                <th className="border px-4 py-2">Código</th>
+                <th className="border px-4 py-2">#</th>
                 <th className="border px-4 py-2">Nivel</th>
                 <th className="border px-4 py-2">Objetivo</th>
               </tr>
             </thead>
             <tbody>
               {objetivosFiltrados.map((item, index) => (
-                <tr key={item.code} className="hover:bg-gray-50 dark:hover:bg-slate-800">
-                  <td className="border px-4 py-2 text-center">{item.code}</td>
+                <tr key={index} className="hover:bg-gray-50 dark:hover:bg-slate-800">
+                  <td className="border px-4 py-2 text-center">{index + 1}</td>
                   <td className="border px-4 py-2 text-center">{item.level || item.nivel}</td>
                   <td className="border px-4 py-2">{item.description || item.objetivo}</td>
                 </tr>
