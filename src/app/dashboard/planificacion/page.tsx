@@ -3,6 +3,8 @@ import PlanificacionForm from "@/components/PlanificacionForm";
 import ClasesBox from "@/app/components/cards/ClasesBox";
 import { usePlanificacion } from "@/hooks/usePlanificacion";
 
+
+
 export default function PlanificacionPage() {
   const plan = usePlanificacion();
 

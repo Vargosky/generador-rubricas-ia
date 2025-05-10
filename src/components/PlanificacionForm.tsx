@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { ScheduleSelector, Schedule } from "../app/dashboard/planificacion/ScheduleSelector";
+import SelectorObjetivos from "@/app/dashboard/planificacion/SelectorObjetivos";
 
 
 type Objetivo = { descripcion: string; puntaje: number };
@@ -148,32 +149,56 @@ export default function PlanificacionForm({
       </fieldset>
 
       {/* ─── Objetivos específicos ─── */}
-      <fieldset className="border p-4 rounded-md">
-        <legend className="text-lg font-medium mb-2">Objetivos Aprendizajes</legend>
-        {objetivos.map((obj, idx) => (
-          <div key={idx} className="flex gap-2 mb-2">
-            <input
-              className="flex-1 border rounded px-2 py-1 dark:bg-gray-700 dark:text-white"
-              placeholder="Descripción"
-              value={obj.descripcion}
-              onChange={(e) => handleObjetivoChange(idx, "descripcion", e.target.value)}
-              required
-            />
-            <input
-              type="number"
-              min={1}
-              className="w-20 border rounded px-2 py-1 dark:bg-gray-700 dark:text-white"
-              value={obj.puntaje}
-              onChange={(e) => handleObjetivoChange(idx, "puntaje", Number(e.target.value))}
-            />
-            <button type="button" onClick={() => eliminarObjetivo(idx)} className="text-red-500">✕</button>
-          </div>
-        ))}
-        <button type="button" onClick={agregarObjetivo} className="text-blue-600 dark:text-blue-400 hover:underline mt-2">
-          + Agregar objetivo
-        </button>
-      </fieldset>
-              {/* ─── Horario ─── */}
+{/* ─── Objetivos específicos ─── */}
+<fieldset className="border p-4 rounded-md space-y-4">
+  <legend className="text-lg font-medium mb-2">Objetivos de Aprendizaje</legend>
+
+  {/* Selector visual de objetivos */}
+  <SelectorObjetivos
+    onAgregarObjetivo={(nuevo) =>
+      setObjetivos([...objetivos, { descripcion: nuevo.descripcion, puntaje: 10 }])
+    }
+  />
+
+  {/* Campos de objetivos seleccionados */}
+  {objetivos.map((obj, idx) => (
+    <div key={idx} className="flex gap-2">
+      <input
+        className="flex-1 border rounded px-2 py-1 dark:bg-gray-700 dark:text-white"
+        placeholder="Descripción"
+        value={obj.descripcion}
+        onChange={(e) => handleObjetivoChange(idx, "descripcion", e.target.value)}
+        required
+      />
+      <input
+        type="number"
+        min={1}
+        className="w-20 border rounded px-2 py-1 dark:bg-gray-700 dark:text-white"
+        value={obj.puntaje}
+        onChange={(e) => handleObjetivoChange(idx, "puntaje", Number(e.target.value))}
+      />
+      <button
+        type="button"
+        onClick={() => eliminarObjetivo(idx)}
+        className="text-red-500"
+      >
+        ✕
+      </button>
+    </div>
+  ))}
+
+  {/* Botón para agregar objetivo vacío */}
+  <button
+    type="button"
+    onClick={agregarObjetivo}
+    className="text-blue-600 dark:text-blue-400 hover:underline mt-2"
+  >
+    + Agregar objetivo manualmente
+  </button>
+</fieldset>
+
+        
+      {/* ─── Horario ─── */}
       <fieldset className="border p-4 rounded-md">
         <legend className="text-lg font-medium mb-2">Horario de clases</legend>
         <ScheduleSelector schedule={schedule} setSchedule={setSchedule} />
