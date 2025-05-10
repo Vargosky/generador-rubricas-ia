@@ -1,0 +1,92 @@
+[
+  {
+    "level": "1M",
+    "code": "OA01",
+    "description": "Investigar y describir procesos tecnológicos (por ejemplo, fabricación de un producto, generación de energía, tratamiento de residuos), identificando las etapas, los recursos utilizados y los problemas que solucionan."
+  },
+  {
+    "level": "1M",
+    "code": "OA02",
+    "description": "Diseñar soluciones tecnológicas simples para necesidades detectadas en su entorno (escolar, hogar o comunidad), aplicando un proceso de diseño: identificar el problema, proponer ideas, seleccionar una solución, planificar y construir un prototipo."
+  },
+  {
+    "level": "1M",
+    "code": "OA03",
+    "description": "Usar de manera segura y responsable diversas herramientas, materiales y equipos en la elaboración de proyectos tecnológicos, siguiendo instrucciones técnicas y normas de seguridad."
+  },
+  {
+    "level": "1M",
+    "code": "OA04",
+    "description": "Evaluar productos o soluciones tecnológicas existentes en función de criterios como eficiencia, impacto ambiental, ergonomía, costo y beneficio, proponiendo mejoras o alternativas."
+  },
+  {
+    "level": "1M",
+    "code": "OA05",
+    "description": "Aplicar conocimientos de ciencias, matemáticas u otras disciplinas en la resolución de problemas tecnológicos (por ejemplo, utilizar principios físicos al construir estructuras resistentes, o cálculos matemáticos para dimensionar un proyecto)."
+  },
+  {
+    "level": "1M",
+    "code": "OAA A",
+    "description": "Demostrar iniciativa y creatividad al proponer soluciones innovadoras a problemas tecnológicos, explorando diferentes ideas y enfoques."
+  },
+  {
+    "level": "1M",
+    "code": "OAA B",
+    "description": "Trabajar colaborativamente en proyectos tecnológicos, asumiendo responsabilidades, cumpliendo plazos y valorando las contribuciones de cada integrante del equipo."
+  },
+  {
+    "level": "1M",
+    "code": "OAA C",
+    "description": "Manifestar perseverancia frente a los desafíos técnicos que surgen durante la realización de un proyecto, buscando alternativas y aprendiendo de los errores."
+  },
+  {
+    "level": "1M",
+    "code": "OAA D",
+    "description": "Valorar la incidencia de la tecnología en la vida cotidiana y en la sociedad, reflexionando sobre su uso ético, sus beneficios y sus riesgos."
+  },
+  {
+    "level": "2M",
+    "code": "OA01",
+    "description": "Investigar y explicar el ciclo de vida de productos tecnológicos (diseño, producción, distribución, uso, disposición final), usando ejemplos concretos (electrodomésticos, envases, dispositivos electrónicos) y analizando su impacto ambiental en cada etapa."
+  },
+  {
+    "level": "2M",
+    "code": "OA02",
+    "description": "Diseñar soluciones tecnológicas a problemas reales identificados en la comunidad (por ejemplo, un mecanismo de riego automático para un huerto escolar, un sistema sencillo de recolección de residuos), aplicando el proceso de diseño (investigar, idear, prototipar, probar, evaluar) y considerando criterios de funcionalidad y sustentabilidad."
+  },
+  {
+    "level": "2M",
+    "code": "OA03",
+    "description": "Utilizar adecuadamente herramientas, máquinas y materiales avanzados (como cortadoras láser, impresoras 3D, microcontroladores, software de diseño asistido por computador) en la realización de proyectos tecnológicos, respetando normas de seguridad específicas."
+  },
+  {
+    "level": "2M",
+    "code": "OA04",
+    "description": "Evaluar prototipos o productos tecnológicos desarrollados (propios o de terceros) de acuerdo a criterios preestablecidos (eficacia en resolver el problema, eficiencia en uso de recursos, seguridad, impacto ambiental y social), e iterar mejoras en el diseño en base a los resultados de la evaluación."
+  },
+  {
+    "level": "2M",
+    "code": "OA05",
+    "description": "Integrar saberes de distintas disciplinas (ciencias, arte, matemáticas, educación física, etc.) en la creación de soluciones tecnológicas innovadoras, reconociendo cómo la interdisciplina enriquece el desarrollo tecnológico (por ejemplo, diseñar un juego educativo que combine conocimientos de biología y programación)."
+  },
+  {
+    "level": "2M",
+    "code": "OAA A",
+    "description": "Demostrar proactividad y autogestión en la realización de proyectos tecnológicos, investigando por cuenta propia soluciones existentes e inspirándose en ellas."
+  },
+  {
+    "level": "2M",
+    "code": "OAA B",
+    "description": "Colaborar efectivamente en equipos de trabajo tecnológicos, respetando las ideas de sus pares, distribuyendo tareas equitativamente y apoyando para el cumplimiento de objetivos comunes."
+  },
+  {
+    "level": "2M",
+    "code": "OAA C",
+    "description": "Mostrar resiliencia ante los fracasos o errores en los procesos tecnológicos, asumiéndolos como parte del aprendizaje y reformulando estrategias en base a ellos."
+  },
+  {
+    "level": "2M",
+    "code": "OAA D",
+    "description": "Demostrar una actitud ética en la práctica tecnológica, considerando aspectos como la accesibilidad de las soluciones, la minimización de residuos y la honestidad académica (no plagiar diseños, citar fuentes de información técnica, etc.)."
+  }
+]

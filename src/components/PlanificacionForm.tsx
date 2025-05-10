@@ -2,6 +2,7 @@
 import React from "react";
 import { ScheduleSelector, Schedule } from "../app/dashboard/planificacion/ScheduleSelector";
 
+
 type Objetivo = { descripcion: string; puntaje: number };
 
 type PlanificacionFormProps = {
@@ -76,6 +77,8 @@ export default function PlanificacionForm({
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
+      
+
       <h2 className="text-3xl font-bold text-gray-900 dark:text-white">Crear Planificación</h2>
 
       {/* ─── Datos generales ─── */}
@@ -95,7 +98,7 @@ export default function PlanificacionForm({
               <option value="matematicas">Matemáticas</option>
             </select>
           </div>
-
+                   
           <div>
             <label className="block text-sm font-medium mb-1">Detalles opcionales</label>
             <input
@@ -146,7 +149,7 @@ export default function PlanificacionForm({
 
       {/* ─── Objetivos específicos ─── */}
       <fieldset className="border p-4 rounded-md">
-        <legend className="text-lg font-medium mb-2">Objetivos específicos</legend>
+        <legend className="text-lg font-medium mb-2">Objetivos Aprendizajes</legend>
         {objetivos.map((obj, idx) => (
           <div key={idx} className="flex gap-2 mb-2">
             <input
@@ -170,8 +173,7 @@ export default function PlanificacionForm({
           + Agregar objetivo
         </button>
       </fieldset>
-
-      {/* ─── Horario ─── */}
+              {/* ─── Horario ─── */}
       <fieldset className="border p-4 rounded-md">
         <legend className="text-lg font-medium mb-2">Horario de clases</legend>
         <ScheduleSelector schedule={schedule} setSchedule={setSchedule} />

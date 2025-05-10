@@ -1,5 +1,8 @@
 // app/dashboard/cursos/page.tsx
+"use client"
 import { CourseCard } from "@/app/components/cards/CourseCard";
+import FormularioObjetivos from "@/components/FormularioObjetivos";
+import SelectOA from "../components/forms/SelectOA";
 
 export default function CursosPage() {
   // Ejemplo de datos. Luego podrás cargarlos de tu API / BD.
@@ -46,6 +49,8 @@ export default function CursosPage() {
           <CourseCard key={title} title={title} stats={stats} />
         ))}
       </div>
+      <FormularioObjetivos/>
+      <SelectOA/>
     </div>
   );
 }

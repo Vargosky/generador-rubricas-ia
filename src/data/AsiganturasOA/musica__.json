@@ -1,0 +1,92 @@
+[
+  {
+    "level": "1M",
+    "code": "OA01",
+    "description": "Interpretar repertorio musical variado (obras vocales o instrumentales) de diferentes estilos y épocas, ajustándose a los elementos básicos de la interpretación: ritmo, altura, dinámica y timbre."
+  },
+  {
+    "level": "1M",
+    "code": "OA02",
+    "description": "Crear composiciones o improvisaciones musicales sencillas, utilizando patrones rítmicos, melódicos y armónicos básicos, y explorando la combinación de sonidos y silencios para expresar ideas o emociones."
+  },
+  {
+    "level": "1M",
+    "code": "OA03",
+    "description": "Escuchar con atención y describir obras musicales de distintos géneros (clásico, popular, folclórico, etc.), identificando elementos como tempo, pulso, compás, timbre de instrumentos, texturas sonoras y forma musical."
+  },
+  {
+    "level": "1M",
+    "code": "OA04",
+    "description": "Analizar la función de la música en diferentes contextos culturales e históricos, reconociendo cómo la música refleja e influye en la identidad y las expresiones de distintas comunidades."
+  },
+  {
+    "level": "1M",
+    "code": "OA05",
+    "description": "Usar tecnologías disponibles (software de edición de audio, instrumentos digitales, aplicaciones) para apoyar la creación, interpretación o grabación de proyectos musicales."
+  },
+  {
+    "level": "1M",
+    "code": "OAA A",
+    "description": "Demostrar confianza y autoexpresión al participar en actividades musicales, ya sea interpretando, componiendo o improvisando."
+  },
+  {
+    "level": "1M",
+    "code": "OAA B",
+    "description": "Valorar el trabajo en equipo en conjuntos musicales, respetando el rol de cada integrante y contribuyendo al resultado colectivo."
+  },
+  {
+    "level": "1M",
+    "code": "OAA C",
+    "description": "Mostrarse abierto a conocer y apreciar músicas de diversos géneros y culturas, reconociendo en ellas formas válidas de expresión artística."
+  },
+  {
+    "level": "1M",
+    "code": "OAA D",
+    "description": "Manifestar perseverancia en el perfeccionamiento técnico-musical, comprendiendo que la práctica constante mejora la habilidad y comprensión musical."
+  },
+  {
+    "level": "2M",
+    "code": "OA01",
+    "description": "Interpretar repertorio musical de dificultad media, tanto de forma individual como en ensambles, atendiendo a la precisión rítmica, afinación, matices dinámicos y expresividad, y reconociendo indicaciones de una partitura estándar."
+  },
+  {
+    "level": "2M",
+    "code": "OA02",
+    "description": "Crear composiciones o arreglos musicales incorporando elementos de distintos géneros (por ejemplo, fusionando ritmos folclóricos con armonías modernas), utilizando progresiones armónicas básicas (I-IV-V, etc.), variaciones melódicas y patrones rítmicos complejos."
+  },
+  {
+    "level": "2M",
+    "code": "OA03",
+    "description": "Analizar auditivamente obras musicales identificando su estructura formal (como AB, ABA, rondó, tema y variaciones), estilo o género (barroco, jazz, rock, andino, etc.), instrumentos utilizados y contexto histórico-cultural de su creación."
+  },
+  {
+    "level": "2M",
+    "code": "OA04",
+    "description": "Investigar la función social de la música en contextos específicos (por ejemplo, el rol de la música en rituales religiosos, en movimientos sociales, en la industria del entretenimiento actual) y presentar sus conclusiones mediante exposiciones o ensayos cortos."
+  },
+  {
+    "level": "2M",
+    "code": "OA05",
+    "description": "Utilizar herramientas tecnológicas (software de notación, secuenciadores, aplicaciones de mezcla de audio) para componer, grabar o editar música, y evaluar cómo la tecnología influye en la creación y difusión musical contemporánea."
+  },
+  {
+    "level": "2M",
+    "code": "OAA A",
+    "description": "Asumir desafíos musicales (aprender piezas nuevas, tocar frente a público, experimentar con improvisación) con determinación y apertura, aprendiendo de la experiencia."
+  },
+  {
+    "level": "2M",
+    "code": "OAA B",
+    "description": "Colaborar de manera comprometida en conjuntos musicales, respetando la figura del director o coordinador y aportando al logro de un sonido conjunto armónico."
+  },
+  {
+    "level": "2M",
+    "code": "OAA C",
+    "description": "Mostrar respeto y aprecio al escuchar interpretaciones musicales de sus pares o de músicos profesionales, brindando críticas respetuosas y reconociendo el esfuerzo y talento de los demás."
+  },
+  {
+    "level": "2M",
+    "code": "OAA D",
+    "description": "Mantener un comportamiento responsable respecto a la salud vocal y auditiva (por ejemplo, cuidados de la voz, volúmenes adecuados), entendiendo su importancia para la práctica musical a largo plazo."
+  }
+]

@@ -1,0 +1,277 @@
+[
+  {
+    "level": "1M",
+    "code": "OA01",
+    "description": "Observar y describir detalladamente las características de objetos, procesos y fenómenos del mundo natural, usando los sentidos, instrumentos y técnicas de observación."
+  },
+  {
+    "level": "1M",
+    "code": "OA02",
+    "description": "Formular preguntas investigables y predicciones fundamentadas sobre fenómenos naturales, utilizando sus conocimientos científicos previos."
+  },
+  {
+    "level": "1M",
+    "code": "OA03",
+    "description": "Diseñar experimentos simples para investigar fenómenos físicos y químicos, identificando variables independientes, dependientes y controladas."
+  },
+  {
+    "level": "1M",
+    "code": "OA04",
+    "description": "Planificar y llevar a cabo investigaciones científicas en contextos de laboratorio o en terreno, utilizando materiales y herramientas en forma segura y siguiendo protocolos establecidos."
+  },
+  {
+    "level": "1M",
+    "code": "OA05",
+    "description": "Analizar las relaciones entre las estructuras y funciones de organismos, sistemas o procesos biológicos (por ejemplo, la relación entre anatomía y fisiología en animales y plantas)."
+  },
+  {
+    "level": "1M",
+    "code": "OA06",
+    "description": "Investigar y explicar fenómenos de la Tierra y el universo (como la dinámica atmosférica, las capas de la Tierra, los ciclos astronómicos) utilizando evidencia científica."
+  },
+  {
+    "level": "1M",
+    "code": "OA07",
+    "description": "Comprender la base de los procesos químicos fundamentales, describiendo propiedades y transformaciones de la materia en situaciones cotidianas."
+  },
+  {
+    "level": "1M",
+    "code": "OA08",
+    "description": "Explicar principios y leyes físicas básicas (como fuerzas y movimiento, energía, electricidad) aplicándolos en la resolución de problemas sencillos del entorno."
+  },
+  {
+    "level": "1M",
+    "code": "OA09",
+    "description": "Interpretar datos y evidencias obtenidas de investigaciones o fuentes secundarias, utilizando representaciones como tablas, gráficos o modelos."
+  },
+  {
+    "level": "1M",
+    "code": "OA10",
+    "description": "Comunicar resultados, conclusiones y explicaciones de investigaciones científicas realizadas, de forma oral y escrita, utilizando lenguaje científico adecuado."
+  },
+  {
+    "level": "1M",
+    "code": "OA11",
+    "description": "Reconocer la importancia de la sustentabilidad y la protección del medio ambiente, analizando el impacto de actividades humanas en ecosistemas y proponiendo medidas de mitigación."
+  },
+  {
+    "level": "1M",
+    "code": "OA12",
+    "description": "Relacionar la ciencia y la tecnología con la sociedad, discutiendo casos en que los avances científicos generan beneficios, riesgos o dilemas éticos."
+  },
+  {
+    "level": "1M",
+    "code": "OA13",
+    "description": "Comprender la diversidad de los seres vivos, clasificándolos en grupos taxonómicos mayores y reconociendo características comunes y adaptaciones específicas."
+  },
+  {
+    "level": "1M",
+    "code": "OA14",
+    "description": "Explicar la base celular de la vida, describiendo la estructura y función de células, tejidos y órganos en organismos multicelulares."
+  },
+  {
+    "level": "1M",
+    "code": "OA15",
+    "description": "Analizar la transferencia de materia y energía en ecosistemas, explicando relaciones tróficas (cadenas y redes alimentarias) y ciclos de nutrientes."
+  },
+  {
+    "level": "1M",
+    "code": "OA16",
+    "description": "Investigar propiedades de mezclas y sustancias, distinguiendo entre mezclas, compuestos y elementos, y describiendo métodos de separación."
+  },
+  {
+    "level": "1M",
+    "code": "OA17",
+    "description": "Describir reacciones químicas presentes en la vida diaria (como combustión, oxidación, neutralización) y sus evidencias (cambios de color, liberación de gas, energía)."
+  },
+  {
+    "level": "1M",
+    "code": "OA18",
+    "description": "Desarrollar un modelo que describa cómo el número total de átomos no varía en una reacción química y cómo la masa se conserva aplicando la ley de la conservación de la materia."
+  },
+  {
+    "level": "1M",
+    "code": "OA19",
+    "description": "Explicar la formación de compuestos binarios y ternarios, considerando las fuerzas eléctricas entre partículas y la nomenclatura inorgánica correspondiente."
+  },
+  {
+    "level": "1M",
+    "code": "OA20",
+    "description": "Establecer relaciones cuantitativas entre reactantes y productos en reacciones químicas (estequiometría) y explicar la formación de compuestos útiles para los seres vivos, como la formación de la glucosa en la fotosíntesis."
+  },
+  {
+    "level": "1M",
+    "code": "OAH A",
+    "description": "Observar y describir fenómenos de manera detallada, registrando datos con precisión."
+  },
+  {
+    "level": "1M",
+    "code": "OAH B",
+    "description": "Formular preguntas e hipótesis a partir de la observación de fenómenos naturales."
+  },
+  {
+    "level": "1M",
+    "code": "OAH C",
+    "description": "Diseñar investigaciones simples, identificando variables relevantes."
+  },
+  {
+    "level": "1M",
+    "code": "OAH D",
+    "description": "Planificar experimentos controlados para poner a prueba hipótesis."
+  },
+  {
+    "level": "1M",
+    "code": "OAH E",
+    "description": "Medir y recoger datos de manera sistemática, utilizando instrumentos apropiados."
+  },
+  {
+    "level": "1M",
+    "code": "OAH F",
+    "description": "Analizar datos cuantitativos y cualitativos, identificando patrones o tendencias."
+  },
+  {
+    "level": "1M",
+    "code": "OAH G",
+    "description": "Evaluar procedimientos y resultados de investigaciones, considerando su confiabilidad y validez."
+  },
+  {
+    "level": "1M",
+    "code": "OAH H",
+    "description": "Comunicar conclusiones y argumentaciones científicas en forma clara, oralmente y por escrito."
+  },
+  {
+    "level": "2M",
+    "code": "OA01",
+    "description": "Observar, describir y comparar organismos, materiales y fenómenos naturales, utilizando instrumentos de medición y técnicas de registro, y valorando la precisión y exactitud de los datos obtenidos."
+  },
+  {
+    "level": "2M",
+    "code": "OA02",
+    "description": "Formular hipótesis fundamentadas respecto a fenómenos biológicos, físicos o químicos, basándose en teorías científicas conocidas, y diseñar experimentos controlados para probarlas."
+  },
+  {
+    "level": "2M",
+    "code": "OA03",
+    "description": "Conducir investigaciones científicas sencillas, registrando con rigurosidad las observaciones y mediciones (en tablas, diarios de laboratorio, fotografías) y ajustándose a protocolos de seguridad en el manejo de sustancias y equipos."
+  },
+  {
+    "level": "2M",
+    "code": "OA04",
+    "description": "Analizar cómo las estructuras biológicas están relacionadas con sus funciones (por ejemplo, cómo las características de una célula se relacionan con su función en el organismo; o cómo la morfología de un órgano se vincula con su rol en un sistema)."
+  },
+  {
+    "level": "2M",
+    "code": "OA05",
+    "description": "Investigar y explicar procesos geológicos y astronómicos (tectónica de placas, ciclos climáticos, formación estelar), integrando conceptos de ciencias de la Tierra y el espacio y relacionándolos con fenómenos observables."
+  },
+  {
+    "level": "2M",
+    "code": "OA06",
+    "description": "Comprender y aplicar leyes de conservación (masa, energía, cantidad de movimiento) en situaciones experimentales y problemas teóricos, reconociendo su universalidad en procesos físicos y químicos."
+  },
+  {
+    "level": "2M",
+    "code": "OA07",
+    "description": "Describir y ejemplificar reacciones químicas de relevancia industrial o biológica (síntesis, combustión, fermentación), distinguiendo reactantes, productos y manifestaciones de energía involucradas."
+  },
+  {
+    "level": "2M",
+    "code": "OA08",
+    "description": "Explicar fenómenos relacionados con ondas y electricidad (como comportamiento de la luz y el sonido, circuitos eléctricos básicos), aplicando principios físicos para predecir resultados en experimentos o dispositivos simples."
+  },
+  {
+    "level": "2M",
+    "code": "OA09",
+    "description": "Interpretar información científica presentada en formatos diversos (gráficos, mapas, esquemas, fórmulas) y utilizar dicha información para respaldar conclusiones o tomar decisiones informadas."
+  },
+  {
+    "level": "2M",
+    "code": "OA10",
+    "description": "Comunicar los resultados de investigaciones científicas realizadas (en grupo o individuales), empleando terminología científica adecuada, estructurando informes orales o escritos con introducción, métodos, resultados, conclusiones y citando fuentes cuando corresponda."
+  },
+  {
+    "level": "2M",
+    "code": "OA11",
+    "description": "Analizar problemas ambientales actuales (calentamiento global, pérdida de biodiversidad, contaminación) desde una perspectiva científica, identificando causas, efectos y posibles soluciones tecnológicas o cambios conductuales."
+  },
+  {
+    "level": "2M",
+    "code": "OA12",
+    "description": "Relacionar el desarrollo científico-tecnológico con sus impactos en la sociedad, discutiendo ejemplos en que los avances científicos han mejorado la calidad de vida o generado dilemas éticos (biotecnología, energía nuclear, inteligencia artificial, etc.)."
+  },
+  {
+    "level": "2M",
+    "code": "OA13",
+    "description": "Explicar la base molecular de la vida y la herencia, describiendo moléculas fundamentales (ADN, proteínas, enzimas) y procesos clave (replicación, síntesis de proteínas, genética mendeliana) utilizando modelos simplificados."
+  },
+  {
+    "level": "2M",
+    "code": "OA14",
+    "description": "Describir la estructura y función de sistemas en organismos multicelulares (sistema nervioso, circulatorio, reproductivo, etc.), analizando cómo interactúan para mantener la homeostasis."
+  },
+  {
+    "level": "2M",
+    "code": "OA15",
+    "description": "Analizar el flujo de energía en ecosistemas (cadenas tróficas, pirámides ecológicas) y los ciclos bio-geoquímicos (agua, carbono, nitrógeno), relacionándolos con la actividad humana y la sustentabilidad."
+  },
+  {
+    "level": "2M",
+    "code": "OA16",
+    "description": "Investigar propiedades de compuestos químicos orgánicos básicos (hidrocarburos, alcoholes, ácidos orgánicos), identificando grupos funcionales y aplicaciones cotidianas."
+  },
+  {
+    "level": "2M",
+    "code": "OA17",
+    "description": "Evaluar cuantitativamente reacciones químicas (cálculos estequiométricos simples, rendimiento, pureza), aplicándolos en contextos como la química industrial o procesos biológicos."
+  },
+  {
+    "level": "2M",
+    "code": "OA18",
+    "description": "Analizar interacciones fundamentales de la física (gravitatoria, electromagnética) en eventos del día a día (órbitas planetarias, uso de imanes, circuitos eléctricos), conectando teoría y observación."
+  },
+  {
+    "level": "2M",
+    "code": "OA19",
+    "description": "Discutir implicancias éticas de experimentos históricos o tecnologías modernas (experimentación con humanos, edición genética, uso de combustibles fósiles), formándose una opinión informada."
+  },
+  {
+    "level": "2M",
+    "code": "OA20",
+    "description": "Proponer soluciones creativas a problemas prácticos utilizando conocimientos científicos (diseño de filtros de agua, propuestas de energías alternativas, mejoras en eficiencia energética escolar, etc.), evaluando su factibilidad y potencial impacto."
+  },
+  {
+    "level": "2M",
+    "code": "OAH A",
+    "description": "Observar con detalle fenómenos y datos, registrando minuciosamente sus características."
+  },
+  {
+    "level": "2M",
+    "code": "OAH B",
+    "description": "Formular preguntas y problemas de investigación relevantes a partir de la curiosidad científica."
+  },
+  {
+    "level": "2M",
+    "code": "OAH C",
+    "description": "Diseñar procedimientos experimentales controlados para investigar preguntas científicas."
+  },
+  {
+    "level": "2M",
+    "code": "OAH D",
+    "description": "Conducir experimentos de manera metódica y segura, registrando cuidadosamente los datos."
+  },
+  {
+    "level": "2M",
+    "code": "OAH E",
+    "description": "Analizar críticamente datos recopilados, utilizando herramientas matemáticas y gráficas."
+  },
+  {
+    "level": "2M",
+    "code": "OAH F",
+    "description": "Evaluar la calidad de los diseños experimentales y resultados obtenidos, identificando fuentes de error o sesgo."
+  },
+  {
+    "level": "2M",
+    "code": "OAH G",
+    "description": "Comunicar hallazgos científicos de manera clara y estructurada, adaptando el lenguaje a la audiencia objetivo."
+  }
+]

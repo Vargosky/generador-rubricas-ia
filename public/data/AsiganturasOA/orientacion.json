@@ -1,0 +1,142 @@
+[
+  {
+    "level": "1M",
+    "code": "OA01",
+    "description": "Comparar distintas alternativas posibles de sus proyectos de vida, en los ámbitos personal, académico y laboral, considerando sus intereses, habilidades y valores personales, así como las oportunidades y desafíos del entorno."
+  },
+  {
+    "level": "1M",
+    "code": "OA02",
+    "description": "Analizar en grupo temáticas relacionadas con la adolescencia (autoestima, sexualidad, relaciones interpersonales, participación ciudadana, etc.), fundamentando opiniones y respetando puntos de vista diferentes."
+  },
+  {
+    "level": "1M",
+    "code": "OA03",
+    "description": "Evaluar situaciones de riesgo comunes en la adolescencia (consumo de sustancias, acoso escolar, uso de redes sociales, conductas sexuales de riesgo, entre otras) y proponer estrategias de autocuidado y apoyo en su entorno."
+  },
+  {
+    "level": "1M",
+    "code": "OA04",
+    "description": "Promover y llevar a cabo acciones que favorezcan el bienestar integral y la vida saludable, tanto a nivel personal como en la comunidad educativa, mostrando iniciativa y responsabilidad."
+  },
+  {
+    "level": "1M",
+    "code": "OA05",
+    "description": "Fomentar relaciones interpersonales positivas y respetuosas en su entorno (familia, amigos, colegio), reflexionando sobre la importancia de la empatía, la comunicación asertiva y la resolución pacífica de conflictos."
+  },
+  {
+    "level": "1M",
+    "code": "OA06",
+    "description": "Discriminar alternativas para la resolución de conflictos en un marco de derechos, buscando acuerdos que beneficien a las partes involucradas y manteniendo el respeto mutuo."
+  },
+  {
+    "level": "1M",
+    "code": "OA07",
+    "description": "Evaluar instancias de participación juvenil disponibles en su entorno (centro de estudiantes, voluntariados, organizaciones comunitarias, etc.) e involucrarse en aquellas que contribuyan al bien común y a su desarrollo personal."
+  },
+  {
+    "level": "1M",
+    "code": "OA08",
+    "description": "Desarrollar iniciativas orientadas a promover valores como el respeto, la justicia, la inclusión y la solidaridad en su curso y comunidad educativa, asumiendo un rol activo en su implementación."
+  },
+  {
+    "level": "1M",
+    "code": "OA09",
+    "description": "Contrastar diversos posibles caminos a seguir en sus proyectos de vida, considerando opciones de educación superior, de inserción laboral y de desarrollo personal, y reflexionando sobre los pasos necesarios para lograrlos."
+  },
+  {
+    "level": "1M",
+    "code": "OA10",
+    "description": "Diseñar aspectos de sus posibles proyectos de vida, estableciendo metas personales de corto, mediano y largo plazo y reconociendo sus propias fortalezas, motivaciones, oportunidades y posibles dificultades."
+  },
+  {
+    "level": "1M",
+    "code": "OAA A",
+    "description": "Mostrar disposición a reflexionar sobre sí mismo y su entorno, abriéndose a recibir Orientacion y a aprender de la experiencia propia y ajena."
+  },
+  {
+    "level": "1M",
+    "code": "OAA B",
+    "description": "Participar activamente en las instancias de Orientacion y formación, demostrando respeto y empatía hacia las experiencias y opiniones de sus pares."
+  },
+  {
+    "level": "1M",
+    "code": "OAA C",
+    "description": "Asumir compromisos personales y grupales con responsabilidad y perseverancia, entendiendo la importancia de la constancia para el logro de sus objetivos."
+  },
+  {
+    "level": "1M",
+    "code": "OAA D",
+    "description": "Valorar la importancia de los valores éticos y ciudadanos en su vida cotidiana, demostrando coherencia entre lo que piensa, dice y hace."
+  },
+  {
+    "level": "2M",
+    "code": "OA01",
+    "description": "Comparar distintas alternativas posibles de sus proyectos de vida, en los ámbitos laboral, familiar, académico y otros, considerando sus intereses, condiciones, habilidades y valores, así como las oportunidades y limitaciones de su entorno."
+  },
+  {
+    "level": "2M",
+    "code": "OA02",
+    "description": "Analizar de manera fundamentada temáticas y situaciones relacionadas con la sexualidad y los vínculos afectivos, en función de valores como el respeto hacia sí mismo y hacia los demás, la responsabilidad, la igualdad de género y la afectividad sana."
+  },
+  {
+    "level": "2M",
+    "code": "OA03",
+    "description": "Evaluar, en sí mismos y en su entorno cercano, situaciones problemáticas y/o de riesgo relacionadas con el consumo de sustancias, conductas sexuales riesgosas y la violencia (incluyendo el bullying y la violencia en el pololeo), proponiendo estrategias de autocuidado y de apoyo a pares."
+  },
+  {
+    "level": "2M",
+    "code": "OA04",
+    "description": "Promover y llevar a cabo de manera autónoma acciones que favorezcan la vida saludable a nivel personal y social, manifestando interés y preocupación ante problemáticas como la mala alimentación, el sedentarismo, el estrés, entre otras, e involucrando a sus pares en dichas iniciativas."
+  },
+  {
+    "level": "2M",
+    "code": "OA05",
+    "description": "Promover en su entorno relaciones interpersonales constructivas, sean estas presenciales o por medio de las redes sociales, sobre la base del análisis de casos y experiencias, destacando la importancia de la empatía, el diálogo, la tolerancia y el manejo adecuado de conflictos."
+  },
+  {
+    "level": "2M",
+    "code": "OA06",
+    "description": "Discriminar alternativas para la resolución de conflictos en un marco de derechos, que promuevan la búsqueda de acuerdos que beneficien a las partes involucradas, aplicando técnicas como la mediación, la negociación colaborativa y la comunicación asertiva."
+  },
+  {
+    "level": "2M",
+    "code": "OA07",
+    "description": "Evaluar en su entorno social e institucional cercano (curso, establecimiento, barrio u otro) instancias en las que puedan participar o ejercer liderazgo positivo (como centros de estudiantes, organizaciones juveniles, proyectos comunitarios), y decidir involucrarse en aquellas que contribuyan al bien común y a su propio desarrollo personal."
+  },
+  {
+    "level": "2M",
+    "code": "OA08",
+    "description": "Desarrollar iniciativas orientadas a promover el respeto, la justicia, el buen trato, las relaciones pacíficas y el bien común en el propio curso y la comunidad escolar, mostrando proactividad y capacidad de organización para llevarlas a cabo."
+  },
+  {
+    "level": "2M",
+    "code": "OA09",
+    "description": "Contrastar diversos posibles caminos a seguir en el desarrollo de sus proyectos de vida, tomando en cuenta distintas opciones laborales y académicas y analizando las implicancias de cada elección, como la duración de las carreras, las expectativas de ingreso, la movilidad geográfica, entre otras."
+  },
+  {
+    "level": "2M",
+    "code": "OA10",
+    "description": "Diseñar aspectos de sus posibles proyectos de vida considerando elementos como habilidades, motivaciones, metas personales, posibilidades y limitaciones, elaborando un plan de acción que incluya objetivos a corto, mediano y largo plazo, y estrategias concretas para alcanzarlos."
+  },
+  {
+    "level": "2M",
+    "code": "OAA A",
+    "description": "Mantener una actitud de autoobservación y autocrítica constructiva, que le permita reconocer sus fortalezas y debilidades, y buscar Orientacion cuando lo requiera."
+  },
+  {
+    "level": "2M",
+    "code": "OAA B",
+    "description": "Mostrar empatía y solidaridad con sus compañeros, especialmente con quienes enfrentan dificultades, brindándoles apoyo y evitando conductas que puedan dañarlos."
+  },
+  {
+    "level": "2M",
+    "code": "OAA C",
+    "description": "Asumir un rol activo y responsable en la construcción de un ambiente escolar inclusivo y respetuoso, siendo coherente entre sus valores y sus acciones diarias."
+  },
+  {
+    "level": "2M",
+    "code": "OAA D",
+    "description": "Valorar el aprendizaje continuo y la superación personal como pilares de su desarrollo, mostrando motivación por aprender de todas las áreas del currículo y de las experiencias de la vida."
+  }
+]

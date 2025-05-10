@@ -1,0 +1,92 @@
+[
+  {
+    "level": "1M",
+    "code": "OA01",
+    "description": "Ejecutar una variedad de habilidades motrices específicas (de locomoción, manipulación y estabilidad) en diferentes contextos deportivos, recreativos y artísticos, demostrando control y coordinación."
+  },
+  {
+    "level": "1M",
+    "code": "OA02",
+    "description": "Aplicar principios básicos del entrenamiento físico para el desarrollo de la condición física, participando en rutinas que mejoren la resistencia cardiovascular, la fuerza muscular, la velocidad y la flexibilidad."
+  },
+  {
+    "level": "1M",
+    "code": "OA03",
+    "description": "Practicar regularmente actividades físicas y deportivas variadas, evidenciando conductas de autocuidado y seguridad (por ejemplo, hidratación, calentamiento, respeto de reglas) y aplicando primeros auxilios básicos cuando corresponda."
+  },
+  {
+    "level": "1M",
+    "code": "OA04",
+    "description": "Participar en actividades físicas grupales mostrando liderazgo positivo, trabajo en equipo, respeto por las normas y asumiendo distintos roles (jugador, árbitro, entrenador, etc.) de manera responsable."
+  },
+  {
+    "level": "1M",
+    "code": "OA05",
+    "description": "Proponer y llevar a cabo iniciativas para promover la actividad física regular y hábitos de vida saludable en su comunidad educativa (por ejemplo, organizar pausas activas, eventos deportivos, campañas anti sedentarismo)."
+  },
+  {
+    "level": "1M",
+    "code": "OAA A",
+    "description": "Demostrar entusiasmo y compromiso en la práctica de actividad física, valorando sus beneficios para la salud."
+  },
+  {
+    "level": "1M",
+    "code": "OAA B",
+    "description": "Respetar las normas y reglas de juego en actividades deportivas, evidenciando juego limpio y respeto hacia compañeros y adversarios."
+  },
+  {
+    "level": "1M",
+    "code": "OAA C",
+    "description": "Trabajar colaborativamente en equipo, mostrando responsabilidad, solidaridad y liderazgo positivo en actividades físicas grupales."
+  },
+  {
+    "level": "1M",
+    "code": "OAA D",
+    "description": "Valorar la importancia de un estilo de vida activo y equilibrado, integrando hábitos de ejercicio, alimentación saludable y descanso adecuado."
+  },
+  {
+    "level": "2M",
+    "code": "OA01",
+    "description": "Perfeccionar y aplicar con precisión las habilidades motrices específicas de locomoción, manipulación y estabilidad en, al menos:\n- Un deporte individual (por ejemplo, gimnasia rítmica, natación).\n- Un deporte de oposición (por ejemplo, bádminton, tenis de mesa).\n- Un deporte de colaboración (por ejemplo, kayak, escalada).\n- Un deporte de oposición/colaboración (por ejemplo, fútbol, vóleibol, rugby).\n- Una danza (folclórica, popular, etc.)."
+  },
+  {
+    "level": "2M",
+    "code": "OA02",
+    "description": "Diseñar, aplicar y evaluar estrategias y tácticas específicas para la resolución de problemas en juegos o deportes; por ejemplo:\n- Ajustar la fuerza y dirección de un golpe según la posición del adversario.\n- Elaborar en equipo una táctica defensiva para recuperar el balón.\n- Evaluar la efectividad de una estrategia de ataque tras un partido."
+  },
+  {
+    "level": "2M",
+    "code": "OA03",
+    "description": "Diseñar, evaluar y aplicar un plan de entrenamiento personal para mejorar la condición física, desarrollando resistencia cardiovascular, fuerza muscular, velocidad y flexibilidad, considerando:\n- Duración del plan (e.g., 6 semanas).\n- Frecuencia, intensidad, tiempo y tipo de ejercicio.\n- Nivel de condición física inicial.\n- Actividades físicas de interés personal.\n- Balance energético (ingesta y gasto calórico)."
+  },
+  {
+    "level": "2M",
+    "code": "OA04",
+    "description": "Practicar regularmente diversas actividades físicas alternativas y/o deportivas en distintos entornos, aplicando conductas de autocuidado, seguridad y primeros auxilios, tales como:\n- Realizar al menos 30 minutos diarios de actividad física de su interés.\n- Promover campañas contra el consumo de drogas, tabaco y alcohol.\n- Aplicar maniobras básicas de primeros auxilios ante lesiones comunes.\n- Dirigir un calentamiento grupal.\n- Mantener hidratación adecuada."
+  },
+  {
+    "level": "2M",
+    "code": "OA05",
+    "description": "Participar, liderar y promover distintas actividades físicas y/o deportivas en su comunidad escolar y entorno, por ejemplo:\n- Proponer estrategias grupales para organizar torneos o eventos deportivos.\n- Ejercitar estilos de liderazgo positivo en la promoción de una vida activa.\n- Crear actividades físicas innovadoras para fomentar la práctica regular en su comunidad.\n- Generar iniciativas que motiven la adherencia a la actividad física permanente."
+  },
+  {
+    "level": "2M",
+    "code": "OAA A",
+    "description": "Mostrar constancia y esfuerzo en el mejoramiento de su rendimiento físico, manteniendo motivación aun ante dificultades."
+  },
+  {
+    "level": "2M",
+    "code": "OAA B",
+    "description": "Ejercer liderazgo positivo y colaboración en las actividades grupales, fomentando la integración de todos los compañeros."
+  },
+  {
+    "level": "2M",
+    "code": "OAA C",
+    "description": "Demostrar responsabilidad personal en el autocuidado durante la actividad física (alimentación, descanso, prevención de lesiones) y al animar a otros a cuidarse."
+  },
+  {
+    "level": "2M",
+    "code": "OAA D",
+    "description": "Mostrar actitudes de fair play y respeto intercultural en contextos deportivos, valorando la diversidad en el deporte y la actividad física."
+  }
+]

@@ -60,7 +60,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
           <NavLink href="/dashboard" icon={Bot} iconSize={iconSize} collapsed={isCollapsed}>Mis Rúbricas</NavLink>
           <NavLink href="/dashboard/planificacion" icon={Calendar} iconSize={iconSize} collapsed={isCollapsed}>Crear Planificación</NavLink>
           <NavLink href="/dashboard/planificacioninversa" icon={Calendar} iconSize={iconSize} collapsed={isCollapsed}>Planificación Inversa</NavLink>
-          <NavLink href="/dashboard" icon={TowerControl} iconSize={iconSize} collapsed={isCollapsed}>Reportes UTP</NavLink>
+          <NavLink href="/dashboard/oa" icon={TowerControl} iconSize={iconSize} collapsed={isCollapsed}>Objetivos Aprendizaje</NavLink>
         </nav>
       </aside>
 

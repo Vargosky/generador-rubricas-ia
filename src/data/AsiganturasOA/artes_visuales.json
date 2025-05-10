@@ -1,0 +1,92 @@
+[
+  {
+    "level": "1M",
+    "code": "OA01",
+    "description": "Experimentar con diversos materiales, técnicas y soportes de las artes visuales (dibujo, pintura, escultura, fotografía, medios digitales, etc.) para explorar sus posibilidades expresivas."
+  },
+  {
+    "level": "1M",
+    "code": "OA02",
+    "description": "Aplicar elementos del lenguaje visual (línea, forma, color, textura, valor, espacio) en la creación de composiciones bidimensionales y tridimensionales que expresen ideas, emociones o conceptos."
+  },
+  {
+    "level": "1M",
+    "code": "OA03",
+    "description": "Crear obras visuales originales inspirándose en referentes artísticos de distintas épocas y culturas, incorporando en sus trabajos algunas características estilísticas observadas."
+  },
+  {
+    "level": "1M",
+    "code": "OA04",
+    "description": "Analizar obras de arte visual (pinturas, esculturas, instalaciones, fotografías, etc.) identificando elementos formales, temas y posibles significados, y expresando una apreciación personal fundamentada."
+  },
+  {
+    "level": "1M",
+    "code": "OA05",
+    "description": "Reflexionar sobre los procesos de creación propios y de sus pares, evaluando las decisiones tomadas en cuanto a uso de materiales, técnicas y lenguaje visual, e incorporando retroalimentación para mejorar sus obras."
+  },
+  {
+    "level": "1M",
+    "code": "OAA A",
+    "description": "Demostrar perseverancia y dedicación en el desarrollo de proyectos artísticos, enfrentando desafíos creativos con una actitud positiva."
+  },
+  {
+    "level": "1M",
+    "code": "OAA B",
+    "description": "Respetar y valorar las producciones visuales propias y ajenas, reconociendo la diversidad de estilos, técnicas y visiones artísticas."
+  },
+  {
+    "level": "1M",
+    "code": "OAA C",
+    "description": "Mostrar apertura a la experimentación y la innovación, explorando nuevas ideas y materiales en sus creaciones artísticas."
+  },
+  {
+    "level": "1M",
+    "code": "OAA D",
+    "description": "Valorar el arte como medio de expresión y comunicación, apreciando su rol en la cultura, la historia y la sociedad."
+  },
+  {
+    "level": "2M",
+    "code": "OA01",
+    "description": "Experimentar con una amplia gama de técnicas avanzadas (por ejemplo, grabado, acuarela, modelado en arcilla, edición digital) para representar ideas visualmente, evaluando los efectos logrados con cada técnica."
+  },
+  {
+    "level": "2M",
+    "code": "OA02",
+    "description": "Aplicar principios de composición (equilibrio, contraste, ritmo, unidad, énfasis) en obras visuales propias, tomando decisiones conscientes sobre el uso de elementos del lenguaje visual para lograr ciertos efectos o significados."
+  },
+  {
+    "level": "2M",
+    "code": "OA03",
+    "description": "Crear proyectos visuales personales o colectivos que integren distintos lenguajes artísticos (por ejemplo, videoarte combinando imagen y sonido, instalación que fusione escultura y elementos sonoros o lumínicos) para comunicar una temática o concepto contemporáneo."
+  },
+  {
+    "level": "2M",
+    "code": "OA04",
+    "description": "Analizar críticamente obras de arte de diferentes movimientos (como surrealismo, cubismo, arte contemporáneo chileno, etc.), identificando sus contextos de producción, intenciones y posibles interpretaciones, y estableciendo comparaciones con producciones actuales."
+  },
+  {
+    "level": "2M",
+    "code": "OA05",
+    "description": "Reflexionar sobre el proceso creativo propio mediante un portafolio o bitácora de trabajo, donde registre bocetos, referencias, comentarios de pares y autoevaluaciones, y proponerse metas de mejoramiento en aspectos técnicos o expresivos."
+  },
+  {
+    "level": "2M",
+    "code": "OAA A",
+    "description": "Demostrar autonomía en el desarrollo de sus proyectos artísticos, investigando referentes y técnicas por iniciativa propia."
+  },
+  {
+    "level": "2M",
+    "code": "OAA B",
+    "description": "Acoger y valorar la crítica constructiva sobre sus obras, utilizándola para mejorar y crecer en su expresión artística."
+  },
+  {
+    "level": "2M",
+    "code": "OAA C",
+    "description": "Mostrar responsabilidad en el uso de materiales y respeto por el espacio de trabajo colectivo, entendiendo la importancia de la disciplina en el quehacer artístico."
+  },
+  {
+    "level": "2M",
+    "code": "OAA D",
+    "description": "Valorar el rol del arte en la sociedad como medio de crítica, memoria y transformación social, comprometiéndose con proyectos artísticos que reflejen preocupaciones sociales o personales."
+  }
+]

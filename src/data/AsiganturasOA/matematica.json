@@ -1,0 +1,192 @@
+[
+  {
+    "level": "1M",
+    "code": "OA01",
+    "description": "Calcular operaciones con números racionales en forma simbólica."
+  },
+  {
+    "level": "1M",
+    "code": "OA02",
+    "description": "Mostrar que comprenden las potencias de base racional y exponente entero:\n- Representándolas en la recta numérica.\n- Aplicándolas en distintos contextos."
+  },
+  {
+    "level": "1M",
+    "code": "OA03",
+    "description": "Desarrollar los productos notables de manera concreta, pictórica y simbólica:\n- Cuadrado de binomio.\n- Diferencia de cuadrados."
+  },
+  {
+    "level": "1M",
+    "code": "OA04",
+    "description": "Resolver sistemas de ecuaciones lineales (2x2) relacionados con problemas de la vida diaria y de otras asignaturas, mediante representaciones gráficas y métodos algebraicos."
+  },
+  {
+    "level": "1M",
+    "code": "OA05",
+    "description": "Graficar relaciones lineales en dos variables de la forma f(x, y) = ax + by; por ejemplo: un haz de rectas paralelas en el plano cartesiano, líneas de nivel en el plano y otras en contexto."
+  },
+  {
+    "level": "1M",
+    "code": "OA06",
+    "description": "Desarrollar la fórmula de los valores del área y del perímetro de sectores y segmentos circulares, respectivamente, a partir de ángulos centrales de 60°, 90°, 120° y 180°."
+  },
+  {
+    "level": "1M",
+    "code": "OA07",
+    "description": "Desarrollar las fórmulas para encontrar el área de la superficie y el volumen del cono:\n- A partir del desarrollo plano del cono.\n- A partir de la descomposición del cono en un cilindro infinito de base infinitesimal."
+  },
+  {
+    "level": "1M",
+    "code": "OA08",
+    "description": "Mostrar que comprenden el concepto de homotecia:\n- Construyendo homotecias de razón entera en el plano cartesiano.\n- Identificando figuras homotéticas en situaciones geométricas.\n- Aplicándolo en la ampliación y reducción de figuras."
+  },
+  {
+    "level": "1M",
+    "code": "OA09",
+    "description": "Desarrollar el teorema de Tales mediante las propiedades de la homotecia, para aplicarlo en la resolución de problemas."
+  },
+  {
+    "level": "1M",
+    "code": "OA10",
+    "description": "Aplicar propiedades de semejanza y de proporcionalidad a modelos a escala y otras situaciones de la vida diaria y otras asignaturas."
+  },
+  {
+    "level": "1M",
+    "code": "OA11",
+    "description": "Representar el concepto de homotecia de forma vectorial, relacionándolo con el producto de un vector por un escalar, de manera manual y/o con software educativo."
+  },
+  {
+    "level": "1M",
+    "code": "OA12",
+    "description": "Registrar distribuciones de dos características distintas, de una misma población, en una tabla de doble entrada y en una nube de puntos."
+  },
+  {
+    "level": "1M",
+    "code": "OA13",
+    "description": "Comparar poblaciones mediante la confección de gráficos “xy” para dos atributos de muestras, de manera concreta y pictórica:\n- Identificando posibles correlaciones entre las variables."
+  },
+  {
+    "level": "1M",
+    "code": "OA14",
+    "description": "Desarrollar las reglas de las probabilidades, la regla aditiva, la regla multiplicativa y la combinación de ambas, de manera concreta, pictórica y simbólica."
+  },
+  {
+    "level": "1M",
+    "code": "OAA A",
+    "description": "Mostrar curiosidad e interés por descubrir patrones y relaciones matemáticas en diferentes contextos."
+  },
+  {
+    "level": "1M",
+    "code": "OAA B",
+    "description": "Confiar en sus capacidades para resolver problemas, perseverando en la búsqueda de soluciones."
+  },
+  {
+    "level": "1M",
+    "code": "OAA C",
+    "description": "Trabajar en forma colaborativa para lograr objetivos comunes, valorando las ideas de otros y comunicando las propias con claridad."
+  },
+  {
+    "level": "1M",
+    "code": "OAA D",
+    "description": "Manifestar rigurosidad y precisión en el uso del lenguaje matemático y en la elaboración de argumentos."
+  },
+  {
+    "level": "1M",
+    "code": "OAA E",
+    "description": "Valorar la aplicación de las matemáticas en la interpretación y la solución de problemas del mundo real."
+  },
+  {
+    "level": "2M",
+    "code": "OA01",
+    "description": "Realizar cálculos y estimaciones con números reales (potencias, raíces, logaritmos), aplicándolos en la resolución de problemas en contextos diversos."
+  },
+  {
+    "level": "2M",
+    "code": "OA02",
+    "description": "Mostrar que comprenden las relaciones entre potencias, raíces enésimas y logaritmos:\n- Comparando potencias de exponente racional con sus correspondientes raíces enésimas.\n- Convirtiendo raíces enésimas a potencias de exponente racional y viceversa.\n- Describiendo la relación entre potencias y logaritmos.\n- Resolviendo problemas rutinarios y no rutinarios que involucren potencias, logaritmos y raíces enésimas."
+  },
+  {
+    "level": "2M",
+    "code": "OA03",
+    "description": "Mostrar que comprenden la función cuadrática f(x)=ax^2+bx+c (a ≠ 0):\n- Reconociendo funciones cuadráticas en situaciones de la vida diaria y otras asignaturas.\n- Representándolas en tablas y gráficos manualmente o con software.\n- Determinando puntos notables de su gráfica.\n- Aplicándolas como modelos de situaciones de cambio cuadrático (por ejemplo, en economía)."
+  },
+  {
+    "level": "2M",
+    "code": "OA04",
+    "description": "Resolver, de manera concreta, pictórica y simbólica (o usando herramientas tecnológicas), ecuaciones cuadráticas de la forma:\n- ax^2 = b\n- (ax + b)^2 = c\n- ax^2 + bx = 0\n- ax^2 + bx = c (con a, b, c números racionales, a ≠ 0)."
+  },
+  {
+    "level": "2M",
+    "code": "OA05",
+    "description": "Mostrar que comprenden la inversa de una función:\n- Empleando la metáfora de una máquina (entrada/salida).\n- Calculando la función inversa en casos de funciones lineales y cuadráticas simples.\n- Representándola gráficamente a través de la simetría respecto de la recta y = x."
+  },
+  {
+    "level": "2M",
+    "code": "OA06",
+    "description": "Demostrar que comprenden los sistemas de ecuaciones lineales (3x3) y sus soluciones:\n- Representando sistemas en contexto geométrico (intersección de planos).\n- Resolviendo sistemas por métodos algebraicos (sustitución, eliminación) o con apoyo tecnológico.\n- Aplicándolos en problemas de contexto."
+  },
+  {
+    "level": "2M",
+    "code": "OA07",
+    "description": "Aplicar razones trigonométricas (seno, coseno, tangente) en la resolución de problemas de la vida real y otras asignaturas, especialmente en triángulos rectángulos (por ejemplo, cálculo de alturas inaccesibles, distancias)."
+  },
+  {
+    "level": "2M",
+    "code": "OA08",
+    "description": "Mostrar que comprenden las relaciones métricas en el círculo y la esfera:\n- Calculando áreas de superficies esféricas.\n- Calculando volúmenes de esferas.\n- Resolviendo problemas que involucren circunferencias (longitudes, áreas de sectores) y esferas (áreas, volúmenes)."
+  },
+  {
+    "level": "2M",
+    "code": "OA09",
+    "description": "Interpretar y construir gráficos \"xy\" (diagrama de dispersión) para dos variables de una muestra, identificando posibles correlaciones (positiva, negativa o nula) y discutiiendo su significado en contextos estadísticos sencillos."
+  },
+  {
+    "level": "2M",
+    "code": "OA10",
+    "description": "Calcular probabilidades en eventos compuestos sencillos aplicando las reglas aditiva y multiplicativa de la probabilidad, así como combinaciones de ambas en experimentos aleatorios básicos."
+  },
+  {
+    "level": "2M",
+    "code": "OA11",
+    "description": "Analizar distribuciones bivariadas (dos variables) mediante tablas de doble entrada y diagramas de dispersión, describiendo tendencias generales y asociación entre variables."
+  },
+  {
+    "level": "2M",
+    "code": "OA12",
+    "description": "Comparar dos poblaciones o dos muestras respecto de dos características, mediante la interpretación de gráficos de dispersión, identificando patrones o diferencias significativas."
+  },
+  {
+    "level": "2M",
+    "code": "OA13",
+    "description": "Aplicar la regla de Laplace (probabilidad = casos favorables / casos posibles) y principios de conteo simples (permuts, combins) en situaciones de azar equiprobables para calcular probabilidades."
+  },
+  {
+    "level": "2M",
+    "code": "OA14",
+    "description": "Resolver problemas de probabilidad que involucren eventos mutuamente excluyentes o independientes, utilizando las fórmulas apropiadas y justificando sus procedimientos."
+  },
+  {
+    "level": "2M",
+    "code": "OAA A",
+    "description": "Persistir en la búsqueda de estrategias diversas para resolver problemas matemáticos, mostrando iniciativa e ingenio."
+  },
+  {
+    "level": "2M",
+    "code": "OAA B",
+    "description": "Reconocer la importancia del error en el proceso de aprendizaje matemático, aprovechándolo como oportunidad para profundizar la comprensión."
+  },
+  {
+    "level": "2M",
+    "code": "OAA C",
+    "description": "Trabajar de manera colaborativa en la resolución de problemas, comunicando ideas matemáticas con claridad y respeto hacia los demás."
+  },
+  {
+    "level": "2M",
+    "code": "OAA D",
+    "description": "Manifestar precisión y cuidado en la presentación de procedimientos y resultados matemáticos, valorando la rigurosidad propia de la disciplina."
+  },
+  {
+    "level": "2M",
+    "code": "OAA E",
+    "description": "Interesarse por la aplicación de las matemáticas en contextos científicos, tecnológicos y cotidianos, comprendiendo su relevancia en el mundo actual."
+  }
+]
