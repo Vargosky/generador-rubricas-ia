@@ -50,7 +50,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
         {/* Logo */}
         <div className="mb-6 flex items-center gap-2 overflow-hidden">
           <LayoutDashboard size={iconSize} />
-          {!isCollapsed && <span className="truncate text-2xl font-bold">EduCommand</span>}
+          {/* {!isCollapsed && <span className="truncate text-2xl font-bold">EduCommand</span>} */}
         </div>
 
         {/* Enlaces */}
@@ -67,7 +67,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
       {/* ---------- Contenido principal ---------- */}
       <div className="flex flex-1 flex-col">
         <header className="flex h-16 items-center justify-between border-b border-slate-200 bg-white/60 px-6 backdrop-blur dark:border-slate-700 dark:bg-slate-800/70">
-          <span className="text-sm font-medium">Panel del Profesor</span>
+          {/* <span className="text-sm font-medium">Panel del Profesor</span> */}   {/* Esto se ve difuminado en el fondo y es tapado por el menu superior */} 
         </header>
         <main className="flex-1 overflow-y-auto p-6">{children}</main>
       </div>
