@@ -103,6 +103,7 @@ export default function SelectorObjetivos({ onAgregarObjetivo }: SelectorObjetiv
                     <td className="border px-4 py-2">{objetivo}</td>
                     <td className="border px-4 py-2 flex gap-2 justify-center">
                       <button
+                        type="button"
                         onClick={() => navigator.clipboard.writeText(objetivo)}
                         className="text-sm px-2 py-1 bg-blue-600 hover:bg-blue-700 text-white rounded"
                       >
