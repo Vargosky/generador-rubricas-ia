@@ -61,6 +61,11 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
           <NavLink href="/dashboard/planificacion" icon={Calendar} iconSize={iconSize} collapsed={isCollapsed}>Crear Planificación</NavLink>
           <NavLink href="/dashboard/planificacioninversa" icon={Calendar} iconSize={iconSize} collapsed={isCollapsed}>Planificación Inversa</NavLink>
           <NavLink href="/dashboard/oa" icon={TowerControl} iconSize={iconSize} collapsed={isCollapsed}>Objetivos Aprendizaje</NavLink>
+
+    {/*Seccion de Trabajos */} 
+          <NavLink href="/dashboard/crear_trabajos" icon={Calendar} iconSize={iconSize} collapsed={isCollapsed}>Crear Trabajos</NavLink>
+          <NavLink href="/dashboard/revisar_trabajos" icon={Calendar} iconSize={iconSize} collapsed={isCollapsed}>Revisar Trabajos</NavLink>
+          
         </nav>
       </aside>
 
