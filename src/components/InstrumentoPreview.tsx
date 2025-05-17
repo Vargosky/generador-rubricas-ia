@@ -9,12 +9,13 @@ import {
   TextRun,
 } from "docx";
 
-import { parseInstrumento, Instrumento } from "@/util/parseInstrumento";
+import { parseInstrumento } from "@/util/parseInstrumento";
+import RubricaPreview from "../app/dashboard/planificacioninversa/RubricaPreview";
+import { Rubrica } from "@/types/Rubrica";
 
 type Props = { jsonString: string };
 
 export default function InstrumentoPreview({ jsonString }: Props) {
-  /* ------------------- Parseamos una sola vez ------------------- */
   const instrumento = useMemo(() => parseInstrumento(jsonString), [jsonString]);
 
   if (!instrumento) {
@@ -29,13 +30,12 @@ export default function InstrumentoPreview({ jsonString }: Props) {
     asignatura,
     objetivoGeneral,
     examen: {
-      enunciadoGeneral,
       preguntas: { alternativas, desarrollo },
     },
     formulaNota,
+    rubrica,
   } = instrumento;
 
-  /* ----------------------- DOCX builder ------------------------- */
   const exportToDocx = async () => {
     const doc = new Document({
       sections: [
@@ -43,7 +43,7 @@ export default function InstrumentoPreview({ jsonString }: Props) {
           children: [
             new Paragraph({ text: "Instrumento de Evaluación", heading: HeadingLevel.TITLE }),
             new Paragraph({ text: `Asignatura: ${asignatura}`, spacing: { after: 200 } }),
-            new Paragraph({ text: "Objetivo general:"}),
+            new Paragraph({ text: "Objetivo general:" }),
             new Paragraph({ text: objetivoGeneral, spacing: { after: 200 } }),
 
             new Paragraph({ text: "Preguntas de Alternativas", heading: HeadingLevel.HEADING_2 }),
@@ -86,10 +86,8 @@ export default function InstrumentoPreview({ jsonString }: Props) {
     saveAs(blob, `instrumento_${asignatura}.docx`);
   };
 
-  /* ----------------------- Render HTML -------------------------- */
   return (
     <div className="mt-8 space-y-6">
-      {/* -------- resumen breve para el profesor -------- */}
       <div className="bg-gray-800 border border-gray-700 p-4 rounded">
         <h2 className="text-xl font-semibold mb-2">
           Instrumento de evaluación – {asignatura.toUpperCase()}
@@ -99,7 +97,6 @@ export default function InstrumentoPreview({ jsonString }: Props) {
           {objetivoGeneral}
         </p>
 
-        {/* --------- preguntas de alternativas ---------- */}
         <h3 className="text-lg font-bold mt-4 mb-1">Preguntas de alternativas</h3>
         <ol className="list-decimal ml-5 space-y-1">
           {alternativas.map((q, i) => (
@@ -116,7 +113,6 @@ export default function InstrumentoPreview({ jsonString }: Props) {
           ))}
         </ol>
 
-        {/* --------- preguntas de desarrollo ---------- */}
         <h3 className="text-lg font-bold mt-4 mb-1">Preguntas de desarrollo</h3>
         <ol className="list-decimal ml-5 space-y-1">
           {desarrollo.map((q, i) => (
@@ -124,13 +120,15 @@ export default function InstrumentoPreview({ jsonString }: Props) {
           ))}
         </ol>
 
-        {/* --------- respuestas correctas al final ---------- */}
         <h3 className="text-lg font-bold mt-4 mb-1">Respuestas correctas</h3>
         <ol className="list-decimal ml-5 space-y-1">
           {alternativas.map((q, i) => (
             <li key={i}>{q.correcta}</li>
           ))}
         </ol>
+
+        <RubricaPreview rubrica={rubrica as Rubrica} />
+
 
         <button
           onClick={exportToDocx}

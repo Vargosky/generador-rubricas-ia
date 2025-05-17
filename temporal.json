@@ -1,0 +1,145 @@
+{
+    "resumen": [
+        {
+            "numero": 1,
+            "objetivoEspecifico": "Formular preguntas de investigación delimitadas en ámbito y periodo sobre temas de historia reciente de Chile.",
+            "actividadCentral": "Taller de formulación de preguntas en grupos pequeños.",
+            "recursoTIC": "Padlet para recopilar y compartir preguntas.",
+            "evaluacionFormativa": "Feedback entre pares usando rúbrica de delimitación."
+        },
+        {
+            "numero": 2,
+            "objetivoEspecifico": "Justificar la relevancia de las preguntas de investigación formuladas.",
+            "actividadCentral": "Discusión guiada y presentación de justificación.",
+            "recursoTIC": "Foro en Google Classroom.",
+            "evaluacionFormativa": "Observación y registro de argumentos presentados."
+        },
+        {
+            "numero": 3,
+            "objetivoEspecifico": "Analizar causas de procesos económicos mundiales utilizando fuentes historiográficas.",
+            "actividadCentral": "Análisis de textos historiográficos sobre la Gran Depresión.",
+            "recursoTIC": "Base de datos de JSTOR o EBSCO.",
+            "evaluacionFormativa": "Lista de cotejo para identificar causas."
+        },
+        {
+            "numero": 4,
+            "objetivoEspecifico": "Analizar consecuencias sociales y políticas de procesos contemporáneos utilizando estadísticas y gráficos.",
+            "actividadCentral": "Interpretación de tablas de natalidad y mortalidad posguerra.",
+            "recursoTIC": "Google Sheets.",
+            "evaluacionFormativa": "Informe corto con conclusiones."
+        },
+        {
+            "numero": 5,
+            "objetivoEspecifico": "Explicar características de la organización política e instituciones republicanas del Chile del siglo XIX.",
+            "actividadCentral": "Mapa conceptual colaborativo.",
+            "recursoTIC": "Coggle.",
+            "evaluacionFormativa": "Revisión del mapa según criterios de completitud."
+        },
+        {
+            "numero": 6,
+            "objetivoEspecifico": "Analizar consolidación territorial y tensiones entre proyectos conservadores y liberales en el Chile decimonónico.",
+            "actividadCentral": "Debate estructurado.",
+            "recursoTIC": "Zoom.",
+            "evaluacionFormativa": "Lista de cotejo de contribuciones al debate."
+        }
+    ],
+    "detalle": [
+        {
+            "numero": 1,
+            "inicio": [
+                "¿Qué elemento hace que una pregunta esté bien delimitada?",
+                "¿Por qué es importante acotar periodo y ámbito?"
+            ],
+            "desarrollo": [
+                "Cada grupo formula dos preguntas sobre Chile 1980-2000",
+                "Compartir preguntas en Padlet y recibir retroalimentación de otros grupos"
+            ],
+            "cierre": {
+                "preguntaReflexion": "¿Cómo mejoraron tus preguntas tras el feedback?",
+                "conexionOA": "Conecta con el OA de formular preguntas delimitadas."
+            },
+            "tarea": "Refinar una de las preguntas aplicando criterios de delimitación."
+        },
+        {
+            "numero": 2,
+            "inicio": [
+                "¿Qué hace relevante una pregunta de investigación?",
+                "¿Cómo justificamos la pertinencia histórica?"
+            ],
+            "desarrollo": [
+                "Presentación de ejemplos de justificación",
+                "Elaborar justificación en parejas y compartir en foro"
+            ],
+            "cierre": {
+                "preguntaReflexion": "¿Qué argumentos fortalecen la relevancia de tu pregunta?",
+                "conexionOA": "Justificar la relevancia (OA1)."
+            },
+            "tarea": "Publicar justificación revisada en Google Classroom."
+        },
+        {
+            "numero": 3,
+            "inicio": [
+                "¿Qué características tiene una fuente historiográfica?",
+                "¿Cómo identificar causas en un texto?"
+            ],
+            "desarrollo": [
+                "Lectura guiada de un texto sobre la crisis de 1929",
+                "Subrayar y anotar posibles causas"
+            ],
+            "cierre": {
+                "preguntaReflexion": "¿Qué causas identificaste y cómo las apoyas en la fuente?",
+                "conexionOA": "Analizar causas con fuentes historiográficas (OA2)."
+            },
+            "tarea": "Escribir un párrafo explicando una causa con cita."
+        },
+        {
+            "numero": 4,
+            "inicio": [
+                "¿Qué nos dicen los datos demográficos sobre la posguerra?",
+                "¿Por qué usar estadísticas y gráficos?"
+            ],
+            "desarrollo": [
+                "Interpretar tabla de natalidad y mortalidad (1946-1960)",
+                "Crear gráfico en Google Sheets y discutir tendencias"
+            ],
+            "cierre": {
+                "preguntaReflexion": "¿Qué consecuencias sociales o políticas sugieren los datos?",
+                "conexionOA": "Analizar consecuencias con estadísticas (OA2)."
+            },
+            "tarea": "Redactar breve informe con gráfico y conclusiones."
+        },
+        {
+            "numero": 5,
+            "inicio": [
+                "¿Cómo se organizaba políticamente Chile en el siglo XIX?",
+                "¿Qué son instituciones republicanas?"
+            ],
+            "desarrollo": [
+                "Construir mapa conceptual en Coggle",
+                "Agregar nodos sobre poderes ejecutivo, legislativo y judicial"
+            ],
+            "cierre": {
+                "preguntaReflexion": "¿Cómo se relacionan las instituciones con la consolidación del Estado?",
+                "conexionOA": "Explicar organización política e instituciones (OA3)."
+            },
+            "tarea": "Completar mapa con ejemplos históricos."
+        },
+        {
+            "numero": 6,
+            "inicio": [
+                "¿Qué territorios se incorporaron al Estado chileno?",
+                "¿Qué diferencias ideológicas había entre conservadores y liberales?"
+            ],
+            "desarrollo": [
+                "Lectura de fuentes sobre tensiones Iglesia-Estado",
+                "Debate en Zoom con roles asignados"
+            ],
+            "cierre": {
+                "preguntaReflexion": "¿Cómo influyeron las tensiones en la consolidación territorial?",
+                "conexionOA": "Analizar tensiones conservadores vs liberales (OA3)."
+            },
+            "tarea": "Escribir reflexión final conectando debate y objetivos."
+        }
+    ],
+    "conexionInstrumento": "Todas las actividades y evaluaciones formativas se alinean con los criterios\nde formulación de preguntas, análisis de causas/consecuencias y\nexplicación de la construcción del Estado del instrumento proporcionado,\nutilizando la rúbrica para retroalimentar el desempeño estudiantil."
+}
