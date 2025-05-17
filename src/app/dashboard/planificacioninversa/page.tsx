@@ -282,12 +282,12 @@ export default function PlanificacionInversePage() {
             {dificultad <= 2
               ? "Muy baja"
               : dificultad <= 4
-              ? "Baja"
-              : dificultad <= 6
-              ? "Media"
-              : dificultad <= 8
-              ? "Difícil"
-              : "Muy difícil"}
+                ? "Baja"
+                : dificultad <= 6
+                  ? "Media"
+                  : dificultad <= 8
+                    ? "Difícil"
+                    : "Muy difícil"}
           </p>
         </div>
 
@@ -401,9 +401,7 @@ export default function PlanificacionInversePage() {
                 </h2>
                 <PlanificacionDetalleList
                   detalle={planJSON.detalle}
-                  onGenerarGuion={(clase) =>
-                    console.log("TODO → generar guion para clase", clase.numero)
-                  }
+                  instrumento={instrumento}
                 />
               </div>
 
