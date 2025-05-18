@@ -28,7 +28,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
   const [pinned, setPinned] = useState(false);
   const isCollapsed = pinned ? false : collapsed;
 
-  const iconSize = isCollapsed ? 24 : 18;
+  const iconSize = isCollapsed ? 24 : 32;
 
   return (
     <div className="flex min-h-screen bg-gray-100 text-slate-900 dark:bg-slate-900 dark:text-white">
@@ -61,7 +61,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
 
         {/* Enlaces */}
         <nav className="space-y-2">
-          <NavLink href="/dashboard" icon={Home} iconSize={iconSize} collapsed={isCollapsed}>Inicio</NavLink>
+          <NavLink href="/dashboard" icon={Home} iconSize={iconSize} collapsed={isCollapsed}> Inicio</NavLink>
           <NavLink href="/dashboard" icon={Apple} iconSize={iconSize} collapsed={isCollapsed}>Mis Cursos</NavLink>
           <NavLink href="/dashboard" icon={Bot} iconSize={iconSize} collapsed={isCollapsed}>Mis Rúbricas</NavLink>
           <NavLink href="/dashboard/planificacion" icon={CalendarArrowDownIcon} iconSize={iconSize} collapsed={isCollapsed}>Crear Planificación</NavLink>
