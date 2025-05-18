@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
+import Navbar from "./components/navbar/Navbar";
 
 
 export default function LandingPage() {
@@ -12,7 +13,7 @@ export default function LandingPage() {
     <>
       {/* ───────────────────── Navbar ───────────────────── */}
       <header className="bg-white/70 backdrop-blur dark:bg-slate-900/70 fixed inset-x-0 top-0 z-50 shadow-sm">
-
+      <Navbar/>
       </header>
 
       <main className="pt-24">
