@@ -20,7 +20,8 @@ import {
   CalendarArrowUpIcon,
   Apple,
   Cog,
-  PencilIcon
+  PencilIcon,
+  MonitorCog
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import '@/app/globals.css';
@@ -58,14 +59,14 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
         {/* Logo */}
         <div className="mb-6 flex items-center gap-2 overflow-hidden">
           <LayoutDashboard size={iconSize} />
-          {!isCollapsed && <span className="truncate text-xl font-bold">Panel de Control</span>}
+          {/* {!isCollapsed && <span className="truncate text-xl font-bold">Panel de Control</span>} */}
         </div>
 
         {/* Enlaces */}
-        <nav className="space-y-4">
-          <NavLink href="/dashboard" icon={Home} iconSize={iconSize} collapsed={isCollapsed}> Inicio</NavLink>
+        <nav className="space-y-2">
+          <NavLink href="/dashboard" icon={MonitorCog} iconSize={iconSize} collapsed={isCollapsed}> Panel de Control</NavLink>
+          <NavLink href="/dashboard/perfil" icon={Bot} iconSize={iconSize} collapsed={isCollapsed}>Mi Perfil</NavLink>
           <NavLink href="/dashboard" icon={Apple} iconSize={iconSize} collapsed={isCollapsed}>Mis Cursos</NavLink>
-          <NavLink href="/dashboard" icon={Bot} iconSize={iconSize} collapsed={isCollapsed}>Base de Dato</NavLink>
           <NavLink href="/dashboard/planificacion" icon={CalendarArrowDownIcon} iconSize={iconSize} collapsed={isCollapsed}>Crear Planificación</NavLink>
           <NavLink href="/dashboard/planificacioninversa" icon={CalendarArrowUpIcon} iconSize={iconSize} collapsed={isCollapsed}>Planificación Inversa</NavLink>
           <NavLink href="/dashboard/oa" icon={BookA} iconSize={iconSize} collapsed={isCollapsed}>Objetivos Aprendizaje</NavLink>
