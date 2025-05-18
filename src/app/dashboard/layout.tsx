@@ -13,6 +13,12 @@ import {
   ChevronLeft,
   ChevronRight,
   LucideProps,
+  CheckCheck,
+  FileCog,
+  BookA,
+  CalendarArrowDownIcon,
+  CalendarArrowUpIcon,
+  Apple
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import '@/app/globals.css';
@@ -56,15 +62,15 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
         {/* Enlaces */}
         <nav className="space-y-2">
           <NavLink href="/dashboard" icon={Home} iconSize={iconSize} collapsed={isCollapsed}>Inicio</NavLink>
-          <NavLink href="/dashboard" icon={Book} iconSize={iconSize} collapsed={isCollapsed}>Mis Cursos</NavLink>
+          <NavLink href="/dashboard" icon={Apple} iconSize={iconSize} collapsed={isCollapsed}>Mis Cursos</NavLink>
           <NavLink href="/dashboard" icon={Bot} iconSize={iconSize} collapsed={isCollapsed}>Mis Rúbricas</NavLink>
-          <NavLink href="/dashboard/planificacion" icon={Calendar} iconSize={iconSize} collapsed={isCollapsed}>Crear Planificación</NavLink>
-          <NavLink href="/dashboard/planificacioninversa" icon={Calendar} iconSize={iconSize} collapsed={isCollapsed}>Planificación Inversa</NavLink>
-          <NavLink href="/dashboard/oa" icon={TowerControl} iconSize={iconSize} collapsed={isCollapsed}>Objetivos Aprendizaje</NavLink>
+          <NavLink href="/dashboard/planificacion" icon={CalendarArrowDownIcon} iconSize={iconSize} collapsed={isCollapsed}>Crear Planificación</NavLink>
+          <NavLink href="/dashboard/planificacioninversa" icon={CalendarArrowUpIcon} iconSize={iconSize} collapsed={isCollapsed}>Planificación Inversa</NavLink>
+          <NavLink href="/dashboard/oa" icon={BookA} iconSize={iconSize} collapsed={isCollapsed}>Objetivos Aprendizaje</NavLink>
 
     {/*Seccion de Trabajos */} 
-          <NavLink href="/dashboard/crear_trabajos" icon={Calendar} iconSize={iconSize} collapsed={isCollapsed}>Crear Trabajos</NavLink>
-          <NavLink href="/dashboard/revisar_trabajos" icon={Calendar} iconSize={iconSize} collapsed={isCollapsed}>Revisar Trabajos</NavLink>
+          <NavLink href="/dashboard/crear_trabajos" icon={FileCog} iconSize={iconSize} collapsed={isCollapsed}>Crear Trabajos</NavLink>
+          <NavLink href="/dashboard/revisar_trabajos" icon={CheckCheck} iconSize={iconSize} collapsed={isCollapsed}>Revisar Trabajos</NavLink>
           
         </nav>
       </aside>
