@@ -78,3 +78,10 @@ Abre un Pull Request.
 
 📝 Licencia
 Este proyecto se distribuye bajo la licencia MIT – consulta el archivo LICENSE para más información.
+
+Abre un Pull Request.
+
+¡Se agradecen issues, ideas y todo tipo de feedback!
+
+📝 Licencia
+Este proyecto se distribuye bajo la licencia MIT – consulta el archivo LICENSE para más información.
