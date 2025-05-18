@@ -1,0 +1,32 @@
+[
+  {
+    "id": "investigacion",
+    "nombre": "Trabajo de investigación",
+    "descripcion": "Informe académico con fuentes, análisis y conclusiones.",
+    "link": "/trabajos/crear?tipo=investigacion"
+  },
+  {
+    "id": "exposicion",
+    "nombre": "Exposición oral",
+    "descripcion": "Presentación individual o grupal con apoyo visual.",
+    "link": "/trabajos/crear?tipo=exposicion"
+  },
+  {
+    "id": "proyecto",
+    "nombre": "Proyecto escolar",
+    "descripcion": "Prototipo o servicio que resuelve una necesidad real.",
+    "link": "/trabajos/crear?tipo=proyecto"
+  },
+  {
+    "id": "interdisciplinario",
+    "nombre": "Trabajo triangulado",
+    "descripcion": "Actividad que integra dos o más asignaturas.",
+    "link": "/trabajos/crear?tipo=interdisciplinario"
+  },
+  {
+    "id": "laboratorio",
+    "nombre": "Laboratorio / Experimento",
+    "descripcion": "Práctica con hipótesis, recolección de datos y análisis.",
+    "link": "/trabajos/crear?tipo=laboratorio"
+  }
+]

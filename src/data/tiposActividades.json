@@ -1,0 +1,93 @@
+[
+    {
+      "id": "word-search",
+      "nombre": "Sopa de letras",
+      "descripcion": "Encuentra palabras ocultas en una cuadrícula.",
+      "link": "/actividades/crear?tipo=word-search"
+    },
+    {
+      "id": "crossword",
+      "nombre": "Crucigrama",
+      "descripcion": "Rellena definiciones horizontales y verticales.",
+      "link": "/actividades/crear?tipo=crossword"
+    },
+    {
+      "id": "matching-pairs",
+      "nombre": "Pareo / Memory",
+      "descripcion": "Une tarjetas con conceptos relacionados.",
+      "link": "/actividades/crear?tipo=matching-pairs"
+    },
+    {
+      "id": "multiple-choice",
+      "nombre": "Cuestionario de alternativas",
+      "descripcion": "Preguntas con 3-5 opciones automáticas.",
+      "link": "/actividades/crear?tipo=multiple-choice"
+    },
+    {
+      "id": "reading-qna",
+      "nombre": "Comprensión lectora",
+      "descripcion": "Texto + preguntas abiertas o cerradas.",
+      "link": "/actividades/crear?tipo=reading-qna"
+    },
+    {
+      "id": "cloze-test",
+      "nombre": "Texto con espacios (cloze)",
+      "descripcion": "Completa palabras faltantes en un pasaje.",
+      "link": "/actividades/crear?tipo=cloze-test"
+    },
+    {
+      "id": "math-drills",
+      "nombre": "Cálculo rápido",
+      "descripcion": "Fichas de operaciones básicas autogeneradas.",
+      "link": "/actividades/crear?tipo=math-drills"
+    },
+    {
+      "id": "math-word-problems",
+      "nombre": "Problemas de enunciado",
+      "descripcion": "Situaciones reales que requieren operaciones.",
+      "link": "/actividades/crear?tipo=math-word-problems"
+    },
+    {
+      "id": "sorting-classification",
+      "nombre": "Ordenar / Clasificar",
+      "descripcion": "Arrastra elementos a categorías correctas.",
+      "link": "/actividades/crear?tipo=sorting-classification"
+    },
+    {
+      "id": "timeline-ordering",
+      "nombre": "Línea de tiempo",
+      "descripcion": "Coloca eventos en secuencia cronológica.",
+      "link": "/actividades/crear?tipo=timeline-ordering"
+    },
+    {
+      "id": "diagram-labeling",
+      "nombre": "Etiquetar diagrama",
+      "descripcion": "Asocia términos a partes de una imagen.",
+      "link": "/actividades/crear?tipo=diagram-labeling"
+    },
+    {
+      "id": "flashcards",
+      "nombre": "Flashcards",
+      "descripcion": "Revisión espaciada de definiciones o verbos.",
+      "link": "/actividades/crear?tipo=flashcards"
+    },
+    {
+      "id": "debate-prompts",
+      "nombre": "Debate guiado",
+      "descripcion": "Plantea una moción y roles argumentativos.",
+      "link": "/actividades/crear?tipo=debate-prompts"
+    },
+    {
+      "id": "role-play",
+      "nombre": "Juego de roles",
+      "descripcion": "Escenario con personajes y objetivos.",
+      "link": "/actividades/crear?tipo=role-play"
+    },
+    {
+      "id": "coding-challenge",
+      "nombre": "Desafío de código",
+      "descripcion": "Ejercicios cortos con tests automáticos.",
+      "link": "/actividades/crear?tipo=coding-challenge"
+    }
+  ]
+  

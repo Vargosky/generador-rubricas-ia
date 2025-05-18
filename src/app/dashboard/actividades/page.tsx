@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import TipoTrabajoCard from "@/components/TipoTrabajoCard";
-import tipos from "@/data/tiposTrabajos.json";
+import tipos from "@/data/tiposActividades.json";
 
 export const metadata: Metadata = {
   title: "Crear trabajo",
