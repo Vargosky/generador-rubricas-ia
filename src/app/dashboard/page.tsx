@@ -2,6 +2,8 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button"; // tu botón genérico
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 /* ---------- lista de características ---------- */
 const features = [
@@ -38,6 +40,14 @@ const features = [
 ];
 
 export default function DashboardHome() {
+  const router = useRouter();
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      router.push("/login");
+    }
+  }, []);
   return (
     <main className="min-h-screen bg-gradient-to-br from-indigo-50 via-fuchsia-100 to-pink-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-700 text-gray-900 dark:text-white">
       {/* hero */}
