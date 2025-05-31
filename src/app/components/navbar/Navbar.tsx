@@ -44,6 +44,14 @@ export default function Navbar() {
           >
             Ingresar
           </Link>
+          
+          <Link
+            href="/registro"
+            className="rounded-xl bg-blue-600 px-5 py-2 text-sm font-semibold text-white shadow-lg hover:bg-blue-700 mx-2"
+          >
+            Registrarse
+          </Link>
+
         </div>
 
         {/* Burger móvil */}

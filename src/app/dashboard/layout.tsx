@@ -1,7 +1,7 @@
 // app/dashboard/layout.tsx
 'use client';
 
-import { ReactNode, useState } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 import Link from 'next/link';
 import {
   Home,
@@ -25,8 +25,15 @@ import {
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import '@/app/globals.css';
+import router from 'next/router';
 
 export default function DashboardLayout({ children }: { children: ReactNode }) {
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      router.push("/login");
+    }
+  }, []);
   const [collapsed, setCollapsed] = useState(true);
   const [pinned, setPinned] = useState(false);
   const isCollapsed = pinned ? false : collapsed;
