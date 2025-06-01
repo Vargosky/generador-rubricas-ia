@@ -24,7 +24,7 @@ export default function RegistroPage() {
     }
 
     try {
-      const res = await fetch("https://api-para-sistema.vercel.app/api/usuarios/registro", {
+      const res = await fetch("https://api-para-sistema-git-estructura-modular-vargoskys-projects.vercel.app/api/usuarios/registro", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
