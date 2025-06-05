@@ -26,9 +26,12 @@ import {
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import '@/app/globals.css';
-import router from 'next/router';
+// import router from 'next/router';
+import { useRouter } from 'next/navigation';
+
 
 export default function DashboardLayout({ children }: { children: ReactNode }) {
+  const router = useRouter();
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!token) {
