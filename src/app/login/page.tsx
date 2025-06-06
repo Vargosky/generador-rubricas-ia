@@ -5,12 +5,20 @@ import { useRouter } from "next/navigation";
 import router from 'next/router';
 
 export default function LoginPage() {
-  
+
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+
+  /* 👉 redirección automática si el usuario ya está logueado */
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      router.replace("/dashboard");  // replace evita que el usuario vuelva con «atrás»
+    }
+  }, [router]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -39,13 +47,7 @@ export default function LoginPage() {
     }
   };
 
-    /* 👉 redirección automática si el usuario ya está logueado */
-    useEffect(() => {
-      const token = localStorage.getItem("token");
-      if (token) {
-        router.replace("/dashboard");  // replace evita que el usuario vuelva con «atrás»
-      }
-    }, [router]);
+
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#0E1525] px-4">
