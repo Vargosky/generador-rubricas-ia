@@ -91,7 +91,7 @@ export default function StepHorario() {
 
               <td className="p-2">
                 <select
-                  {...register(`sesiones.${i}.duracion` as const)}
+                  {...register(`sesiones.${i}.duracion` as const, { valueAsNumber: true })}
                   className="bg-slate-800 w-full rounded"
                 >
                   {[...Array(8)].map((_, idx) => {
