@@ -1,11 +1,14 @@
-import React from 'react'
+/* app/asistente-rubrica/page.tsx */
+"use client";
 
-const page = () => {
+import { WizardProvider } from "@/components/planWizard/WizardProvider";
+import StepRouter from "@/components/planWizard/StepRouter";
+
+export default function AsistenteRubricaPage() {
   return (
-    <div>
-        <h1>Asistente Rubrica</h1>
-    </div>
-  )
+    <WizardProvider>
+      <StepRouter />          {/* StepRouter mostrará StepBienvenida, StepFechas, etc. */}
+    </WizardProvider>
+  );
 }
 
-export default page
