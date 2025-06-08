@@ -4,13 +4,21 @@ import StepBienvenida from "./steps/StepBienvenida";
 import StepFechas from "./steps/StepFechas";
 import StepHorario from "./steps/StepHorario";
 import StepResumen from "./steps/StepResumen";
+import StepTipo from "./steps/StepTipo";
+import StepObjetivos from "./steps/StepObjetivos";
 
 const steps = [
   { id: "bienvenida", comp: StepBienvenida },
+  { id: "tipo", comp: StepTipo },
+  { id: "objetivos", comp: StepObjetivos },
   { id: "fechas", comp: StepFechas },
   { id: "horario", comp: StepHorario },
   { id: "resumen", comp: StepResumen },
+
 ];
+
+
+
 
 export default function StepRouter() {
   const { stepIndex, next } = useWizard();

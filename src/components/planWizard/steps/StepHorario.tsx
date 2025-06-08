@@ -14,7 +14,7 @@ import { useWizard } from "../WizardProvider";
 const SesionSchema = z.object({
   dia: z.enum(["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"]),
   duracion: z.number().min(45).max(360),
-  inicio: z.string().optional(),               // HH:MM
+  inicio: z.string().optional(), // HH:MM
 });
 
 const StepSchema = z.object({
@@ -24,7 +24,7 @@ const StepSchema = z.object({
 type StepData = z.infer<typeof StepSchema>;
 
 export default function StepHorario() {
-  const { saveStep, next } = useWizard();
+  const { saveStep, next, back } = useWizard(); // ← añadido `back`
 
   const {
     control,
@@ -42,7 +42,6 @@ export default function StepHorario() {
     name: "sesiones",
   });
 
-  /* total minutos para feedback UX */
   const totalMin = watch("sesiones").reduce(
     (acc, s) => acc + Number(s.duracion),
     0
@@ -58,21 +57,21 @@ export default function StepHorario() {
       onSubmit={handleSubmit(onSubmit)}
       initial={{ opacity: 0, y: 24 }}
       animate={{ opacity: 1, y: 0 }}
-      className="mx-auto max-w-3xl bg-[#131C31] text-white rounded-2xl shadow-lg p-8 space-y-8"
+      className="mx-auto max-w-3xl rounded-2xl bg-[#131C31] p-8 text-white shadow-lg space-y-8"
     >
-      <h2 className="text-2xl font-bold flex items-center gap-2">
+      <h2 className="flex items-center gap-2 text-2xl font-bold">
         <Clock size={28} className="text-blue-400" />
         Paso&nbsp;3&nbsp;· Horario semanal
       </h2>
 
       {/* ---------- tabla de sesiones ---------- */}
-      <table className="w-full text-sm border border-slate-700 rounded overflow-hidden">
+      <table className="w-full rounded text-sm border border-slate-700 overflow-hidden">
         <thead className="bg-slate-800 text-gray-300">
           <tr>
-            <th className="py-2 px-3 text-left">Día</th>
-            <th className="py-2 px-3 text-left">Duración</th>
-            <th className="py-2 px-3 text-left">Hora inicio</th>
-            <th className="py-2 px-3"></th>
+            <th className="px-3 py-2 text-left">Día</th>
+            <th className="px-3 py-2 text-left">Duración</th>
+            <th className="px-3 py-2 text-left">Hora inicio</th>
+            <th className="px-3 py-2"></th>
           </tr>
         </thead>
         <tbody>
@@ -81,18 +80,22 @@ export default function StepHorario() {
               <td className="p-2">
                 <select
                   {...register(`sesiones.${i}.dia` as const)}
-                  className="bg-slate-800 w-full rounded"
+                  className="w-full rounded bg-slate-800"
                 >
-                  {["Lun","Mar","Mié","Jue","Vie","Sáb","Dom"].map((d) => (
-                    <option key={d}>{d}</option>
-                  ))}
+                  {["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"].map(
+                    (d) => (
+                      <option key={d}>{d}</option>
+                    )
+                  )}
                 </select>
               </td>
 
               <td className="p-2">
                 <select
-                  {...register(`sesiones.${i}.duracion` as const, { valueAsNumber: true })}
-                  className="bg-slate-800 w-full rounded"
+                  {...register(`sesiones.${i}.duracion` as const, {
+                    valueAsNumber: true,
+                  })}
+                  className="w-full rounded bg-slate-800"
                 >
                   {[...Array(8)].map((_, idx) => {
                     const min = 45 * (idx + 1);
@@ -109,7 +112,7 @@ export default function StepHorario() {
                 <input
                   type="time"
                   {...register(`sesiones.${i}.inicio` as const)}
-                  className="bg-slate-800 w-full rounded px-2"
+                  className="w-full rounded bg-slate-800 px-2"
                 />
               </td>
 
@@ -136,7 +139,9 @@ export default function StepHorario() {
       </button>
 
       {errors.sesiones && (
-        <p className="text-red-500 text-sm">{errors.sesiones.message as string}</p>
+        <p className="text-red-500 text-sm">
+          {errors.sesiones.message as string}
+        </p>
       )}
 
       <p className="text-sm text-gray-400">
@@ -144,8 +149,17 @@ export default function StepHorario() {
         <span className="font-semibold text-blue-300">{totalMin}</span> min.
       </p>
 
-      <div className="flex justify-end">
-        <button className="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded">
+      {/* navegación */}
+      <div className="flex justify-between">
+        <button
+          type="button"
+          onClick={back}
+          className="rounded border border-gray-500 px-6 py-2 transition-colors hover:bg-gray-700"
+        >
+          ← Atrás
+        </button>
+
+        <button className="rounded bg-blue-600 px-6 py-2 transition-colors hover:bg-blue-700">
           Siguiente
         </button>
       </div>

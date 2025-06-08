@@ -1,3 +1,4 @@
+/* src/components/planWizard/steps/StepFechas.tsx */
 "use client";
 import { motion } from "framer-motion";
 import { CalendarDays, Plus, Trash2 } from "lucide-react";
@@ -26,7 +27,7 @@ const StepSchema = z
 type StepData = z.infer<typeof StepSchema>;
 
 export default function StepFechas() {
-  const { saveStep, next } = useWizard();
+  const { saveStep, next, back } = useWizard();     // ⬅️ 1) añadimos `back`
 
   const {
     control,
@@ -45,7 +46,7 @@ export default function StepFechas() {
 
   const onSubmit = (data: StepData) => {
     saveStep("fechas", data);
-    next(); // → irá a StepHorario
+    next();
   };
 
   return (
@@ -53,38 +54,36 @@ export default function StepFechas() {
       onSubmit={handleSubmit(onSubmit)}
       initial={{ opacity: 0, y: 24 }}
       animate={{ opacity: 1, y: 0 }}
-      className="mx-auto max-w-lg bg-[#131C31] text-white rounded-2xl shadow-lg p-8 space-y-8"
+      className="mx-auto max-w-lg rounded-2xl bg-[#131C31] p-8 text-white shadow-lg space-y-8"
     >
-      <h2 className="text-2xl font-bold flex items-center gap-2">
+      <h2 className="flex items-center gap-2 text-2xl font-bold">
         <CalendarDays size={28} className="text-blue-400" />
         Paso&nbsp;2&nbsp;· Fechas del semestre
       </h2>
 
       {/* fechas inicio / término */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      <div className="grid gap-6 sm:grid-cols-2">
         <div>
-          <label className="block mb-1 text-sm">Inicio semestre</label>
+          <label className="mb-1 block text-sm">Inicio semestre</label>
           <input
             type="date"
             {...register("inicio")}
-            className="w-full bg-slate-800 p-2 rounded"
+            className="w-full rounded bg-slate-800 p-2"
           />
           {errors.inicio && (
-            <p className="text-red-500 text-xs mt-1">
-              {errors.inicio.message}
-            </p>
+            <p className="mt-1 text-xs text-red-500">{errors.inicio.message}</p>
           )}
         </div>
 
         <div>
-          <label className="block mb-1 text-sm">Término semestre</label>
+          <label className="mb-1 block text-sm">Término semestre</label>
           <input
             type="date"
             {...register("termino")}
-            className="w-full bg-slate-800 p-2 rounded"
+            className="w-full rounded bg-slate-800 p-2"
           />
           {errors.termino && (
-            <p className="text-red-500 text-xs mt-1">
+            <p className="mt-1 text-xs text-red-500">
               {errors.termino.message as string}
             </p>
           )}
@@ -98,17 +97,17 @@ export default function StepFechas() {
         {fields.map((f, i) => (
           <div
             key={f.id}
-            className="grid grid-cols-[1fr_140px_auto] gap-2 items-center"
+            className="grid items-center gap-2 grid-cols-[1fr_140px_auto]"
           >
             <input
               placeholder="Aniversario, Día del alumno…"
               {...register(`extras.${i}.titulo`)}
-              className="bg-slate-800 p-2 rounded"
+              className="rounded bg-slate-800 p-2"
             />
             <input
               type="date"
               {...register(`extras.${i}.fecha`)}
-              className="bg-slate-800 p-2 rounded"
+              className="rounded bg-slate-800 p-2"
             />
             <button
               type="button"
@@ -123,14 +122,25 @@ export default function StepFechas() {
         <button
           type="button"
           onClick={() => append({ titulo: "", fecha: "" })}
-          className="flex items-center gap-1 text-blue-400 hover:underline text-sm"
+          className="flex items-center gap-1 text-sm text-blue-400 hover:underline"
         >
           <Plus size={14} /> Añadir fecha
         </button>
       </div>
 
-      <div className="flex justify-end">
-        <button className="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded">
+      {/* navegación */}
+      <div className="flex justify-between">
+        <button
+          type="button"
+          onClick={back}                          // ⬅️ 2) usamos `back`
+          className="rounded border border-gray-500 px-6 py-2 transition-colors hover:bg-gray-700"
+        >
+          ← Atrás
+        </button>
+
+        <button
+          className="rounded bg-blue-600 px-6 py-2 transition-colors hover:bg-blue-700"
+        >
           Siguiente
         </button>
       </div>

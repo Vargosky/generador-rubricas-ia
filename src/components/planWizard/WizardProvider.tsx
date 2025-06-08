@@ -5,28 +5,31 @@ import { createContext, useContext, useState } from "react";
 type WizardState = {
   stepIndex: number;
   next: () => void;
-  prev: () => void;
-  saveStep: (id: string, payload: any) => void;   // 👈 AÑADE ESTO
-  data: Record<string, any>;                      //  opcional: guardar info
+  back: () => void;                               // ← renombrado
+  saveStep: (id: string, payload: any) => void;
+  data: Record<string, any>;
 };
 
 const WizardCtx = createContext<WizardState | null>(null);
-export const useWizard = () => useContext(WizardCtx)!;
+
+/* ⬇️ Custom hook: arroja error si se usa fuera del provider */
+export const useWizard = () => {
+  const ctx = useContext(WizardCtx);
+  if (!ctx) throw new Error("useWizard debe usarse dentro de WizardProvider");
+  return ctx;
+};
 
 export function WizardProvider({ children }: { children: React.ReactNode }) {
   const [stepIndex, setStepIndex] = useState(0);
   const [data, setData] = useState<Record<string, any>>({});
 
   const next = () => setStepIndex((i) => i + 1);
-  const prev = () => setStepIndex((i) => Math.max(0, i - 1));
+  const back = () => setStepIndex((i) => Math.max(0, i - 1));
 
-  /* función que guardará la data de cada paso ------------------- */
   const saveStep = (id: string, payload: any) =>
     setData((d) => ({ ...d, [id]: payload }));
 
-  return (
-    <WizardCtx.Provider value={{ stepIndex, next, prev, saveStep, data }}>
-      {children}
-    </WizardCtx.Provider>
-  );
+  const value: WizardState = { stepIndex, next, back, saveStep, data };
+
+  return <WizardCtx.Provider value={value}>{children}</WizardCtx.Provider>;
 }
