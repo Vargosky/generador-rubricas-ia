@@ -6,6 +6,7 @@ import StepHorario from "./steps/StepHorario";
 import StepResumen from "./steps/StepResumen";
 import StepTipo from "./steps/StepTipo";
 import StepObjetivos from "./steps/StepObjetivos";
+import StepActividades from "./steps/StepActividades";
 
 const steps = [
   { id: "bienvenida", comp: StepBienvenida },
@@ -13,6 +14,7 @@ const steps = [
   { id: "objetivos", comp: StepObjetivos },
   { id: "fechas", comp: StepFechas },
   { id: "horario", comp: StepHorario },
+  { id: "actividades", comp: StepActividades },
   { id: "resumen", comp: StepResumen },
 
 ];
@@ -33,3 +35,4 @@ export default function StepRouter() {
   const StepComp = step.comp as React.ComponentType;
   return <StepComp />;
 }
+ 

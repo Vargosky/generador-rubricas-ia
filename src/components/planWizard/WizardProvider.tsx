@@ -14,6 +14,8 @@ const WizardCtx = createContext<WizardState | null>(null);
 
 /* ⬇️ Custom hook: arroja error si se usa fuera del provider */
 export const useWizard = () => {
+  const [actividades, setActividades] = useState<string[]>([]);
+  
   const ctx = useContext(WizardCtx);
   if (!ctx) throw new Error("useWizard debe usarse dentro de WizardProvider");
   return ctx;
