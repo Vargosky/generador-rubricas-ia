@@ -7,6 +7,7 @@ import StepResumen from "./steps/StepResumen";
 import StepTipo from "./steps/StepTipo";
 import StepObjetivos from "./steps/StepObjetivos";
 import StepActividades from "./steps/StepActividades";
+import StepEvaluaciones from "./steps/StepEvaluaciones";
 
 const steps = [
   { id: "bienvenida", comp: StepBienvenida },
@@ -15,6 +16,7 @@ const steps = [
   { id: "fechas", comp: StepFechas },
   { id: "horario", comp: StepHorario },
   { id: "actividades", comp: StepActividades },
+  { id: "evaluaciones", comp: StepEvaluaciones },
   { id: "resumen", comp: StepResumen },
 
 ];
