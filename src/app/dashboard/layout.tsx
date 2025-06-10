@@ -82,7 +82,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
           <NavLink href="/dashboard/planificacion" icon={CalendarArrowDownIcon} iconSize={iconSize} collapsed={isCollapsed}>Crear Planificación</NavLink>
           <NavLink href="/dashboard/planificacioninversa" icon={CalendarArrowUpIcon} iconSize={iconSize} collapsed={isCollapsed}>Planificación Inversa</NavLink>
           <NavLink href="/dashboard/oa" icon={BookA} iconSize={iconSize} collapsed={isCollapsed}>Objetivos Aprendizaje</NavLink>
-          <NavLink href="/dashboard/asistente_rubrica" icon={WandIcon} iconSize={iconSize} collapsed={isCollapsed}>Asistente Rubrica</NavLink>
+          <NavLink href="/dashboard/asistente_rubrica" icon={WandIcon} iconSize={iconSize} collapsed={isCollapsed}>Asistente Planificación</NavLink>
 
     {/*Seccion de Trabajos */} 
           <NavLink href="/dashboard/crear_trabajos" icon={FileCog} iconSize={iconSize} collapsed={isCollapsed}>Crear Trabajos</NavLink>
