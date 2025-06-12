@@ -1,5 +1,5 @@
 /* StepResumen.tsx
-   Paso · Resumen general (💡 ahora incluye actividades y evaluaciones)
+   Paso · Resumen general (💡 ahora incluye actividades y evaluaciones y unidades)
 ------------------------------------------------------------ */
 "use client";
 import { format } from "date-fns";
@@ -10,7 +10,6 @@ import { ChevronsRight } from "lucide-react";
 export default function StepResumen() {
   const { data, back, next } = useWizard();
 
-  // seguridad mínima
   if (!data.fechas || !data.horario || !data.tipo) {
     return <p className="text-red-400">Información incompleta…</p>;
   }
@@ -26,14 +25,11 @@ export default function StepResumen() {
     <div className="mx-auto max-w-5xl space-y-8 rounded-2xl bg-[#131C31] p-8 text-white shadow-lg">
       <h2 className="text-2xl font-bold">Resumen general de la planificación</h2>
 
-      {/* ───────────────────────── datos principales ───────────────────────── */}
       <section className="grid gap-4 md:grid-cols-2">
-        {/* Tipo */}
         <ResumenBox titulo="Tipo de planificación">
-          <p className="capitalize">{data.tipo}</p>
+          <p className="capitalize">{data.tipo?.tipo}</p>
         </ResumenBox>
 
-        {/* Fechas */}
         <ResumenBox titulo="Rango de fechas">
           <p>
             <b>Inicio:</b> {fmt(data.fechas.inicio)}
@@ -41,7 +37,6 @@ export default function StepResumen() {
           <p>
             <b>Término:</b> {fmt(data.fechas.termino)}
           </p>
-
           {data.fechas.extras?.length > 0 && (
             <>
               <h4 className="mt-2 font-medium">Fechas importantes</h4>
@@ -56,7 +51,6 @@ export default function StepResumen() {
           )}
         </ResumenBox>
 
-        {/* Horario */}
         <ResumenBox titulo="Sesiones semanales" full>
           <table className="w-full text-sm">
             <thead>
@@ -78,7 +72,6 @@ export default function StepResumen() {
           </table>
         </ResumenBox>
 
-        {/* Objetivos */}
         {data.objetivos && (
           <ResumenBox titulo="Objetivos de aprendizaje seleccionados" full>
             <ul className="ml-4 list-disc space-y-1 text-sm">
@@ -91,20 +84,31 @@ export default function StepResumen() {
           </ResumenBox>
         )}
 
-        {/* Actividades */}
-        {data.actividades && (
-          <ResumenBox titulo="Actividades programadas" full>
+        {data.unidades && (
+          <ResumenBox titulo="Unidades planificadas" full>
             <ul className="ml-4 list-disc space-y-1 text-sm">
-              {data.actividades.map((a: any, idx: number) => (
-                <li key={idx}>
-                  <b>{a.nombre}:</b> {a.detalle}
+              {data.unidades.map((u: any, i: number) => (
+                <li key={i}>
+                  <b>{u.titulo}</b> · {u.semanas} semanas<br />
+                  <i>{u.objetivos}</i>
                 </li>
               ))}
             </ul>
           </ResumenBox>
         )}
 
-        {/* Evaluaciones */}
+        {data.actividades && (
+          <ResumenBox titulo="Actividades programadas" full>
+            <ul className="ml-4 list-disc space-y-1 text-sm">
+              {data.actividades.map((a: any, idx: number) => (
+                <li key={idx}>
+                  <b>{a.nombre}:</b> {a.detalle || "—"}
+                </li>
+              ))}
+            </ul>
+          </ResumenBox>
+        )}
+
         {data.evaluaciones && (
           <ResumenBox titulo="Evaluaciones planificadas" full>
             <table className="w-full text-sm">
@@ -127,7 +131,6 @@ export default function StepResumen() {
         )}
       </section>
 
-      {/* ─────────────── calendario ─────────────── */}
       <section>
         <h3 className="mb-2 text-lg font-semibold">
           Calendario de clases ({clases.length} en total)
@@ -156,7 +159,6 @@ export default function StepResumen() {
         </div>
       </section>
 
-      {/* ─────────────── navegación ─────────────── */}
       <div className="flex justify-between">
         <button
           type="button"
@@ -178,7 +180,6 @@ export default function StepResumen() {
   );
 }
 
-/* ─────────────── sub-componente decorativo ─────────────── */
 function ResumenBox({
   titulo,
   children,

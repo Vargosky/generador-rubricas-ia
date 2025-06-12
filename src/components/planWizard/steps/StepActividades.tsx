@@ -3,7 +3,8 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { useWizard } from "../WizardProvider";
-import { tiposActividades } from "@/data/tiposActividades";
+import { Button } from "@/components/ui/Button";
+import { FiPlus, FiTrash, FiZap } from "react-icons/fi";
 
 type Actividad = {
   nombre: string;
@@ -11,40 +12,67 @@ type Actividad = {
 };
 
 export default function StepActividades() {
-  const { saveStep, next, back } = useWizard();
+  const { saveStep, next, back, getStep } = useWizard();
 
-  const [modoAutomatico, setModoAutomatico] = useState(true);
   const [actividades, setActividades] = useState<Actividad[]>([]);
+  const [loadingIA, setLoadingIA] = useState(false);
 
-  const actividadesPorDefecto: Actividad[] = [
-    { nombre: "Introducción teórica" },
-    { nombre: "Actividad práctica" },
-    { nombre: "Reflexión final" },
-  ];
-
-  const toggleActividad = (nombre: string) => {
-    setActividades((prev) => {
-      const existe = prev.find((a) => a.nombre === nombre);
-      return existe
-        ? prev.filter((a) => a.nombre !== nombre)
-        : [...prev, { nombre }];
-    });
+  const agregarActividad = () => {
+    setActividades([...actividades, { nombre: "", detalle: "" }]);
   };
 
-  const updateDetalle = (nombre: string, detalle: string) => {
-    setActividades((prev) =>
-      prev.map((a) =>
-        a.nombre === nombre ? { ...a, detalle } : a
-      )
-    );
+  const quitarActividad = (index: number) => {
+    setActividades(actividades.filter((_, i) => i !== index));
+  };
+
+  const actualizarActividad = (index: number, field: keyof Actividad, value: string) => {
+    const nuevas = [...actividades];
+    nuevas[index][field] = value;
+    setActividades(nuevas);
+  };
+
+  const generarActividadesConIA = async () => {
+    setLoadingIA(true);
+    try {
+      const tipo = getStep("tipo");
+      const unidades = getStep("unidades") || [];
+
+      const prompt = `Eres un experto en didáctica. Sugiere una lista de actividades didácticas variadas y eficaces para desarrollar la asignatura "${tipo?.asignatura}".
+      Considera estas unidades:
+      ${unidades.map((u: any) => `- ${u.titulo} (${u.semanas} semanas)`).join("\n")}
+
+      Devuelve un array JSON con actividades variadas:
+      [
+        { "nombre": "...", "detalle": "..." },
+        ...
+      ]`;
+
+      const res = await fetch("/api/enviarPromptDeepSeek", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ prompt }),
+      });
+
+      const data = await res.json();
+      const match = data.reply?.match(/\[\s*{[\s\S]*?}\s*\]/);
+      if (!match) throw new Error("Respuesta inválida");
+
+      const sugeridas: Actividad[] = JSON.parse(match[0]);
+      setActividades(sugeridas);
+    } catch (err) {
+      console.error("Error IA actividades:", err);
+      alert("Ocurrió un problema al generar las actividades automáticamente.");
+    } finally {
+      setLoadingIA(false);
+    }
   };
 
   const handleNext = () => {
-    const final = modoAutomatico || actividades.length === 0
-      ? actividadesPorDefecto
-      : actividades;
-
-    saveStep("actividades", final);
+    if (actividades.length === 0) {
+      alert("Debes ingresar al menos una actividad.");
+      return;
+    }
+    saveStep("actividades", actividades);
     next();
   };
 
@@ -56,57 +84,46 @@ export default function StepActividades() {
     >
       <h2 className="text-2xl font-bold">Paso · Actividades de clase</h2>
 
-      <label className="flex items-center gap-2">
-        <input
-          type="checkbox"
-          checked={modoAutomatico}
-          onChange={(e) => {
-            setModoAutomatico(e.target.checked);
-            if (e.target.checked) setActividades([]);
-          }}
-        />
-        Selección automática de actividades
-      </label>
+      <Button
+        onClick={generarActividadesConIA}
+        variant="ghost"
+        disabled={loadingIA}
+        className="text-blue-300 flex items-center gap-2"
+      >
+        <FiZap className={loadingIA ? "animate-spin" : ""} /> Generar con IA
+      </Button>
 
-      {!modoAutomatico && (
-        <div className="space-y-4">
-          {tiposActividades.map(({ nombre, descripcion }) => {
-            const seleccionada = actividades.find((a) => a.nombre === nombre);
-            return (
-              <div key={nombre} className="space-y-1 group">
-                <label
-                  title={descripcion}
-                  className={`flex items-center gap-2 p-2 rounded cursor-pointer transition-colors
-                    ${seleccionada ? "bg-blue-700" : "bg-slate-800"}
-                    group-hover:ring-1 group-hover:ring-blue-400`}
-                >
-                  <input
-                    type="checkbox"
-                    checked={!!seleccionada}
-                    onChange={() => toggleActividad(nombre)}
-                  />
-                  <span className="relative group-hover:underline">
-                    {nombre}
-                  </span>
-                </label>
-
-                {seleccionada && (
-                  <textarea
-                    placeholder="Especifica detalles (opcional)"
-                    className="w-full rounded bg-slate-700 text-sm p-2"
-                    value={seleccionada.detalle || ""}
-                    onChange={(e) =>
-                      updateDetalle(nombre, e.target.value)
-                    }
-                  />
-                )}
-              </div>
-            );
-          })}
+      {actividades.map((actividad, index) => (
+        <div
+          key={index}
+          className="bg-slate-800 p-4 rounded-lg shadow space-y-2"
+        >
+          <div className="flex justify-between items-center">
+            <h4 className="font-semibold">Actividad {index + 1}</h4>
+            <button onClick={() => quitarActividad(index)} className="text-red-400 hover:text-red-600">
+              <FiTrash />
+            </button>
+          </div>
+          <input
+            placeholder="Nombre de la actividad"
+            className="w-full rounded bg-slate-700 text-sm p-2"
+            value={actividad.nombre}
+            onChange={(e) => actualizarActividad(index, "nombre", e.target.value)}
+          />
+          <textarea
+            placeholder="Detalle (opcional)"
+            className="w-full rounded bg-slate-700 text-sm p-2"
+            value={actividad.detalle || ""}
+            onChange={(e) => actualizarActividad(index, "detalle", e.target.value)}
+          />
         </div>
-      )}
+      ))}
 
-      <div className="flex justify-between pt-4">
+      <Button onClick={agregarActividad} variant="outline" className="mt-2">
+        <FiPlus className="inline mr-2" /> Agregar Actividad
+      </Button>
+
+      <div className="flex justify-between pt-6">
         <button
           type="button"
           onClick={back}
@@ -120,7 +137,7 @@ export default function StepActividades() {
           onClick={handleNext}
           className="rounded bg-blue-600 px-6 py-2 transition-colors hover:bg-blue-700"
         >
-          Siguiente
+          Siguiente →
         </button>
       </div>
     </motion.div>

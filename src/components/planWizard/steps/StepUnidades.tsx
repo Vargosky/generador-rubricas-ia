@@ -178,8 +178,8 @@ Devuelve solo un array JSON como este:
         <FiPlus /> Agregar unidad
       </Button>
 
-      <div className="flex justify-between mt-6">
-        <Button variant="ghost" onClick={back}>
+      <div className="flex justify-between mt-6 cursor-pointer">
+        <Button className="cursor-pointer" variant="ghost" onClick={back}>
           ← Volver
         </Button>
         <Button onClick={handleNext}>Siguiente →</Button>
