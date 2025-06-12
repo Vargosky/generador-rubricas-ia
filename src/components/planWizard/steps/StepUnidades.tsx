@@ -9,7 +9,7 @@ import { FiPlus, FiTrash, FiZap } from "react-icons/fi";
 
 interface Unidad {
   titulo: string;
-  semanas: string;
+  semanas: string | number; // admite número o texto
   objetivos: string;
 }
 
@@ -20,6 +20,7 @@ export default function StepUnidades() {
   const [unidades, setUnidades] = useState<Unidad[]>(initialData);
   const [loadingIA, setLoadingIA] = useState(false);
 
+  /* ───────────── datos previos ───────────── */
   const fechas = getStep("fechas") || {};
   const tipo = getStep("tipo") || {};
   const objetivos: any[] = getStep("objetivos") || [];
@@ -28,10 +29,11 @@ export default function StepUnidades() {
     ? calcularSemanas(fechas.inicio, fechas.termino)
     : null;
 
+  /* ───────────── helpers ───────────── */
   const handleChange = (index: number, field: keyof Unidad, value: string) => {
-    const newUnidades = [...unidades];
-    newUnidades[index] = { ...newUnidades[index], [field]: value };
-    setUnidades(newUnidades);
+    const nuevas = [...unidades];
+    nuevas[index] = { ...nuevas[index], [field]: value } as Unidad;
+    setUnidades(nuevas);
   };
 
   const addUnidad = () => {
@@ -42,25 +44,34 @@ export default function StepUnidades() {
     setUnidades(unidades.filter((_, i) => i !== index));
   };
 
+  /* ───────────── validación + guardar ───────────── */
   const handleNext = () => {
-    const vacias = unidades.some(
-      (u) => !u.titulo.trim() || !u.semanas.trim() || !u.objetivos.trim()
-    );
+    const vacias = unidades.some((u) => {
+      const semanasTxt = String(u.semanas ?? "").trim();
+      return !u.titulo.trim() || !semanasTxt || !u.objetivos.trim();
+    });
+
     if (vacias) {
       alert("Por favor completa todos los campos de cada unidad.");
       return;
     }
 
-    saveStep("unidades", unidades);
+    // normalizar semanas a string
+    const normalizadas = unidades.map((u) => ({
+      ...u,
+      semanas: String(u.semanas).trim(),
+    }));
+
+    saveStep("unidades", normalizadas);
     next();
   };
 
+  /* ───────────── generación IA ───────────── */
   const generarConIA = async () => {
     if (!Array.isArray(objetivos) || objetivos.length === 0) {
       alert("No hay objetivos disponibles para generar las unidades.");
       return;
     }
-
     if (!fechas.inicio || !fechas.termino) {
       alert("Debes definir las fechas primero.");
       return;
@@ -68,29 +79,9 @@ export default function StepUnidades() {
 
     setLoadingIA(true);
     try {
-      const prompt = `
-Eres un planificador pedagógico experto. Necesito que generes una planificación anual dividida en unidades para la asignatura "${tipo?.asignatura}".
-
-Objetivos de aprendizaje:
-${objetivos.map((oa) => `- ${oa.code}: ${oa.description}`).join("\n")}
-
-Periodo lectivo: desde el ${fechas.inicio} hasta el ${fechas.termino}, lo que equivale aproximadamente a ${totalSemanas} semanas lectivas.
-
-Divide los objetivos en unidades temáticas equilibradas. Cada unidad debe tener:
-- Título
-- Cantidad de semanas (aproximada)
-- Objetivos abordados
-
-Devuelve solo un array JSON como este:
-
-[
-  {
-    "titulo": "...",
-    "semanas": "...",
-    "objetivos": "..."
-  }
-]
-`;
+      const prompt = `Eres un planificador pedagógico experto. Necesito que generes una planificación anual dividida en unidades para la asignatura "${tipo?.asignatura}".\n\nObjetivos de aprendizaje:\n${objetivos
+        .map((oa) => `- ${oa.code}: ${oa.description}`)
+        .join("\n")}\n\nPeriodo lectivo: desde el ${fechas.inicio} hasta el ${fechas.termino}, equivalente a ${totalSemanas} semanas. Divide los objetivos en unidades equilibradas y devuelve un array JSON así:\n[ { \"titulo\": \"...\", \"semanas\": "...", \"objetivos\": \"...\" } ]`;
 
       const res = await fetch("/api/enviarPromptDeepSeek", {
         method: "POST",
@@ -99,35 +90,36 @@ Devuelve solo un array JSON como este:
       });
 
       const data = await res.json();
+      const match = data.reply?.match(/\[\s*{[\s\S]*?}\s*\]/);
+      if (!match) throw new Error("Respuesta IA inválida");
 
-      if (!res.ok || !data.reply) throw new Error("Error en respuesta de IA");
+      const generadas: Unidad[] = JSON.parse(match[0]).map((u: any) => ({
+        titulo: u.titulo ?? "",
+        semanas: String(u.semanas ?? ""),
+        objetivos: u.objetivos ?? "",
+      }));
 
-      const match = data.reply.match(/\[\s*{[\s\S]*?}\s*\]/);
-      const unidadesGeneradas = JSON.parse(match?.[0] || "[]");
-
-      setUnidades(unidadesGeneradas);
-    } catch (error) {
-      console.error("Error al llamar a la IA:", error);
-      alert("Hubo un problema al generar las unidades con IA.");
+      setUnidades(generadas);
+    } catch (err) {
+      console.error("Error IA unidades:", err);
+      alert("No se pudieron generar unidades automáticamente.");
     } finally {
       setLoadingIA(false);
     }
   };
 
+  /* ───────────── util ───────────── */
   function calcularSemanas(inicio: string, termino: string) {
-    const fechaInicio = new Date(inicio);
-    const fechaTermino = new Date(termino);
-    const msEnUnaSemana = 1000 * 60 * 60 * 24 * 7;
-    const diferencia = fechaTermino.getTime() - fechaInicio.getTime();
-    return Math.ceil(diferencia / msEnUnaSemana);
+    const i = new Date(inicio);
+    const t = new Date(termino);
+    return Math.ceil((t.getTime() - i.getTime()) / (1000 * 60 * 60 * 24 * 7));
   }
 
+  /* ───────────── UI ───────────── */
   return (
     <div className="space-y-6">
       <h2 className="text-2xl font-semibold">📦 Planificación por Unidades</h2>
-      <p className="text-muted-foreground">
-        Ingresa manualmente las unidades o genera una propuesta automática con IA.
-      </p>
+      <p className="text-muted-foreground">Ingresa manualmente las unidades o genera una propuesta automática con IA.</p>
 
       {totalSemanas && (
         <p className="text-sm text-muted-foreground">
@@ -135,51 +127,30 @@ Devuelve solo un array JSON como este:
         </p>
       )}
 
-      <Button
-        onClick={generarConIA}
-        variant="ghost"
-        className="flex items-center gap-2 text-blue-600"
-        disabled={loadingIA}
-      >
+      <Button onClick={generarConIA} variant="ghost" disabled={loadingIA} className="flex items-center gap-2 text-blue-600 cursor-pointer">
         <FiZap className={loadingIA ? "animate-spin" : ""} /> Generar con IA
       </Button>
 
-      {unidades.map((unidad, index) => (
-        <div key={index} className="border p-4 rounded-xl shadow-sm space-y-4">
+      {unidades.map((u, idx) => (
+        <div key={idx} className="border p-4 rounded-xl shadow-sm space-y-4">
           <div className="flex justify-between items-center">
-            <h3 className="font-bold text-lg">Unidad {index + 1}</h3>
-            <button
-              onClick={() => removeUnidad(index)}
-              className="text-red-500 hover:text-red-700"
-            >
+            <h3 className="font-bold text-lg">Unidad {idx + 1}</h3>
+            <button onClick={() => removeUnidad(idx)} className="text-red-500 hover:text-red-700 cursor-pointer">
               <FiTrash />
             </button>
           </div>
-
-          <Input
-            placeholder="Título de la unidad"
-            value={unidad.titulo}
-            onChange={(e) => handleChange(index, "titulo", e.target.value)}
-          />
-          <Input
-            placeholder="Cantidad de semanas (ej: 4)"
-            value={unidad.semanas}
-            onChange={(e) => handleChange(index, "semanas", e.target.value)}
-          />
-          <Textarea
-            placeholder="Objetivos de aprendizaje (puedes enumerarlos o describir)"
-            value={unidad.objetivos}
-            onChange={(e) => handleChange(index, "objetivos", e.target.value)}
-          />
+          <Input placeholder="Título de la unidad" value={u.titulo} onChange={(e) => handleChange(idx, "titulo", e.target.value)} />
+          <Input placeholder="Cantidad de semanas (ej: 4)" value={u.semanas} onChange={(e) => handleChange(idx, "semanas", e.target.value)} />
+          <Textarea placeholder="Objetivos de aprendizaje (puedes enumerarlos o describir)" value={u.objetivos} onChange={(e) => handleChange(idx, "objetivos", e.target.value)} />
         </div>
       ))}
 
-      <Button onClick={addUnidad} variant="outline" className="flex items-center gap-2">
+      <Button onClick={addUnidad} variant="outline" className="flex items-center gap-2 cursor-pointer">
         <FiPlus /> Agregar unidad
       </Button>
 
-      <div className="flex justify-between mt-6 cursor-pointer">
-        <Button className="cursor-pointer" variant="ghost" onClick={back}>
+      <div className="flex justify-between my-6">
+        <Button variant="ghost" onClick={back} className="cursor-pointer">
           ← Volver
         </Button>
         <Button onClick={handleNext}>Siguiente →</Button>
