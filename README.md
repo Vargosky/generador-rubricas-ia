@@ -1,4 +1,6 @@
-Planificador IA · Generador de Instrumentos, Planificaciones y Correcciones
+#Planificador de clases con IA 
+ 
+Generador de Instrumentos, Planificaciones y Correcciones
 TL;DR Un dashboard para docentes que, con ayuda de IA, genera rúbricas, planificaciones inversas, actividades interactivas y corrige trabajos de forma automática.
 
 
