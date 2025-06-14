@@ -7,91 +7,104 @@ import { Input } from "@/components/ui/Input";
 import { Textarea } from "@/components/ui/Textarea";
 import { FiPlus, FiTrash, FiZap } from "react-icons/fi";
 
+/* :::::::::::::::::::::::::::::::::::::::::::::::::::
+   TIPOS Y CONSTANTES
+::::::::::::::::::::::::::::::::::::::::::::::::::: */
 interface Unidad {
   titulo: string;
-  semanas: string | number; // admite número o texto
+  semanas: string | number; // Gemini devuelve número, normalizamos a string luego
   objetivos: string;
 }
 
+const ROUTES = {
+  deepSeek: "/api/enviarPromptDeepSeek", // OpenAI/DeepSeek
+  gemini: "/api/enviarPromptGemini",     // Google Gemini
+};
+
+/* :::::::::::::::::::::::::::::::::::::::::::::::::::
+   COMPONENTE PRINCIPAL
+::::::::::::::::::::::::::::::::::::::::::::::::::: */
 export default function StepUnidades() {
   const { next, back, saveStep, getStep } = useWizard();
-  const initialData: Unidad[] = getStep("unidades") || [];
+  const initial: Unidad[] = getStep("unidades") || [];
 
-  const [unidades, setUnidades] = useState<Unidad[]>(initialData);
+  const [unidades, setUnidades] = useState<Unidad[]>(initial);
   const [loadingIA, setLoadingIA] = useState(false);
+  const [provider, setProvider] = useState<"deepSeek" | "gemini">("deepSeek");
 
-  /* ───────────── datos previos ───────────── */
+  /* ───── util ───── */
+  const calcularSemanas = (i: string, t: string) =>
+    Math.ceil((new Date(t).getTime() - new Date(i).getTime()) / 604800000); // ms en semana
+
+  /* ───── datos previos (para prompt) ───── */
   const fechas = getStep("fechas") || {};
-  const tipo = getStep("tipo") || {};
+  const tipo   = getStep("tipo") || {};
   const objetivos: any[] = getStep("objetivos") || [];
 
   const totalSemanas = fechas.inicio && fechas.termino
     ? calcularSemanas(fechas.inicio, fechas.termino)
     : null;
 
-  /* ───────────── helpers ───────────── */
-  const handleChange = (index: number, field: keyof Unidad, value: string) => {
-    const nuevas = [...unidades];
-    nuevas[index] = { ...nuevas[index], [field]: value } as Unidad;
-    setUnidades(nuevas);
+  /* ───── handlers UI ───── */
+  const handleChange = (idx: number, field: keyof Unidad, val: string) => {
+    const copia = [...unidades];
+    copia[idx] = { ...copia[idx], [field]: val } as Unidad;
+    setUnidades(copia);
   };
 
-  const addUnidad = () => {
-    setUnidades([...unidades, { titulo: "", semanas: "", objetivos: "" }]);
-  };
+  const addUnidad    = () => setUnidades([...unidades, { titulo: "", semanas: "", objetivos: "" }]);
+  const removeUnidad = (i: number) => setUnidades(unidades.filter((_, idx) => idx !== i));
 
-  const removeUnidad = (index: number) => {
-    setUnidades(unidades.filter((_, i) => i !== index));
-  };
-
-  /* ───────────── validación + guardar ───────────── */
+  /* ───── guardar ───── */
   const handleNext = () => {
-    const vacias = unidades.some((u) => {
+    const incompletas = unidades.some((u) => {
       const semanasTxt = String(u.semanas ?? "").trim();
       return !u.titulo.trim() || !semanasTxt || !u.objetivos.trim();
     });
-
-    if (vacias) {
+    if (incompletas) {
       alert("Por favor completa todos los campos de cada unidad.");
       return;
     }
-
-    // normalizar semanas a string
-    const normalizadas = unidades.map((u) => ({
-      ...u,
-      semanas: String(u.semanas).trim(),
-    }));
-
+    const normalizadas = unidades.map((u) => ({ ...u, semanas: String(u.semanas).trim() }));
     saveStep("unidades", normalizadas);
     next();
   };
 
-  /* ───────────── generación IA ───────────── */
+  /* ───── llamada IA ───── */
   const generarConIA = async () => {
-    if (!Array.isArray(objetivos) || objetivos.length === 0) {
-      alert("No hay objetivos disponibles para generar las unidades.");
+    if (!objetivos.length) {
+      alert("No hay objetivos para generar unidades");
       return;
     }
     if (!fechas.inicio || !fechas.termino) {
-      alert("Debes definir las fechas primero.");
+      alert("Primero define el rango de fechas");
       return;
     }
 
     setLoadingIA(true);
     try {
-      const prompt = `Eres un planificador pedagógico experto. Necesito que generes una planificación anual dividida en unidades para la asignatura "${tipo?.asignatura}".\n\nObjetivos de aprendizaje:\n${objetivos
+      const unidadesLista = objetivos
         .map((oa) => `- ${oa.code}: ${oa.description}`)
-        .join("\n")}\n\nPeriodo lectivo: desde el ${fechas.inicio} hasta el ${fechas.termino}, equivalente a ${totalSemanas} semanas. Divide los objetivos en unidades equilibradas y devuelve un array JSON así:\n[ { \"titulo\": \"...\", \"semanas\": "...", \"objetivos\": \"...\" } ]`;
+        .join("\n");
 
-      const res = await fetch("/api/enviarPromptDeepSeek", {
+      const prompt = `Eres un planificador pedagógico experto. Genera una planificación anual dividida en unidades para la asignatura \"${tipo?.asignatura}\".\n\nObjetivos de aprendizaje:\n${unidadesLista}\n\nPeriodo: ${fechas.inicio} al ${fechas.termino} (~${totalSemanas} semanas). Devuelve SOLO un array JSON como este:\n[ { \"titulo\": \"...\", \"semanas\": \"...\", \"objetivos\": \"...\" } ]`;
+
+      const res = await fetch(ROUTES[provider], {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ prompt }),
+      }).catch((e) => {
+        throw new Error("No se pudo conectar con la API (" + e.message + ")");
       });
+
+      if (!res.ok) {
+        const txt = await res.text();
+        throw new Error("IA respondió " + res.status +": " + txt);
+      }
 
       const data = await res.json();
       const match = data.reply?.match(/\[\s*{[\s\S]*?}\s*\]/);
-      if (!match) throw new Error("Respuesta IA inválida");
+      if (!match) throw new Error("La IA no devolvió un JSON de unidades válido");
 
       const generadas: Unidad[] = JSON.parse(match[0]).map((u: any) => ({
         titulo: u.titulo ?? "",
@@ -100,31 +113,32 @@ export default function StepUnidades() {
       }));
 
       setUnidades(generadas);
-    } catch (err) {
+    } catch (err: any) {
       console.error("Error IA unidades:", err);
-      alert("No se pudieron generar unidades automáticamente.");
+      alert(err.message || "No se pudieron generar unidades");
     } finally {
       setLoadingIA(false);
     }
   };
 
-  /* ───────────── util ───────────── */
-  function calcularSemanas(inicio: string, termino: string) {
-    const i = new Date(inicio);
-    const t = new Date(termino);
-    return Math.ceil((t.getTime() - i.getTime()) / (1000 * 60 * 60 * 24 * 7));
-  }
-
-  /* ───────────── UI ───────────── */
+  /* ───── UI ───── */
   return (
     <div className="space-y-6">
       <h2 className="text-2xl font-semibold">📦 Planificación por Unidades</h2>
-      <p className="text-muted-foreground">Ingresa manualmente las unidades o genera una propuesta automática con IA.</p>
+      <p className="text-muted-foreground">Ingresa manualmente o genera con IA.</p>
+
+      {/* selector de proveedor */}
+      <div className="flex items-center gap-3">
+        <label className="text-sm flex items-center gap-1">
+          <input type="radio" name="prov" value="deepSeek" checked={provider === "deepSeek"} onChange={() => setProvider("deepSeek")}/> ChatGPT/DeepSeek
+        </label>
+        <label className="text-sm flex items-center gap-1">
+          <input type="radio" name="prov" value="gemini" checked={provider === "gemini"} onChange={() => setProvider("gemini")}/> Gemini 1.5 Flash
+        </label>
+      </div>
 
       {totalSemanas && (
-        <p className="text-sm text-muted-foreground">
-          🗓️ Este periodo contiene aproximadamente <strong>{totalSemanas}</strong> semanas lectivas.
-        </p>
+        <p className="text-sm text-muted-foreground">🗓️ ~{totalSemanas} semanas lectivas.</p>
       )}
 
       <Button onClick={generarConIA} variant="ghost" disabled={loadingIA} className="flex items-center gap-2 text-blue-600 cursor-pointer">
@@ -140,19 +154,15 @@ export default function StepUnidades() {
             </button>
           </div>
           <Input placeholder="Título de la unidad" value={u.titulo} onChange={(e) => handleChange(idx, "titulo", e.target.value)} />
-          <Input placeholder="Cantidad de semanas (ej: 4)" value={u.semanas} onChange={(e) => handleChange(idx, "semanas", e.target.value)} />
-          <Textarea placeholder="Objetivos de aprendizaje (puedes enumerarlos o describir)" value={u.objetivos} onChange={(e) => handleChange(idx, "objetivos", e.target.value)} />
+          <Input placeholder="Semanas (ej: 4)" value={u.semanas} onChange={(e) => handleChange(idx, "semanas", e.target.value)} />
+          <Textarea placeholder="Objetivos de aprendizaje" value={u.objetivos} onChange={(e) => handleChange(idx, "objetivos", e.target.value)} />
         </div>
       ))}
 
-      <Button onClick={addUnidad} variant="outline" className="flex items-center gap-2 cursor-pointer">
-        <FiPlus /> Agregar unidad
-      </Button>
+      <Button onClick={addUnidad} variant="outline" className="flex items-center gap-2 cursor-pointer"><FiPlus /> Agregar unidad</Button>
 
       <div className="flex justify-between my-6">
-        <Button variant="ghost" onClick={back} className="cursor-pointer">
-          ← Volver
-        </Button>
+        <Button variant="ghost" onClick={back} className="cursor-pointer">← Volver</Button>
         <Button onClick={handleNext}>Siguiente →</Button>
       </div>
     </div>
