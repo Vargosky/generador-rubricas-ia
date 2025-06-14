@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { useWizard } from "../WizardProvider";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
@@ -10,73 +11,49 @@ import { FiPlus, FiTrash, FiZap } from "react-icons/fi";
 /* :::::::::::::::::::::::::::::::::::::::::::::::::::
    TIPOS Y CONSTANTES
 ::::::::::::::::::::::::::::::::::::::::::::::::::: */
-interface Unidad {
-  titulo: string;
-  semanas: string | number;
-  objetivos: string;
+interface ActividadLudica {
+  nombre: string;
+  descripcion: string;
 }
 
 const ROUTES = {
   deepSeek: "/api/enviarPromptDeepSeek",
-  gemini: "/api/enviarPromptGemini",
+  gemini:   "/api/enviarPromptGemini",
 };
-
-/* ▒▒ util: calcular semanas (hoisted) ▒▒ */
-function calcularSemanas(inicio: string, termino: string): number {
-  return Math.ceil(
-    (new Date(termino).getTime() - new Date(inicio).getTime()) / 604800000
-  );
-}
 
 /* :::::::::::::::::::::::::::::::::::::::::::::::::::
    COMPONENTE PRINCIPAL
 ::::::::::::::::::::::::::::::::::::::::::::::::::: */
-export default function StepUnidades() {
+export default function StepActividadesLudicas() {
   const { next, back, saveStep, getStep } = useWizard();
-  const initial: Unidad[] = getStep("unidades") || [];
 
-  const [unidades, setUnidades] = useState<Unidad[]>(initial);
-  const [loadingIA, setLoadingIA] = useState(false);
-  const [provider, setProvider] = useState<"deepSeek" | "gemini">("deepSeek");
+  const initial: ActividadLudica[] = getStep("actividadesLudicas") || [];
+  const [actividades, setActividades] = useState<ActividadLudica[]>(initial);
+  const [loadingIA, setLoadingIA]     = useState(false);
+  const [provider, setProvider]       = useState<"deepSeek" | "gemini">("deepSeek");
 
-  /* ───── datos previos ───── */
-  const fechas = getStep("fechas") || {};
-  const tipo   = getStep("tipo")   || {};
-  const objetivos: any[] = getStep("objetivos") || [];
-
-  const totalSemanas = fechas.inicio && fechas.termino
-    ? calcularSemanas(fechas.inicio, fechas.termino)
-    : null;
-
-  /* ───── handlers ───── */
-  const handleChange = (idx: number, field: keyof Unidad, val: string) => {
-    const copia = [...unidades];
-    copia[idx] = { ...copia[idx], [field]: val } as Unidad;
-    setUnidades(copia);
-  };
-  const addUnidad = () => setUnidades([...unidades, { titulo: "", semanas: "", objetivos: "" }]);
-  const removeUnidad = (i: number) => setUnidades(unidades.filter((_, idx) => idx !== i));
-
-  /* ───── guardar ───── */
-  const handleNext = () => {
-    const incompletas = unidades.some((u) => {
-      const sem = String(u.semanas || "").trim();
-      return !u.titulo.trim() || !sem || !u.objetivos.trim();
-    });
-    if (incompletas) return alert("Completa todos los campos de cada unidad.");
-    saveStep("unidades", unidades.map((u) => ({ ...u, semanas: String(u.semanas).trim() })));
-    next();
+  /* ───── helpers ───── */
+  const addActividad = () => setActividades([...actividades, { nombre: "", descripcion: "" }]);
+  const removeActividad = (idx: number) => setActividades(actividades.filter((_, i) => i !== idx));
+  const updateActividad = (idx: number, field: keyof ActividadLudica, val: string) => {
+    const copy = [...actividades];
+    copy[idx][field] = val;
+    setActividades(copy);
   };
 
   /* ───── IA ───── */
   const generarConIA = async () => {
-    if (!objetivos.length) return alert("Sin objetivos seleccionados");
-    if (!fechas.inicio || !fechas.termino) return alert("Define fechas primero");
-
     setLoadingIA(true);
     try {
-      const objetivosTxt = objetivos.map((oa) => `- ${oa.code}: ${oa.description}`).join("\n");
-      const prompt = `Eres un planificador pedagógico experto. Genera unidades para \"${tipo?.asignatura}\".\n\nObjetivos:\n${objetivosTxt}\n\nPeriodo: ${fechas.inicio} al ${fechas.termino} (~${totalSemanas} semanas). Devuelve un array JSON:\n[ { \"titulo\":\"...\", \"semanas\":\"...\", \"objetivos\":\"...\" } ]`;
+      const tipo      = getStep("tipo");
+      const unidades  = getStep("unidades") || [];
+      const objetivos = getStep("objetivos") || [];
+
+      // Construimos un prompt rico
+      const unidadesTxt = unidades.map((u:any) => `• ${u.titulo} (${u.semanas} sem)`).join("\n");
+      const objetivosTxt = objetivos.slice(0,5).map((o:any)=>o.code).join(", ");
+
+      const prompt = `Eres un diseñador de aprendizaje lúdico. Sugiere actividades dinámicas, participativas y divertidas para la asignatura \"${tipo?.asignatura}\".\nUnidades a cubrir:\n${unidadesTxt}\n\nDebes inspirarte en juegos de rol, escape rooms, gamificación, competencias colaborativas, etc. Cada actividad debe incluir máximo 200 caracteres de descripción. Devuelve SOLO un array JSON:\n[ { \"nombre\":\"...\", \"descripcion\":\"...\" } ]`;
 
       const res = await fetch(ROUTES[provider], {
         method: "POST",
@@ -86,40 +63,48 @@ export default function StepUnidades() {
       if (!res.ok) throw new Error(await res.text());
       const data = await res.json();
       const match = data.reply?.match(/\[\s*{[\s\S]*?}\s*\]/);
-      if (!match) throw new Error("Respuesta IA inválida");
-      setUnidades(JSON.parse(match[0]));
-    } catch (e: any) {
+      if (!match) throw new Error("Respuesta IA no válida");
+      setActividades(JSON.parse(match[0]));
+    } catch (e:any) {
       alert(e.message);
     } finally {
       setLoadingIA(false);
     }
   };
 
+  /* ───── continuar ───── */
+  const handleNext = () => {
+    if (!actividades.length) return alert("Añade al menos una actividad lúdica");
+    const incompletas = actividades.some(a=>!a.nombre.trim()||!a.descripcion.trim());
+    if (incompletas) return alert("Completa nombre y descripción de todas las actividades");
+    saveStep("actividadesLudicas", actividades);
+    next();
+  };
+
   /* ───── UI ───── */
   return (
-    <div className="space-y-6">
-      <h2 className="text-2xl font-semibold">📦 Planificación por Unidades</h2>
-      <p className="text-muted-foreground">Ingresa manualmente o genera con IA.</p>
+    <motion.div initial={{opacity:0,y:24}} animate={{opacity:1,y:0}} className="mx-auto max-w-3xl space-y-6 rounded-2xl bg-[#131C31] p-8 text-white shadow-lg">
+      <h2 className="text-2xl font-bold">Paso · Actividades Lúdicas</h2>
 
-      {/* proveedor */}
-      <div className="flex gap-4 text-sm">
+      {/* selector IA */}
+      <div className="flex gap-4 text-sm mb-2">
         <label className="flex items-center gap-1"><input type="radio" value="deepSeek" checked={provider==='deepSeek'} onChange={()=>setProvider('deepSeek')}/> ChatGPT</label>
-        <label className="flex items-center gap-1"><input type="radio" value="gemini"   checked={provider==='gemini'}   onChange={()=>setProvider('gemini')}/> Gemini</label>
+        <label className="flex items-center gap-1"><input type="radio" value="gemini" checked={provider==='gemini'} onChange={()=>setProvider('gemini')}/> Gemini</label>
       </div>
-      {totalSemanas && <p className="text-sm text-muted-foreground">~{totalSemanas} semanas</p>}
 
-      <Button onClick={generarConIA} variant="ghost" disabled={loadingIA} className="flex items-center gap-2 text-blue-600"><FiZap className={loadingIA?"animate-spin":""}/> Generar con IA</Button>
+      <Button onClick={generarConIA} variant="ghost" disabled={loadingIA} className="flex items-center gap-2 text-blue-400 cursor-pointer"><FiZap className={loadingIA?"animate-spin":""}/> Generar actividades con IA</Button>
 
-      {unidades.map((u,idx)=>(
-        <div key={idx} className="border p-4 rounded-xl space-y-4">
-          <div className="flex justify-between"><h3 className="font-bold">Unidad {idx+1}</h3><button onClick={()=>removeUnidad(idx)} className="text-red-500"><FiTrash/></button></div>
-          <Input placeholder="Título" value={u.titulo} onChange={(e)=>handleChange(idx,'titulo',e.target.value)}/>
-          <Input placeholder="Semanas" value={u.semanas} onChange={(e)=>handleChange(idx,'semanas',e.target.value)}/>
-          <Textarea placeholder="Objetivos" value={u.objetivos} onChange={(e)=>handleChange(idx,'objetivos',e.target.value)}/>
-        </div>))}
+      {actividades.map((a,idx)=>(
+        <div key={idx} className="bg-slate-800 p-4 rounded-lg shadow space-y-2">
+          <div className="flex justify-between items-center"><h4 className="font-semibold">Actividad {idx+1}</h4><button onClick={()=>removeActividad(idx)} className="text-red-400 hover:text-red-600"><FiTrash/></button></div>
+          <Input placeholder="Nombre" value={a.nombre} onChange={(e)=>updateActividad(idx,'nombre',e.target.value)}/>
+          <Textarea placeholder="Descripción lúdica" value={a.descripcion} onChange={(e)=>updateActividad(idx,'descripcion',e.target.value)}/>
+        </div>
+      ))}
 
-      <Button onClick={addUnidad} variant="outline" className="flex items-center gap-2"><FiPlus/> Agregar unidad</Button>
-      <div className="flex justify-between my-6"><Button variant="ghost" onClick={back}>← Volver</Button><Button onClick={handleNext}>Siguiente →</Button></div>
-    </div>
+      <Button onClick={addActividad} variant="outline" className="flex items-center gap-2"><FiPlus/> Agregar Actividad</Button>
+
+      <div className="flex justify-between pt-6"><Button variant="ghost" onClick={back}>← Atrás</Button><Button onClick={handleNext}>Siguiente →</Button></div>
+    </motion.div>
   );
 }

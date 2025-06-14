@@ -11,7 +11,7 @@ import StepActividades from "./steps/StepActividades";
 import StepEvaluaciones from "./steps/StepEvaluaciones";
 import StepTaxonomia from "./steps/StepTaxonomia";
 import StepUnidades from "./steps/StepUnidades";
-
+import StepRecursosPresupuesto from "./steps/StepRecursosPresupuesto";
 const steps = [
   { id: "bienvenida", comp: StepBienvenida },
   { id: "tipo", comp: StepTipo },
@@ -22,6 +22,7 @@ const steps = [
   { id: "horario", comp: StepHorario },
   { id: "actividades", comp: StepActividades },
   { id: "evaluaciones", comp: StepEvaluaciones },
+  { id: "recursos", comp: StepRecursosPresupuesto },
   { id: "resumen", comp: StepResumen },
 
 ];
