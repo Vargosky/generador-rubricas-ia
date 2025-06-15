@@ -75,7 +75,7 @@ export default function StepObjetivos() {
     <motion.div
       initial={{ opacity: 0, y: 24 }}
       animate={{ opacity: 1, y: 0 }}
-      className="mx-auto max-w-4xl space-y-8 rounded-2xl bg-[#131C31] p-8 text-white shadow-lg"
+      className="mx-auto max-w-2xl space-y-8 rounded-2xl bg-[#131C31] p-8 text-white shadow-lg"
     >
       <h2 className="flex items-center gap-2 text-2xl font-bold">
         <BookOpenText size={28} className="text-blue-400" />

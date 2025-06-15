@@ -30,7 +30,7 @@ export default function StepUnidades() {
 
   const [unidades, setUnidades] = useState<Unidad[]>(initial);
   const [loadingIA, setLoadingIA] = useState(false);
-  const [provider, setProvider] = useState<"deepSeek" | "gemini">("deepSeek");
+  const [provider, setProvider] = useState<"deepSeek" | "gemini">("gemini");
 
   /* ───── util ───── */
   const calcularSemanas = (i: string, t: string) =>
@@ -123,7 +123,7 @@ export default function StepUnidades() {
 
   /* ───── UI ───── */
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 max-w-2xl mx-auto">
       <h2 className="text-2xl font-semibold">📦 Planificación por Unidades</h2>
       <p className="text-muted-foreground">Ingresa manualmente o genera con IA.</p>
 
