@@ -1,11 +1,11 @@
-/* src/components/planWizard/steps/StepObjetivos.tsx */
+/* StepObjetivos.tsx – guarda la asignatura en el wizard */
 "use client";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { useWizard } from "../WizardProvider";
 import { Trash2, ChevronsRight, BookOpenText } from "lucide-react";
+import { useWizard } from "../WizardProvider";
 
-/* ──────────────── ajustes  ──────────────── */
+/* ─────────────── ajustes ─────────────── */
 const ASIGNATURAS = [
   "artes_visuales",
   "ciencias_naturales",
@@ -18,30 +18,35 @@ const ASIGNATURAS = [
 
 const NIVELES = ["1M", "2M", "3M", "4M"] as const;
 
-/* ──────────────── tipos  ──────────────── */
+/* ─────────────── tipos ─────────────── */
 type OA = { level: string; code: string; description: string };
 
 export default function StepObjetivos() {
-  const { saveStep, next, back } = useWizard();
+  const { saveStep, next, back, getStep } = useWizard();
 
-  /* estado local */
-  const [asignatura, setAsignatura] = useState<string>("");
+  /* ───── estado local ───── */
+  const [asignatura, setAsignatura] = useState<string>(
+    (getStep("asignatura") as string) ?? ""
+  );
   const [nivel, setNivel] = useState<string>("");
   const [objetivos, setObjetivos] = useState<OA[]>([]);
-  const [seleccionados, setSeleccionados] = useState<OA[]>([]);
+  const [seleccionados, setSeleccionados] = useState<OA[]>(
+    (getStep("objetivos") as OA[]) || []
+  );
   const [error, setError] = useState("");
 
-  /* carga del JSON */ 
+  /* ───── carga JSON OA según asignatura ───── */
   useEffect(() => {
-    if (!asignatura) return;
+    if (!asignatura) {
+      setObjetivos([]);
+      return;
+    }
     (async () => {
       try {
-        const res = await fetch(
-          `/data/AsiganturasOA/${asignatura}.json` // ← ajusta carpeta si es necesario
-        );
+        const res = await fetch(`/data/AsiganturasOA/${asignatura}.json`);
         const data: OA[] = await res.json();
         setObjetivos(data);
-        setNivel("");
+        setNivel(""); // reinicia selección de nivel
       } catch (err) {
         console.error(err);
         setObjetivos([]);
@@ -49,28 +54,35 @@ export default function StepObjetivos() {
     })();
   }, [asignatura]);
 
-  /* helpers */
+  /* ───── helpers selección OA ───── */
   const toggleOA = (oa: OA) => {
-    const exists = seleccionados.some((o) => o.code === oa.code && o.level === oa.level);
-    setSeleccionados((prev) =>
-      exists ? prev.filter((o) => o.code !== oa.code || o.level !== oa.level) : [...prev, oa]
-    );
+    setSeleccionados((prev) => {
+      const exists = prev.some(
+        (o) => o.code === oa.code && o.level === oa.level
+      );
+      return exists
+        ? prev.filter((o) => o.code !== oa.code || o.level !== oa.level)
+        : [...prev, oa];
+    });
   };
 
+  /* ───── guardar y continuar ───── */
   const submit = () => {
     if (!seleccionados.length) {
       setError("Elige al menos un objetivo");
       return;
     }
-    saveStep("objetivos", seleccionados);
+    saveStep("asignatura", asignatura);      // ① persiste asignatura
+    saveStep("objetivos", seleccionados);    // ② persiste OA
     next();
   };
 
-  /* render */
+  /* ───── render OA filtrados ───── */
   const objetivosFiltrados = nivel
-    ? objetivos.filter((o) => (o.level || (o as any).nivel) === nivel)
+    ? objetivos.filter((o) => (o.level ?? (o as any).nivel) === nivel)
     : [];
 
+  /* ───── UI ───── */
   return (
     <motion.div
       initial={{ opacity: 0, y: 24 }}
@@ -79,14 +91,18 @@ export default function StepObjetivos() {
     >
       <h2 className="flex items-center gap-2 text-2xl font-bold">
         <BookOpenText size={28} className="text-blue-400" />
-        Paso&nbsp;4&nbsp;· Objetivos de aprendizaje
+        Paso 4 · Objetivos de aprendizaje
       </h2>
 
-      {/* selectores */}
+      {/* ─── selectores ─── */}
       <div className="flex flex-wrap gap-4">
+        {/* Asignatura */}
         <select
           value={asignatura}
-          onChange={(e) => setAsignatura(e.target.value)}
+          onChange={(e) => {
+            setAsignatura(e.target.value);
+            saveStep("asignatura", e.target.value);
+          }}
           className="rounded bg-slate-800 p-2"
         >
           <option value="">-- Asignatura --</option>
@@ -97,6 +113,7 @@ export default function StepObjetivos() {
           ))}
         </select>
 
+        {/* Nivel */}
         {asignatura && (
           <select
             value={nivel}
@@ -111,7 +128,7 @@ export default function StepObjetivos() {
         )}
       </div>
 
-      {/* tabla OA */}
+      {/* ─── tabla OA ─── */}
       {nivel && (
         <div className="overflow-x-auto rounded border border-slate-700">
           <table className="min-w-full text-sm">
@@ -144,7 +161,7 @@ export default function StepObjetivos() {
         </div>
       )}
 
-      {/* seleccionados */}
+      {/* ─── OA seleccionados ─── */}
       {seleccionados.length > 0 && (
         <div className="space-y-2">
           <p className="font-medium">Objetivos seleccionados:</p>
@@ -171,7 +188,7 @@ export default function StepObjetivos() {
 
       {error && <p className="text-sm text-red-500">{error}</p>}
 
-      {/* navegación */}
+      {/* ─── navegación ─── */}
       <div className="flex justify-between">
         <button
           type="button"
