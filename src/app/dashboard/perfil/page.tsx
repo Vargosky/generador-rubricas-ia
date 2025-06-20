@@ -1,21 +1,67 @@
 "use client";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/Button";
 import Link from "next/link";
 
-/* ---------- tipos y datos de ejemplo ---------- */
-type HistItem = { id: string; titulo: string; tipo: "Trabajo" | "Actividad"; fecha: string };
+type Usuario = {
+  _id: string;
+  nombre: string;
+  apellido?: string;
+  rol?: string;
+  avatar?: string;
+};
+
+type HistItem = {
+  id: string;
+  titulo: string;
+  tipo: "Trabajo" | "Actividad";
+  fecha: string;
+};
 
 const historialDemo: HistItem[] = [
-  { id: "abc1", titulo: "Trabajo de investigación: Energías Renovables", tipo: "Trabajo", fecha: "2025-05-18" },
-  { id: "abc2", titulo: "Sopa de Letras: Partes del Microscopio", tipo: "Actividad", fecha: "2025-05-17" },
-  { id: "abc3", titulo: "Exposición oral: La célula", tipo: "Trabajo", fecha: "2025-05-15" },
+  { id: "abc1", titulo: "Trabajo de investigación: Energías Renovables", tipo: "Trabajo",  fecha: "2025-05-18" },
+  { id: "abc2", titulo: "Sopa de Letras: Partes del Microscopio",          tipo: "Actividad",fecha: "2025-05-17" },
+  { id: "abc3", titulo: "Exposición oral: La célula",                      tipo: "Trabajo",  fecha: "2025-05-15" },
 ];
 
-/* ---------- page ---------- */
 export default function PerfilPage() {
-  const [historial] = useState<HistItem[]>(historialDemo);
+  const [usuario, setUsuario] = useState<Usuario | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [historial] = useState(historialDemo);
+  const router = useRouter();
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      router.push("/login");
+      return;
+    }
+
+    const abort = new AbortController();
+
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/usuarios/perfil`, {
+      headers: { Authorization: `Bearer ${token}` },
+      signal: abort.signal,
+    })
+      .then(async (res) => {
+        if (res.status === 401 || res.status === 403) {
+          localStorage.removeItem("token");
+          router.push("/login");
+          return;
+        }
+        if (!res.ok) throw new Error("No se pudo obtener el perfil");
+        const data = await res.json();
+        setUsuario(data.usuario);
+      })
+      .catch((err) => {
+        if (err.name !== "AbortError") console.error(err);
+      })
+      .finally(() => setLoading(false));
+
+    return () => abort.abort();
+  }, [router]);
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-indigo-50 via-slate-100 to-white dark:from-slate-900 dark:via-slate-800 dark:to-slate-700 p-8">
@@ -24,18 +70,30 @@ export default function PerfilPage() {
       <div className="grid gap-8 lg:grid-cols-[280px_1fr]">
         {/* ---------- panel lateral ----------- */}
         <aside className="rounded-3xl bg-white/80 dark:bg-slate-800/80 backdrop-blur-md border border-white/40 dark:border-slate-700/50 p-6 shadow-lg shadow-indigo-300/10 dark:shadow-black/30">
-          {/* foto + nombre */}
           <div className="flex flex-col items-center text-center">
             <div className="relative w-32 h-32">
               <Image
-                src="/avatar-placeholder.png" // reemplaza con la foto del usuario
+                src={usuario?.avatar ?? "/avatar-placeholder.png"}
                 alt="Foto de perfil"
                 fill
                 className="rounded-full object-cover border-4 border-indigo-500/60"
               />
             </div>
-            <h2 className="mt-4 text-xl font-semibold text-gray-900 dark:text-white">Nombre Apellido</h2>
-            <p className="text-sm text-gray-500 dark:text-gray-400">Docente de Tecnología</p>
+
+            {loading ? (
+              <p className="text-sm text-gray-400 italic mt-4">Cargando perfil...</p>
+            ) : usuario ? (
+              <>
+                <h2 className="mt-4 text-xl font-semibold text-gray-900 dark:text-white">
+                  {usuario.nombre} {usuario.apellido ?? ""}
+                </h2>
+                {usuario.rol && (
+                  <p className="text-sm text-gray-500 dark:text-gray-400">{usuario.rol}</p>
+                )}
+              </>
+            ) : (
+              <p className="text-sm text-red-500 mt-4">No se pudo cargar el perfil.</p>
+            )}
           </div>
 
           {/* acciones rápidas */}
@@ -85,7 +143,7 @@ export default function PerfilPage() {
             )}
           </div>
 
-          {/* panel extra (placeholder) */}
+          {/* panel extra */}
           <div className="rounded-2xl border border-dashed border-indigo-400/50 p-8 text-center text-indigo-500 dark:text-indigo-300">
             <p className="font-medium mb-2">Próximamente</p>
             <p className="text-sm">Aquí podrás ver tu progreso, insignias y estadísticas.</p>
